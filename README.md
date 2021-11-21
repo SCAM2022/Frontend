@@ -1,2 +1,2 @@
-# Club
-college club
+# SCAM
+Final Year  minor Project
