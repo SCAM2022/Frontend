@@ -23,6 +23,18 @@ const ClubList = [
     {
         name : "Designer Club",
         btn : "join",
+    },
+    {
+        name : "Designer Club",
+        btn : "join",
+    },
+    {
+        name : "Designer Club",
+        btn : "join",
+    },
+    {
+        name : "Designer Club",
+        btn : "join",
     }
 ]
 

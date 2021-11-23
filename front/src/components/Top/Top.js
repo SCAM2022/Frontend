@@ -11,19 +11,20 @@ function Top() {
     return (
         <div className = {classes.top_clubs}>
 
-            <div className="heading">
+            <div className={classes.heading}>
                 <h2>Top Clubs</h2>
             </div>
+            <div className={classes.viewAll}>
+                 <a href="#">View all</a>
+            </div>
 
-            <div className="row">
+            <div className= {classes.row}>
 
               {ClubList.map((data) =>{
                 //   const {name, btn} = data;
                   return (
-                  <div className ="club">
-                     <h2>{data.name}</h2>
-                     {console.log(data.name)}
-                     {console.log(data)}
+                  <div className ={classes["club"]}>
+                     <a href="#">{data.name}</a>
                   </div>
                   )
               })}

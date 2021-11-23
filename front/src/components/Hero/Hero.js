@@ -1,22 +1,22 @@
 import React from 'react'
-import "./Hero.css";
+import classes from "./Hero.module.css"
 
 function Hero(props) {
     return (
-        <div className = "main">
-            <div className="main_left">
-                <div className="heading">
-                    <h1>LEGENDARY <span className = "club">CLUB</span><br/>
+        <div className = {classes.main}>
+            <div className={classes.main_left}>
+                <div className={classes.heading}>
+                    <h1>LEGENDARY <span className = {classes.club}>CLUB</span><br/>
                     MAKE <br/> LEGENDARY PEOPLE</h1>
                 </div>
-                <div className="btn">
+                <div className= {classes.btn}>
                     <a href="#">JOIN</a>
                 </div>
             </div>
-            <div className="main_right">
-             <div className="img_container">
+            <div className={classes.main_right}>
+             <div className= {classes.img_container}>
              </div>
-             <div className="social">
+             <div className={classes.social}>
              </div>
             </div>
             
