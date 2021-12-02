@@ -1,7 +1,17 @@
 .screen__form {
   margin-top: 75px;
-  width: 100%;
+  width: 60%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  /* flex-wrap: wrap; */
   justify-content: space-between;
+}
+.reg__body__wrapper {
+  display: inline-block;
+  width: 50%;
+}
+.reg__body {
+  display: flex;
+  align-items: center;
 }

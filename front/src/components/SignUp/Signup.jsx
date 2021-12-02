@@ -5,6 +5,9 @@ import Form from "./Form";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import classes from "./Signup.module.css";
+import PageControl from "./PageControl";
+import PageIndicator from "./PageIndicator";
+import Sidenav from "./Sidenav";
 
 const Signup = ({
   page,
@@ -124,8 +127,8 @@ const Signup = ({
   }, [window.innerWidth]);
 
   return (
-    <main className="reg__body">
-      <div className="reg__body__header">
+    <main className={classes["reg__body"]}>
+      <div className={classes["reg__body__header"]}>
         <div style={{ display: `${width > 1024 ? "none" : "block"}` }}>
           <svg
             width="24"
@@ -140,9 +143,9 @@ const Signup = ({
             />
           </svg>
         </div>
-        <Link to="/" className="reg__btn__login">
+        {/* <Link to="/" className="reg__btn__login">
           Login
-        </Link>
+        </Link> */}
       </div>
       {/* <div className="alert_box">
         {alertEmpty === true ? (
@@ -164,22 +167,24 @@ const Signup = ({
           />
         ) : null}
       </div> */}
-      <div className="reg__body__wrapper">
-        <span className="page__step">STEP {page} OF 4</span>
+      <div style={{ display: "flex", width: "100%", alignItems: "center" }}>
+        {/* <span className="page__step">STEP {page} OF 4</span> */}
         <h3 className="page__title">{title}</h3>
+        <Sidenav pageIndex={1} pagesDone={pagesDone} />
+
         <Form>
           <TextField
-            name="name_of_person"
-            label="Name of Person"
-            placeholder="Name of Person"
+            name="full-name"
+            label="Full Name"
+            placeholder="Full Name"
             type="text"
             value={person}
             setValue={setPerson}
           />
           <TextField
-            name="position"
-            label="Position in Company"
-            placeholder="Position in Company"
+            name="Occupation"
+            label="Occupation"
+            placeholder="Occupation"
             type="text"
             value={position}
             setValue={setPosition}
@@ -217,8 +222,16 @@ const Signup = ({
             setValue={setRePassword}
           />
         </Form>
-
-        <div className="indicator__wrapper"></div>
+        {/* <PageControl
+          page={currentPage}
+          setCurrentPage={setCurrentPage}
+          pagesDone={pagesDone}
+          setPageDone={setPageDone}
+          handleForm={handleForm}
+        />
+        <div className="indicator__wrapper">
+          <PageIndicator page={currentPage} />
+        </div> */}
       </div>
     </main>
   );
