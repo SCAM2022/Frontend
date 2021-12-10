@@ -10,13 +10,13 @@ function PageControl({
   const handleNextPage = () => {
     if (!handleForm()) {
       setCurrentPage(page + 1);
-      setPageDone([...pagesDone, page]);
+      // setPageDone([...pagesDone, page]);
     }
   };
 
   const handlePrevPage = () => {
     setCurrentPage(page - 1);
-    setPageDone(pagesDone.slice(0, -1));
+    // setPageDone(pagesDone.slice(0, -1));
   };
   return (
     <div className={`pages__controls ${page === 1 && "page__control__right"}`}>

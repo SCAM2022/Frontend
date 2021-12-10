@@ -7,7 +7,7 @@ const UserDashboard = (props) => {
   return (
     <Routes>
       <Route exact path="/login" element={<LoginScreen />} />
-      <Route exact path="/signup" element={<Signup />} />
+      <Route path="/signup" element={<Signup />} />
       {/* <Route exact path="/home" component={Dashboard} /> */}
       {/* <Route path="*" component={PageNotFound} /> */}
     </Routes>
