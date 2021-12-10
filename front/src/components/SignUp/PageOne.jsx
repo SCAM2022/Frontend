@@ -24,14 +24,7 @@ const PageOne = (props) => {
         value={person}
         setValue={setPerson}
       />
-      <TextField
-        name="Occupation"
-        label="Occupation"
-        placeholder="Occupation"
-        type="text"
-        value={position}
-        setValue={setPosition}
-      />
+
       <TextField
         name="email"
         label="Email"

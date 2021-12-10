@@ -1,12 +1,12 @@
 import React from "react";
 import classes from "./Sidenav.module.css";
-
+import logo from "../../assets/loginSvg/club.png";
 function Sidenav({ pageIndex, pagesDone }) {
   return (
     <div className={classes["sidenav__reg"]}>
       <div className={classes["sidenav__reg__wrapper"]}>
         <div className={classes["sidenav__reg__top"]}>
-          <img src="" alt="brand__logo" />
+          <img src={logo} alt="logo" />
         </div>
         <div className={classes["sidenav__reg__content"]}>
           <h3>User Sign Up</h3>

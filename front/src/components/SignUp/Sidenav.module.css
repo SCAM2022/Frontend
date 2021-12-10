@@ -1,8 +1,7 @@
 .sidenav__reg {
-  grid-area: sidenav;
   background-color: var(--primary-color);
-  width: 340px;
-  height: 100%;
+  width: 100%;
+  height: 90%;
   border-radius: 0px 20px 40px 0px;
   border-collapse: separate;
 }
@@ -16,19 +15,21 @@
   height: 80px;
   display: flex;
   align-items: center;
+  /* justify-content: center; */
   padding-left: 15px;
   /*44.08*48*/
 }
 .sidenav__reg__top > img {
-  width: 44.08px;
-  height: 48px;
+  /* width: 44.08px; */
+  height: 80px;
+  margin-left: 20px;
 }
 .sidenav__reg__content {
   padding: 25px;
-  margin-top: 65px;
+  /* margin: 200px 0; */
 }
 .sidenav__reg__content > h3 {
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-size: 24px;
   line-height: 25px;
   position: relative;

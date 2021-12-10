@@ -9,7 +9,7 @@
 }
 
 .div__input__box {
-  width: 100%;
+  width: 95%;
   height: 48px;
   display: flex;
   min-width: 260px;
@@ -23,17 +23,18 @@
 
 .form__control__signup > label {
   font-style: normal;
-  font-weight: 500;
+  font-weight: bolder;
   font-size: 14px;
   line-height: 19px;
   /* identical to box height */
 
-  color: #838383;
+  color: #0a0a0a;
 
   /* btn */
 
   text-shadow: 0px 3px 99px rgba(0, 0, 0, 0.078);
   margin-bottom: 10px;
+  margin-left: 5px;
 }
 .form__control__signup > .div__input__box > input {
   width: 95%;
@@ -59,88 +60,6 @@
   /* identical to box height, or 83% */
 
   color: #282828;
-}
-.country__code {
-  width: 35px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  margin-left: 5px;
-  justify-content: center;
-  position: relative;
-  color: rgb(97, 97, 97);
-  font-size: 18px;
-}
-
-.country__flag__wrapper {
-  /* width: 20%; */
-  display: flex;
-  align-items: center;
-  margin-left: 5px;
-}
-.country__flag__wrapper span {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 18px;
-  /* identical to box height, or 112% */
-
-  display: flex;
-  align-items: center;
-
-  color: #838383;
-}
-.flag__container {
-  /* width: 3rem; */
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fafafa;
-  /* Divider/Light/1px - 60% */
-  border: 1px solid rgba(228, 228, 228, 0.6);
-  box-sizing: border-box;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.flag__container img {
-  width: 3rem;
-  height: 2rem;
-  transform: scale(0.8);
-}
-
-.country__select__list {
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.115);
-  width: 100%;
-  top: 45px;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  height: 14rem;
-  overflow-y: scroll;
-  border: 1px solid #eaeaea;
-}
-.country__select__list span {
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  justify-content: stretch;
-}
-.country__select__list span:hover {
-  background-color: #fafafa;
-}
-
-.country__select__list span img {
-  width: 2.3rem;
-  margin-right: 15px;
 }
 
 @media screen and (max-width: 460px) {

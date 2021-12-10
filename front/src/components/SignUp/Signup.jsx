@@ -29,14 +29,6 @@ const Signup = ({
 }) => {
   //Intial States for TextFields
   console.log("signup");
-  const [person, setPerson] = useState("");
-  const [position, setPosition] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState();
-  const [password, setPassword] = useState("");
-  const [repassword, setRePassword] = useState("");
-  const [alertEmpty, setAlertEmpty] = useState(false);
-  const [alertPass, setAlertPass] = useState(false);
   const [emailList, setEmailList] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -92,24 +84,19 @@ const Signup = ({
   };
 
   const handleForm = (props) => {};
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    // console.log(window.innerWidth, "WINDOW+++++++++++++++++++");
-  }, [window.innerWidth]);
 
   return (
-    <main className={classes["reg__body"]}>
-      <div className={classes["reg__body__header"]}>
+    <>
+      <main className={classes["reg__body"]}>
+        {/* <div className={classes["reg__body__header"]}> */}
         {/* <div style={{ display: `${width > 1024 ? "none" : "block"}` }}> */}
 
         {/* </div> */}
         {/* <Link to="/" className="reg__btn__login">
           Login
         </Link> */}
-      </div>
-      {/* <div className="alert_box">
+        {/* </div> */}
+        {/* <div className="alert_box">
         {alertEmpty === true ? (
           <AlertBox
             alertEmpty={alertEmpty}
@@ -129,27 +116,25 @@ const Signup = ({
           />
         ) : null}
       </div> */}
-      <div style={{ display: "flex", width: "100%", alignItems: "center" }}>
-        {/* <span className="page__step">STEP {page} OF 4</span> */}
-        <h3 className="page__title">{title}</h3>
         <Sidenav pageIndex={1} pagesDone={pagesDone} />
-        {page === 1 && <PageOne />}
-        {page === 2 && <PageTwo />}
-        {page === 3 && <PageThree />}
-        {page === 4 && <PageFinal />}
-
-        <PageControl
-          page={page}
-          setCurrentPage={setPage}
-          // pagesDone={pagesDone}
-          // setPageDone={setPageDone}
-          handleForm={handleForm}
-        />
+        <div className={classes["form_container"]}>
+          {/* <span className="page__step">STEP {page} OF 4</span> */}
+          {/* <h3 className="page__title">{title}</h3> */}
+          {page === 1 && <PageOne />}
+          {page === 2 && <PageTwo />}
+          {page === 3 && <PageThree />}
+          {page === 4 && <PageFinal />}
+          <PageControl
+            page={page}
+            setCurrentPage={setPage}
+            handleForm={handleForm}
+          />
+        </div>
         {/* <div className="indicator__wrapper">
           <PageIndicator page={currentPage} />
         </div> */}
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 export default Signup;
