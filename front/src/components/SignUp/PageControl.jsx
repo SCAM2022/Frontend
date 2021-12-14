@@ -25,9 +25,11 @@ function PageControl({
           Previous
         </button>
       )}
-      <button className={classes["nxt_btn"]} onClick={handleNextPage}>
-        Next
-      </button>
+      {page !== 4 && (
+        <button className={classes["nxt_btn"]} onClick={handleNextPage}>
+          Next
+        </button>
+      )}
     </div>
   );
 }

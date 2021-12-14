@@ -1,0 +1,16 @@
+.success__wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.success__wrapper > img {
+  width: 20rem;
+}
+
+.success__wrapper > h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  margin-top: 15px;
+}

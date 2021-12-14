@@ -1,0 +1,40 @@
+.btn_container {
+  position: fixed;
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-around;
+  width: 70%;
+  top: 80vh;
+}
+
+.nxt_btn,
+.prev_btn {
+  display: inline-flex;
+  max-width: 220px;
+  min-width: 110px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+  font-weight: bolder;
+  border: 0;
+  margin-bottom: 20px;
+  cursor: pointer;
+  outline: 0;
+}
+
+.nxt_btn {
+  background-color: orange;
+}
+.prev_btn {
+}
+
+@media screen and (max-width: 1024px) {
+  .btn_container {
+    width: 100%;
+  }
+}
