@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Sidenav.module.css";
 import logo from "../../assets/loginSvg/club.png";
-function Sidenav({ pageIndex, pagesDone }) {
+function Sidenav({ pageDone, page }) {
   return (
     <div className={classes["sidenav__reg"]}>
       <div className={classes["sidenav__reg__wrapper"]}>
@@ -12,40 +12,28 @@ function Sidenav({ pageIndex, pagesDone }) {
           <h3>User Sign Up</h3>
           <ul className={classes["sidenav-reg__screens"]}>
             <li>
-              <span
-                className={
-                  ""
-                  // classes[`dot ${pagesDone.includes(1) && "disable__dot"}`]
-                }
-              >
-                {/* {pagesDone.includes(1) && <span>&#10003;</span>} */}
+              <span className={classes[`${page === 1 && "disable__dot"}`]}>
+                {/* {pageDone.includes(1) && <span>&#10003;</span>} */}
               </span>
               General Information
             </li>
             <li>
-              <span
-                className={
-                  ""
-                  // classes[`dot ${pagesDone.includes(2) && "disable__dot"}`]
-                }
-              >
+              <span className={classes[`${page === 2 && "disable__dot"}`]}>
                 {/* {pagesDone.includes(2) && <span>&#10003;</span>} */}
               </span>
               Academic Details
             </li>
             <li>
-              <span
-                className={
-                  ""
-                  // classes[`dot ${pagesDone.includes(3) && "disable__dot"}`]
-                }
-              >
+              <span className={classes[`${page === 3 && "disable__dot"}`]}>
                 {/* {pagesDone.includes(3) && <span>&#10003;</span>} */}
               </span>
               Student Details
             </li>
             <li>
               <span className={classes[`dot`]}></span>
+              <span
+                className={classes[`${page === 4 && "disable__dot__success"}`]}
+              ></span>
               Success
             </li>
           </ul>

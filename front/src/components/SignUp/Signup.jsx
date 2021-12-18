@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import Form from "./Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageControl from "./PageControl";
 import PageIndicator from "./PageIndicator";
-import { Route, Routes } from "react-router-dom";
 import classes from "./Signup.module.css";
 
 import Sidenav from "./Sidenav";
@@ -19,8 +18,6 @@ const Signup = ({
   title,
   setCurrentPage,
   currentPage,
-  pagesDone,
-  setPageDone,
   error,
   setError,
   addScreenOne,
@@ -43,6 +40,9 @@ const Signup = ({
   const [semester, setSemester] = useState("");
   const [rollNumber, setRollNumber] = useState("");
   const [enrollmentNo, setEnrollmentNo] = useState("");
+  const [pageDone, setPageDone] = useState([]);
+
+  const navigate = useNavigate();
 
   // console.log("Email->", email);
   //   useEffect(() => {
@@ -87,7 +87,6 @@ const Signup = ({
   const passwordReg =
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
-  // console.log("EmailExist->", emailExist);
   const checkEmailInList = (em) => {
     const idx = emailList.findIndex((mail) => mail === em);
     if (idx < 0) {
@@ -100,13 +99,24 @@ const Signup = ({
     if (page === 3) {
       reqHandler();
     }
+    if (page === 1) {
+      if (password !== repassword) {
+        return;
+      }
+    }
+    if (page === 4) {
+      navigate("/login");
+
+      return;
+    }
+    // pageDone.push(page);
+    setPageDone([...pageDone, page]);
     setPage(page + 1);
-    // setPageDone([...pagesDone, page]);
   };
 
   const handlePrevPage = () => {
     setPage(page - 1);
-    // setPageDone(pagesDone.slice(0, -1));
+    setPageDone(pageDone.slice(0, -1));
   };
 
   const reqHandler = () => {
@@ -151,10 +161,10 @@ const Signup = ({
   return (
     <>
       <main className={classes["reg__body"]}>
-        <Sidenav pageIndex={1} pagesDone={pagesDone} />
+        <Sidenav pageIndex={1} pageDone={pageDone} page={page} />
         <div className={classes["form_container"]}>
           {/* <span className="page__step">STEP {page} OF 4</span> */}
-          {/* <h3 className="page__title">{title}</h3> */}
+          {/* <h3 className="page__title">{"title"}</h3> */}
           {page === 1 && (
             <PageOne
               person={person}
@@ -191,7 +201,7 @@ const Signup = ({
               setEnrollmentNo={setEnrollmentNo}
             />
           )}
-          {page === 4 && <PageFinal reqHandler={reqHandler} />}
+          {page === 4 && <PageFinal />}
           <PageControl
             page={page}
             handleForm={handleForm}

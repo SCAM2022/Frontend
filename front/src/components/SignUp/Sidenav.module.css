@@ -75,8 +75,12 @@
   align-items: center;
 }
 .disable__dot {
-  background-color: transparent !important;
-  color: #fff;
+  /* background-color: transparent !important; */
+  background-color: rgb(255, 45, 45) !important;
+}
+.disable__dot__success {
+  /* background-color: transparent !important; */
+  background-color: rgb(64, 255, 80) !important;
 }
 .sidenav-reg__screens > li::after {
   position: absolute;

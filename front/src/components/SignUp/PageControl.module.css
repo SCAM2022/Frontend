@@ -30,9 +30,29 @@
 .nxt_btn {
   background-color: orange;
 }
-.prev_btn {
+.suc_btn {
+  display: inline-flex;
+  max-width: 220px;
+  min-width: 220px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(10, 177, 93);
+  border-radius: 10px;
+  font-weight: bolder;
+  border: 0;
+  margin-bottom: 20px;
+  cursor: pointer;
+  outline: 0;
+  background-color: #ccc;
+  box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.171);
 }
-
+.suc_btn:hover {
+  color: #ccc;
+  background-color: rgb(10, 177, 93);
+}
 @media screen and (max-width: 1024px) {
   .btn_container {
     width: 100%;
