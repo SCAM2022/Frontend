@@ -3,11 +3,20 @@ import { useState } from "react";
 import TextField from "./TextField";
 import Form from "./Form";
 
-const PageTwo = (props) => {
-  const [department, setDepartment] = useState("");
-  const [year, setYear] = useState("");
-  const [email, setEmail] = useState("");
-  const [admissionYear, setAdmissionYear] = useState();
+const PageTwo = ({
+  department,
+  setDepartment,
+  year,
+  setYear,
+  college,
+  setCollege,
+  admissionYear,
+  setAdmissionYear,
+}) => {
+  // const [department, setDepartment] = useState("");
+  // const [year, setYear] = useState("");
+  // const [college, setCollege] = useState("");
+  // const [admissionYear, setAdmissionYear] = useState();
 
   return (
     <Form>
@@ -16,8 +25,8 @@ const PageTwo = (props) => {
         label="College/School"
         placeholder="Your College/School"
         type="email"
-        value={email}
-        setValue={setEmail}
+        value={college}
+        setValue={setCollege}
       />
       <TextField
         name="department"
@@ -31,7 +40,7 @@ const PageTwo = (props) => {
         name="Year"
         label="Year"
         placeholder="Year"
-        type="text"
+        type="number"
         value={year}
         setValue={setYear}
       />

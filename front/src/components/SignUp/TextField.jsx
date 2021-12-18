@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import { useState } from "react";
 
 import classes from "./TextField.module.css";
 
 function TextField(props) {
   const { label, name, placeholder, type, value, setValue, isDisabled } = props;
-  const [drop, setDrop] = React.useState(false);
+  const [drop, setDrop] = useState(false);
 
   return (
     <div className={classes["form__control__signup"]}>
@@ -13,8 +13,10 @@ function TextField(props) {
         {name === "mobile" || name === "contactNumber" ? (
           <input
             placeholder="Enter phone number"
+            type={type}
+            id={name}
             value={value}
-            onChange={setValue}
+            onChange={(e) => setValue(e.target.value)}
             disabled={isDisabled && true}
           />
         ) : (

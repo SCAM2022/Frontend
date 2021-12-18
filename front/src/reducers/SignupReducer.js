@@ -1,31 +1,34 @@
 const intialState = {
-  pageOne: null,
-  pageTwo: null,
-  pageThree: null,
+  userInfo: null,
 };
 
 const SignupReducer = (state = intialState, action) => {
   switch (action.type) {
-    case "PAGE_ONE":
-      return {
-        ...state,
-        pageOne: action.pageOne,
-      };
+    // case "PAGE_ONE":
+    //   return {
+    //     ...state,
+    //     pageOne: action.pageOne,
+    //   };
 
-    case "PAGE_TWO": {
+    // case "PAGE_TWO": {
+    //   return {
+    //     ...state,
+    //     pageTwo: action.pageTwo,
+    //   };
+    // }
+
+    // case "PAGE_THREE": {
+    //   return {
+    //     ...state,
+    //     pageThree: action.pageThree,
+    //   };
+    // }
+    case "SET": {
       return {
         ...state,
-        pageTwo: action.pageTwo,
+        ...action.userInfo,
       };
     }
-
-    case "PAGE_THREE": {
-      return {
-        ...state,
-        pageThree: action.pageThree,
-      };
-    }
-
     default:
       return {
         ...state,

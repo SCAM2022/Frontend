@@ -8,6 +8,7 @@ import classes from "./FinalPage.module.css";
 
 const PageFinal = (props) => {
   const [timeLeft, setTimeLeft] = useState(5);
+
   useEffect(() => {
     if (timeLeft > 0) {
       const timer = setTimeout(() => {

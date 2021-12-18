@@ -1,18 +1,27 @@
-import React from "react";
-
+import { connect } from "react-redux";
 import TextField from "./TextField";
 import Form from "./Form";
 
 const PageOne = (props) => {
-  const [person, setPerson] = React.useState("");
-  const [position, setPosition] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [phone, setPhone] = React.useState();
-  const [password, setPassword] = React.useState("");
-  const [repassword, setRePassword] = React.useState("");
-  const [alertEmpty, setAlertEmpty] = React.useState(false);
-  const [alertPass, setAlertPass] = React.useState(false);
-  const [emailList, setEmailList] = React.useState([]);
+  const {
+    person,
+    setPerson,
+    email,
+    setEmail,
+    phone,
+    setPhone,
+    password,
+    setPassword,
+    repassword,
+    setRePassword,
+  } = props;
+
+  // const [person, setPerson] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState();
+  // const [password, setPassword] = useState("");
+  // const [repassword, setRePassword] = useState("");
+  // const { page } = props;
 
   return (
     <Form>
@@ -61,4 +70,8 @@ const PageOne = (props) => {
   );
 };
 
-export default PageOne;
+const mapStateToProps = (state) => ({
+  userInfo: state.signUpReducer.userInfo,
+});
+
+export default connect(mapStateToProps, null)(PageOne);

@@ -3,18 +3,21 @@ import { useState } from "react";
 import TextField from "./TextField";
 import Form from "./Form";
 
-const PageThree = (props) => {
-  const [semester, setSemester] = useState("");
-  const [rollNumber, setRollNumber] = useState("");
-  const [enrollmentNo, setEnrollmentNo] = useState("");
-
+const PageThree = ({
+  semester,
+  setSemester,
+  rollNumber,
+  setRollNumber,
+  enrollmentNo,
+  setEnrollmentNo,
+}) => {
   return (
     <Form>
       <TextField
         name="roll-no"
         label="Roll Number"
         placeholder="Roll No."
-        type="text"
+        type="number"
         value={rollNumber}
         setValue={setRollNumber}
       />
@@ -22,7 +25,7 @@ const PageThree = (props) => {
         name="current-sem"
         label="Current Semester"
         placeholder="Current Semester"
-        type="text"
+        type="number"
         value={semester}
         setValue={setSemester}
       />
