@@ -179,7 +179,7 @@ const Signup = (props) => {
       }
     };
     const userInfo = {
-      name: person,
+      person: person,
       email: email,
       phone: phone,
       password: password,

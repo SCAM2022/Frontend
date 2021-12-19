@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { css } from "@emotion/react";
 import BarLoader from "react-spinners/BarLoader";
 import bgImage from "../../assets/logInBgImage.jpg";
-
-// import axios from "axios";
-// import Cookies from "js-cookie";
+import axios from "axios";
+import Cookies from "js-cookie";
 import club from "../../assets/loginSvg/club.png";
 
 import classes from "./Login.module.css";
@@ -25,6 +24,8 @@ const Login = (props) => {
   const [clientError, setClientError] = React.useState("");
 
   let [loading, setLoading] = React.useState(true);
+
+  const navigate = useNavigate();
 
   // For setting username or email
   const onEmailOrMobileChange = (e) => {
@@ -86,10 +87,28 @@ const Login = (props) => {
           return;
         }
         setClientError("Loading..."); //@ dezx edited here
+        const r = await axios.post(`${process.env.REACT_APP_API_KEY}/login`, {
+          email: emailOrMobile,
+          password: password,
+        });
+
+        if (r.status === 200) {
+          if (r.data.error) {
+            setClientError(r.data.error);
+          } else {
+            console.log("response->", r);
+            const { token } = r.data;
+            Cookies.set("SCAM_TOKEN", token);
+            console.log(token, "Tokennnn");
+            navigate("/home");
+
+            // window.location.href = `${process.env.REACT_APP_CLIENT}/dashboard`;
+          }
+        }
       } catch (e) {
         if (e.response && e.response.data) {
-          console.log(e.response.data);
-          setClientError(e.response.data.error);
+          console.log("error 2->", e.response);
+          setClientError("Incorrect email or Password!");
         }
       }
     }
@@ -141,10 +160,11 @@ const Login = (props) => {
               >
                 {clientError}
                 {/* check -&gt; {isForgotSucceed ? "true" : "false"} */}
-              </p> //  && "#00FF00"
+              </p>
+              //  && "#00FF00"
             )
           ) : (
-            <p className={classes["login__client-error"]}></p>
+            <p className={classes["login__client-no__error"]}></p>
           )}
 
           <div className={classes["login__form-group"]}>

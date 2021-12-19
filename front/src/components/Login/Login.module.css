@@ -55,10 +55,29 @@
 
 .login__client-error {
   /* color: var(--primary-color); */
+  display: flex;
+  justify-content: center;
+
+  color: #fff0f1;
+  font-size: 14px;
+  text-align: center;
+  height: 25px;
+  /* background-color: #282828; */
+  /* border: 2px solid black; */
+  border-radius: 10px;
+  align-items: center;
+  /* box-shadow: 2px 2px rgba(0, 0, 0, 0.322); */
+}
+.login__client-no__error {
+  /* color: var(--primary-color); */
+
   color: #ff5676;
   font-size: 14px;
   text-align: center;
   height: 25px;
+  /* background-color: #282828; */
+  border-radius: 10px;
+  align-items: center;
 }
 
 .login__form {
