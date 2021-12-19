@@ -2,55 +2,91 @@ import { useState } from "react";
 
 import TextField from "./TextField";
 import Form from "./Form";
+import SelectField from "./SelectField";
 
 const PageTwo = ({
   department,
   setDepartment,
   year,
   setYear,
-  college,
-  setCollege,
+  // college,
+  // setCollege,
   admissionYear,
   setAdmissionYear,
 }) => {
-  // const [department, setDepartment] = useState("");
-  // const [year, setYear] = useState("");
-  // const [college, setCollege] = useState("");
-  // const [admissionYear, setAdmissionYear] = useState();
+  const studingYear = [
+    {
+      name: "first",
+    },
+    {
+      name: "second",
+    },
+    {
+      name: "third",
+    },
+    {
+      name: "forth",
+    },
+  ];
+  const branch = [
+    {
+      name: "Computer Science and Engineering",
+    },
+    {
+      name: "Electronic and Telecommunication Engineering",
+    },
+    {
+      name: "Electrical Engineering",
+    },
+    {
+      name: "Mechanical Engineering",
+    },
+    {
+      name: "Civil Engineering",
+    },
+  ];
 
+  const addmYear = [];
+  const curYear = new Date().getFullYear();
+  for (let i = 0; i < 20; i++) {
+    addmYear.push({ name: (+curYear - i).toString() });
+  }
   return (
     <Form>
-      <TextField
+      {/* <TextField
         name="college-name"
         label="College/School"
         placeholder="Your College/School"
         type="email"
         value={college}
         setValue={setCollege}
-      />
-      <TextField
+      /> */}
+      <SelectField
         name="department"
         label="Department"
         placeholder="Your Branch"
         type="text"
         value={department}
         setValue={setDepartment}
+        options={branch}
       />
-      <TextField
-        name="Year"
+      <SelectField
+        name="year"
         label="Year"
         placeholder="Year"
-        type="number"
+        type="text"
         value={year}
         setValue={setYear}
+        options={studingYear}
       />
-      <TextField
+      <SelectField
         name="admission-year"
         label="Admission Year"
         placeholder="in which year took admission"
         type="number"
         value={admissionYear}
         setValue={setAdmissionYear}
+        options={addmYear}
       />
     </Form>
   );

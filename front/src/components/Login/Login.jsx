@@ -25,7 +25,6 @@ const Login = (props) => {
   const [clientError, setClientError] = React.useState("");
 
   let [loading, setLoading] = React.useState(true);
-  let [color, setColor] = React.useState("#ffffff");
 
   // For setting username or email
   const onEmailOrMobileChange = (e) => {

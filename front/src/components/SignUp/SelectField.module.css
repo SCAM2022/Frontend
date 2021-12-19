@@ -1,0 +1,115 @@
+.custom__select {
+  width: 95%;
+  height: 48px;
+  display: flex;
+  min-width: 260px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid rgb(172, 172, 172);
+  background-color: var(--bg-dash);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.form__control__signup {
+  flex: 45%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.form__control__signup > label {
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 14px;
+  line-height: 19px;
+  color: #0a0a0a;
+  text-shadow: 0px 3px 99px rgba(0, 0, 0, 0.078);
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.selected__item__signup {
+  /* color: #7c7c7c; */
+  /* border: 0 !important; */
+
+  width: 95%;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+
+  padding-left: 15px;
+  font-size: 14px;
+  outline: none;
+}
+
+.selected__item__signup > label::placeholder {
+  font-size: 14px;
+}
+
+.selected__item__selected {
+  color: #7c7c7c;
+}
+
+.select__arrow {
+  display: block;
+  width: 0px;
+  height: 0px;
+  background-color: #262626;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  border-top: 5px solid #7c7c7c;
+  border-bottom: 5px solid var(--bg-dash);
+  border-left: 5px solid var(--bg-dash);
+  border-right: 5px solid var(--bg-dash);
+  transition: all 0.3s ease-in-out;
+}
+.arrow__up {
+  border-bottom: 5px solid #7c7c7c;
+  border-top: 5px solid var(--bg-dash);
+  top: 15px;
+}
+.dropdown__options {
+  width: 100%;
+  list-style: none;
+  position: absolute;
+  top: 48px;
+  left: 0px;
+  background-color: var(--secondary-color);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.115);
+  display: none;
+  height: 150px;
+  z-index: 2;
+  border-radius: 5px;
+}
+.dropdown__enable {
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown__options > li {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  min-height: 45px;
+  font-size: 13px !important;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 100%;
+  margin-left: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.dropdown__options > li:hover {
+  background-color: var(--bg-dash);
+  font-weight: bold;
+}

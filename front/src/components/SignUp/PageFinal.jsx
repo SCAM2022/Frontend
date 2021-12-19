@@ -4,7 +4,7 @@ import TextField from "./TextField";
 import Form from "./Form";
 import success1 from "../../assets/loginSvg/success-36.svg";
 import success2 from "../../assets/loginSvg/success.png";
-import classes from "./FinalPage.module.css";
+import classes from "./PageFinal.module.css";
 
 const PageFinal = (props) => {
   const [timeLeft, setTimeLeft] = useState(5);

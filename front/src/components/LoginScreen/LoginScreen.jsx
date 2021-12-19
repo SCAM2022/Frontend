@@ -6,13 +6,15 @@ import classes from "./LoginScreen.module.css";
 
 const LoginScreen = () => {
   return (
-    <div className={classes.login_screen}>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Login</title>
-      </Helmet>
+    <div className={classes.login_screen__wrapper}>
+      <div className={classes.login_screen}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Login</title>
+        </Helmet>
 
-      <Login />
+        <Login />
+      </div>
     </div>
   );
 };

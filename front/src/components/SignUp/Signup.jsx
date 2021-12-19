@@ -1,32 +1,20 @@
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import Form from "./Form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageControl from "./PageControl";
 import PageIndicator from "./PageIndicator";
-import classes from "./Signup.module.css";
 
 import Sidenav from "./Sidenav";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import PageFinal from "./PageFinal";
-
-const Signup = ({
-  addData,
-  title,
-  setCurrentPage,
-  currentPage,
-  error,
-  setError,
-  addScreenOne,
-  emailExist,
-  setEmailExist,
-}) => {
-  //Intial States for TextFields
+import Error from "./Error";
+import classes from "./Signup.module.css";
+const Signup = (props) => {
   console.log("signup");
-  const [emailList, setEmailList] = useState([]);
+  // const [emailList, setEmailList] = useState([]);
   const [page, setPage] = useState(1);
   const [person, setPerson] = useState("");
   const [email, setEmail] = useState("");
@@ -35,51 +23,17 @@ const Signup = ({
   const [repassword, setRePassword] = useState("");
   const [department, setDepartment] = useState("");
   const [year, setYear] = useState("");
-  const [college, setCollege] = useState("");
+  // const [college, setCollege] = useState("");
   const [admissionYear, setAdmissionYear] = useState("");
   const [semester, setSemester] = useState("");
   const [rollNumber, setRollNumber] = useState("");
   const [enrollmentNo, setEnrollmentNo] = useState("");
   const [pageDone, setPageDone] = useState([]);
-
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
-  // console.log("Email->", email);
-  //   useEffect(() => {
-  //     if (email) {
-  //       // console.log("EMAIL EFFECT__");
-  //       const checkEmailExists = async () => {
-  //         await axios
-  //           .get(`${process.env.REACT_APP_SERVER}/settings/venue-settings/email`)
-  //           .then((data) => {
-  //             const arr = [];
-  //             data.data.venue.Items.map((item) => {
-  //               arr.push(item.email);
-  //               if (item.email === email) {
-  //                 setError("Email Already Exists");
-  //                 // return setEmailExist(true);
-  //                 return true;
-  //               } else {
-  //                 // return setEmailExist(false);
-  //                 return false;
-  //               }
-  //             });
-  //             setEmailList(arr);
-  //           });
-  //         // console.log("AXIOS val->", val);
-  //       };
-  //       const timeout = setTimeout(() => {
-  //         checkEmailExists();
-  //       }, 1000);
-  //       return () => {
-  //         clearTimeout(timeout);
-  //       };
-  //     }
-  //   }, [email]);
   // Form Validation
 
-  // const emailReg =
-  //   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const phoneReg = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
@@ -87,26 +41,117 @@ const Signup = ({
   const passwordReg =
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
-  const checkEmailInList = (em) => {
-    const idx = emailList.findIndex((mail) => mail === em);
-    if (idx < 0) {
-      return false;
-    } else return true;
+  const checkEmailInList = async (em) => {
+    const checkEmail = async () => {
+      try {
+        const r = await axios.post(
+          `${process.env.REACT_APP_API_KEY}/checkEmail`,
+          { email: em }
+        );
+
+        return r.data;
+      } catch (e) {
+        if (e.response && e.response.data) {
+          return e.response.data;
+        }
+      }
+    };
+
+    checkEmail()
+      .then((res) => {
+        console.log("succ->", res);
+        if (res?.success) {
+          return false;
+        }
+        setError(res.msg);
+        return true;
+      })
+      .catch((err) => {
+        console.log("error->", err);
+        return true;
+      });
+  };
+
+  const checkRollEnrollInList = async (enroll, roll) => {
+    const checkRollEnroll = async () => {
+      try {
+        const r = await axios.post(
+          `${process.env.REACT_APP_API_KEY}/checkRoll`,
+          {
+            enrollmentNo: enroll,
+            rollNumber: roll,
+          }
+        );
+
+        return r.data;
+      } catch (e) {
+        if (e.response && e.response.data) {
+          return e.response.data;
+        }
+      }
+    };
+
+    checkRollEnroll()
+      .then((res) => {
+        console.log("succ->", res);
+        if (res?.success) {
+          return false;
+        }
+        setError(res.msg);
+        return true;
+      })
+      .catch((err) => {
+        console.log("error->", err);
+        return true;
+      });
   };
 
   const handleForm = (data) => {};
-  const handleNextPage = () => {
-    if (page === 3) {
-      reqHandler();
-    }
+  const handleNextPage = async () => {
     if (page === 1) {
+      if (!(password && repassword && email && phone && person)) {
+        setError("Please Fill all details!");
+        return;
+      }
+
+      if (!emailReg.test(email)) {
+        setError("Please enter valid email!");
+        return;
+      }
+
       if (password !== repassword) {
+        setError("Password mismatch!");
+        return;
+      }
+
+      if (await checkEmailInList(email)) {
+        // setError("Email already taken!");
+        console.log("email asdasd->");
         return;
       }
     }
+    if (page === 2) {
+      if (!(department && year && admissionYear)) {
+        setError("Please Fill all details!");
+        return;
+      }
+    }
+
+    if (page === 3) {
+      if (!(rollNumber && semester && enrollmentNo)) {
+        setError("Please Fill all details!");
+        return;
+      }
+      const result = await checkRollEnrollInList(enrollmentNo, rollNumber);
+      if (result) {
+        return;
+      }
+
+      reqHandler();
+    }
+
     if (page === 4) {
       navigate("/login");
-
       return;
     }
     // pageDone.push(page);
@@ -120,8 +165,6 @@ const Signup = ({
   };
 
   const reqHandler = () => {
-    console.log("env->", process.env);
-
     const sendData = async (data) => {
       try {
         const r = await axios.post(
@@ -142,7 +185,7 @@ const Signup = ({
       password: password,
       department: department,
       year: year,
-      college: college,
+      // college: college,
       admissionYear: admissionYear,
       semester: semester,
       rollNumber: rollNumber,
@@ -165,6 +208,7 @@ const Signup = ({
         <div className={classes["form_container"]}>
           {/* <span className="page__step">STEP {page} OF 4</span> */}
           {/* <h3 className="page__title">{"title"}</h3> */}
+          <Error error={error} setError={setError} />
           {page === 1 && (
             <PageOne
               person={person}
@@ -185,8 +229,8 @@ const Signup = ({
               setDepartment={setDepartment}
               year={year}
               setYear={setYear}
-              college={college}
-              setCollege={setCollege}
+              // college={college}
+              // setCollege={setCollege}
               admissionYear={admissionYear}
               setAdmissionYear={setAdmissionYear}
             />

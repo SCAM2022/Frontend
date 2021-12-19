@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import TextField from "./TextField";
 import Form from "./Form";
+import SelectField from "./SelectField";
 
 const PageThree = ({
   semester,
@@ -11,6 +12,17 @@ const PageThree = ({
   enrollmentNo,
   setEnrollmentNo,
 }) => {
+  const semOption = [
+    { name: "1" },
+    { name: "2" },
+    { name: "3" },
+    { name: "4" },
+    { name: "5" },
+    { name: "6" },
+    { name: "7" },
+    { name: "8" },
+  ];
+
   return (
     <Form>
       <TextField
@@ -21,13 +33,14 @@ const PageThree = ({
         value={rollNumber}
         setValue={setRollNumber}
       />
-      <TextField
+      <SelectField
         name="current-sem"
         label="Current Semester"
         placeholder="Current Semester"
         type="number"
         value={semester}
         setValue={setSemester}
+        options={semOption}
       />
       <TextField
         name="Enrollment No."

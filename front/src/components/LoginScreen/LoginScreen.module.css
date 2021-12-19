@@ -1,4 +1,4 @@
-body {
+.login_screen__wrapper {
   background: url(../../assets/login2.jpg) center/cover no-repeat border-box;
   width: 100vw;
   height: 100vh;

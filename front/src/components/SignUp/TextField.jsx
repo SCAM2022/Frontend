@@ -5,18 +5,22 @@ import classes from "./TextField.module.css";
 function TextField(props) {
   const { label, name, placeholder, type, value, setValue, isDisabled } = props;
   const [drop, setDrop] = useState(false);
-
+  const curYear = new Date().getFullYear();
   return (
     <div className={classes["form__control__signup"]}>
       <label htmlFor={name}>{label}</label>
       <div className={classes["div__input__box"]}>
-        {name === "mobile" || name === "contactNumber" ? (
+        {name === "year" || name === "admission-year" ? (
           <input
-            placeholder="Enter phone number"
-            type={type}
+            placeholder={placeholder}
+            type="number"
             id={name}
             value={value}
+            // defaultValue={curYear}
+            min={1000}
+            max={9999}
             onChange={(e) => setValue(e.target.value)}
+            // onClick={setDrop((prev) => !prev)}
             disabled={isDisabled && true}
           />
         ) : (
@@ -30,9 +34,9 @@ function TextField(props) {
             disabled={isDisabled && true}
           />
         )}
-        {name === "mobile" && drop && (
+        {(name === "Year" || name === "admission-year") && drop && (
           <div
-            className={classes["country__select__list"]}
+            className={classes["select"]}
             disabled={isDisabled && true}
           ></div>
         )}
