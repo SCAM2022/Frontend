@@ -8,7 +8,7 @@
 } */
 
 :root {
-  --primary-color: #0086e0a4;
+  --primary-color: #ff0a38;
   --secondary-color: #ffffff;
   --bg-digi: #fcfcfc;
   --bg-dash: #f5f9ff;
@@ -35,10 +35,6 @@
   box-sizing: border-box;
   user-select: text;
   font-family: var(--cabin);
-}
-
-*::-webkit-scrollbar {
-  width: 0px;
 }
 
 body {

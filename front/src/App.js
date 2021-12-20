@@ -1,5 +1,5 @@
 import React, { Fragment, Suspense } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
 // import { Switch } from "react-dom";
 // import NavBar from "./components/Navbar/Navbar.js";
 // import Hero from "./components/Hero/Hero";
