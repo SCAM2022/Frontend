@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Space Grotesk', sans-serif;
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.contact {
+  background-color: #fff;
+  width: 100%;
+  margin: 120px auto;
+}
+
+.contact .contact_container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px auto;
+}
+.contact .contact_heading {
+  width: 50%;
+  text-align: center;
+}
+
+.contact .contact_heading h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #092834;
+  padding: 50px 0px 4px 0px;
+}
+
+.contact .contact_heading span {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  color: #34495e;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+}
