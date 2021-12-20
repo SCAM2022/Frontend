@@ -27,19 +27,19 @@ const UserDashboard = (props) => {
     window.location.pathname === "/login",
     window.location.pathname === "/signup"
   );
-  const [showModel, setShowModel] = useState(false);
+  // const [showModel, setShowModel] = useState(false);
 
-  const showModelHandler = () => {
-    setShowModel(true);
-  };
+  // const showModelHandler = () => {
+  //   setShowModel(true);
+  // };
 
-  const hideModelHandler = () => {
-    setShowModel(false);
-  };
+  // const hideModelHandler = () => {
+  //   setShowModel(false);
+  // };
 
   return (
     <>
-      {showModel && <Model onClose={hideModelHandler} />}
+      {/* {showModel && <Model onClose={hideModelHandler} />} */}
       <Routes>
         <Route exact path="/login" element={<LoginScreen />} />
         <Route exact path="/signup" element={<Signup />} />
@@ -51,11 +51,7 @@ const UserDashboard = (props) => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/clubs" element={<Clubs />} />
-        <Route
-          exact
-          path="/newClub"
-          element={<NewClub onShowModel={showModelHandler} />}
-        />
+        <Route exact path="/newClub" element={<NewClub />} />
         <Route exact path="/club" element={<Club />} />
         <Route exact path="/top" element={<Top />} />
         <Route exact path="/about" element={<About />} />

@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import NewClubForm from "../NewClubForm/NewClubForm";
 import classes from "./NewClub.module.css";
-import clubCreatesvg from "../../assets/createClub/Signup-bro.svg";
+import clubCreatesvg1 from "../../assets/createClub/Signup-bro.svg";
+import clubCreatesvg2 from "../../assets/createClub/snippets-pana.svg";
 
 const NewClub = (props) => {
   const createClubHandler = () => {
@@ -27,7 +28,7 @@ const NewClub = (props) => {
         <h1>New club form</h1>
         <div className={classes["club_form-info__wrapper"]}>
           <div className={classes["club_form-logo"]}>
-            <img src={clubCreatesvg} alt="create-club-img" />
+            <img src={clubCreatesvg2} alt="create-club-img" />
           </div>
           <div className={classes["club-form-description"]}>
             <h3>Club creation requirement:</h3>
