@@ -66,10 +66,10 @@ input[type="submit"]:hover {
   letter-spacing: 3px;
 }
 
-input:focus {
+/* input:focus {
   background-color: crimson;
   color: white;
   border: none;
   font-family: "Roboto Mono", monospace;
   padding-left: 10px;
-}
+} */
