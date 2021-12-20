@@ -18,9 +18,8 @@ import Signup from "../../components/SignUp/Signup";
 import Club from "../../components/Club/Club";
 
 import Home from "../../components/Home/Home";
-import { path } from "express/lib/application";
 const UserDashboard = (props) => {
-  console.log("path->", path);
+  console.log("path->", window.location.pathname);
 
   return (
     <>
@@ -29,8 +28,8 @@ const UserDashboard = (props) => {
         <Route exact path="/signup" element={<Signup />} />
       </Routes>
       {!(
-        window.location.pathname !== "/login" ||
-        window.location.pathname !== "/signup"
+        window.location.pathname == "/login" ||
+        window.location.pathname == "/signup"
       ) && <Navbar />}
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -43,8 +42,8 @@ const UserDashboard = (props) => {
         <Route path="*" component={PageNotFound} />
       </Routes>
       {!(
-        window.location.pathname !== "/login" ||
-        window.location.pathname !== "/signup"
+        window.location.pathname == "/login" ||
+        window.location.pathname == "/signup"
       ) && <Footer />}
     </>
   );
