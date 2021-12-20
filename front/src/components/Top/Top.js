@@ -1,42 +1,36 @@
-import React from 'react'
+import React from "react";
 
 // CSS
-import classes from "./Top.module.css"
+import classes from "./Top.module.css";
 
 // file
-import ClubList from '../topClubs/List'
-
+import ClubList from "../topClubs/List";
+import { NavLink } from "react-router-dom";
 
 function Top() {
-    return (
-        <div className = {classes.top_clubs}>
+  return (
+    <div className={classes.top_clubs}>
+      <div className={classes.heading}>
+        <h2>Top Clubs</h2>
+      </div>
+      <div className={classes.viewAll}>
+        <NavLink to={"/"}>View all</NavLink>
+      </div>
 
-            <div className={classes.heading}>
-                <h2>Top Clubs</h2>
+      <div className={classes.row}>
+        {ClubList.map((data) => {
+          const { logo, description } = data;
+          return (
+            <div className={classes["club"]}>
+              <h2>{logo}</h2>
+              <span>{description}</span>
+              <NavLink to={"/"}>JOIN</NavLink>
             </div>
-            <div className={classes.viewAll}>
-                 <a href="#">View all</a>
-            </div>
-
-            <div className= {classes.row}>
-
-              {ClubList.map((data) =>{
-                //   const {name, btn} = data;
-                  return (
-                  <div className ={classes["club"]}>
-                     <a href="#">{data.name}</a>
-                  </div>
-                  )
-              })}
-              
-
-            </div>
-            
-        </div>
-    )
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
-export default Top
-
-
- 
+export default Top;
