@@ -4,6 +4,8 @@ import {Link} from "react-router-dom"
 import Gallery from "./Gallery/Gallery"
 import video from "../../assets/club/video.mp4"
 import Achivement from "../Achivement/Achivement";
+import Testonomial from "../Testonomial/Testonomial";
+import Past from "../Past/Past";
 
 
 const Club = () => {
@@ -54,6 +56,8 @@ const Club = () => {
         </div>
         <Gallery />
         <Achivement />
+        <Testonomial />
+        <Past />
       </div>
     </div>
   );

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import "./Achivement";
+import "./Achivement.css";
 
 function Achivement() {
   const [isTrue, setIsTrue] = useState(false);
 
   return (
     <div className="achivement">
-      <h2 className="achivement_heading">Achivement</h2>
+      <div className="achivement_heading">
+        <h2>Achivement</h2>
+        <span className="achivement_underline"></span>
+      </div>
       <div className="achivement_box">
         {isTrue ? (
           <p>Here is all achivement</p>
