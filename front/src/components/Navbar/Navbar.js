@@ -1,5 +1,9 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import classes from "./Navbar.module.css";
+
+// File
+
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   return (
@@ -18,34 +22,34 @@ const Navbar = (props) => {
             </h2>
           </div>
           <div className={classes.navbar_buttons}>
-            <a href="#" className={classes.btn}>
+            <Link to={"/login"} className={classes.btn}>
               Login
-            </a>
-            <a href="#" className={classes.btn}>
+            </Link>
+            <Link to={"/signup"} className={classes.btn}>
               SignUp
-            </a>
+            </Link>
           </div>
-        </div> 
+        </div>
         <div className={classes.navbar_underline}></div>
         <div className={classes.navbar_body}>
           <ul className={classes.navbar_links}>
             <li className={`${classes.navbar_link} ${classes.active}`}>
-              <a href="#">Home</a>
+              <Link to={"/"}>Home</Link>
             </li>
             <li className={classes.navbar_link}>
-            <a href="#">About</a>
+              <Link to={"/about"}>About</Link>
             </li>
             <li className={classes.navbar_link}>
-            <a href="#">Club</a>
+              <Link to="/clubs">Club</Link>
             </li>
             <li className={classes.navbar_link}>
-              <a href="#">Live Updates</a>
+              <Link to={"/live"}>Live Updates</Link>
             </li>
             <li className={classes.navbar_link}>
-              <a href="#">Contact</a>
+              <Link to={"/contact"}>Contact</Link>
             </li>
             <li className={classes.navbar_link}>
-              <a href="#">New-Club</a>
+              <Link to={"/newClub"}>New-Club</Link>
             </li>
           </ul>
         </div>
