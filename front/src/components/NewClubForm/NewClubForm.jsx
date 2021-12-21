@@ -2,6 +2,7 @@ import { useState } from "react";
 import Model from "../Ui/Model/Model";
 import classes from "./NewClubForm.module.css";
 import axios from "axios";
+import cookie from "js-cookie";
 
 const NewClubForm = (props) => {
   const [clubName, setClubName] = useState("");
@@ -14,25 +15,67 @@ const NewClubForm = (props) => {
     // Update the state
     // this.setState({ selectedFile: event.target.files[0] });
     setAuthFile(e.target.files[0]);
-    const formData = new FormData();
+    // const formData = new FormData();
 
     // Update the formData object
-    formData.append("authFile", authFile, authFile.name);
+    // formData.append("authFile", authFile);
+    console.log("formData->", e.target.files[0]);
   };
 
-  const onSubmitHandler = () => {
+  const onSubmitHandler = (e) => {
     // Create an object of formData
+    console.log("submit clickked");
+    e.preventDefault();
     const formData = new FormData();
 
     // Update the formData object
-    formData.append("authFile", authFile, authFile.name);
+    formData.append("docs", authFile);
+    formData.append("name", clubName);
+    formData.append("goal", goal);
+    formData.append("disc", description);
+    formData.append("authBy", authBy);
+    formData.append("preName", "userName");
+    formData.append("Role", "President");
+    formData.append("date", new Date().toISOString());
+    // Update the formData object
+    // formData.append("authFile", authFile, authFile.name);
 
     // Details of the uploaded file
-    console.log(authFile);
-
+    // console.log(authFile);
     // Request made to the backend api
     // Send formData object
-    axios.post("api/uploadfile", formData);
+    // axios.post("api/uploadfile", formData);
+
+    // const data = {
+    //   name: clubName,
+    //   disc: description,
+    //   goal: goal,
+    //   authDoc: authFile,
+    //   authBy: authBy,
+    //   preName: "userName",
+    //   Role: "president",
+    //   date: new Date().toISOString(),
+    // };
+    console.log("data for createClub", formData);
+    const sendDate = async () => {
+      const r = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/createclub`,
+        formData,
+        {
+          headers: {
+            Authorization: `${cookie.get("SCAM_TOKEN")}`,
+          },
+        }
+      );
+      return r;
+    };
+    sendDate()
+      .then((r) => {
+        console.log("resPonse->", r);
+      })
+      .catch((e) => {
+        console.log("error ->", e);
+      });
   };
 
   return (
@@ -47,7 +90,7 @@ const NewClubForm = (props) => {
           </div>
         </div>
         {/* <div className="form_container"> */}
-        <form action={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler}>
           <div className={classes["form_field"]}>
             <label htmlFor="club-name">Club Name:</label>
             <input
@@ -93,6 +136,7 @@ const NewClubForm = (props) => {
               type="file"
               name="Banner"
               onChange={onFileChange}
+              // value={authFile}
               className="logo-file-input"
               required
             />

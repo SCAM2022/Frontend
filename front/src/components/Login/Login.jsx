@@ -87,8 +87,8 @@ const Login = (props) => {
         }
         setClientError("Loading..."); //@ dezx edited here
         const r = await axios.post(`${process.env.REACT_APP_API_KEY}/login`, {
-          email: emailOrMobile,
-          password: password,
+          Auth: emailOrMobile,
+          Password: password,
         });
 
         if (r.status === 200) {

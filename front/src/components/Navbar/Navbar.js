@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Navbar.module.css";
-
+import cookie from "js-cookie";
 // File
 
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ const Navbar = (props) => {
               SCAM
               <br />
               <span className={classes.scam}>
-                Student Club And Activity Mnagement
+                Student Club And Activity Management
               </span>
             </h2>
           </div>
