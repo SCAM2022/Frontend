@@ -4,14 +4,9 @@ import { Link } from "react-router-dom";
 import Gallery from "./Gallery/Gallery";
 import video from "../../assets/club/video.mp4";
 import Achivement from "../Achivement/Achivement";
-<<<<<<< HEAD
+import CreateEventForm from "./CreateEvent/CreateEventForm";
 import Testonomial from "../Testonomial/Testonomial";
 import Past from "../Past/Past";
-
-
-=======
-import CreateEventForm from "./CreateEvent/CreateEventForm";
->>>>>>> 87f092842fdc724d8530470644619e61a4a6bd7a
 const Club = () => {
   const [showModel, setShowModel] = React.useState(false);
   const onCloseModel = () => {
@@ -62,17 +57,13 @@ const Club = () => {
                 </video>
               </div>
             </div>
+
+            <Gallery />
+            <Achivement />
+            <Testonomial />
+            <Past />
           </div>
-          <Gallery />
-          <Achivement />
         </div>
-<<<<<<< HEAD
-        <Gallery />
-        <Achivement />
-        <Testonomial />
-        <Past />
-=======
->>>>>>> 87f092842fdc724d8530470644619e61a4a6bd7a
       </div>
     </>
   );
