@@ -23,6 +23,7 @@
 }
 .sidenav__reg__top > img {
   /* width: 44.08px; */
+  width: auto;
   height: 80px;
   margin-left: 20px;
 }

@@ -23,7 +23,7 @@ const Login = (props) => {
 
   const [clientError, setClientError] = React.useState("");
 
-  let [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
 
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const Login = (props) => {
 
   // Validate User's input when the input field is out of focus
   const validateEmailOrMobile = () => {
-    setIsForgotSucceed(false); //@dezx added here
+    setIsForgotSucceed(false);
     const numbers = /^[0-9]+$/;
 
     const mailformat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -43,13 +43,13 @@ const Login = (props) => {
     if (emailOrMobile.match(numbers)) {
       if (emailOrMobile.length < 8) {
         setClientError("Mobile numbers should be greater than 8!");
-        return false; //@dezx edited this
-      } else return true; //@dezx Mobile number check -> return true (added this)
+        return false;
+      } else return true;
     } else if (mailformat.test(emailOrMobile)) {
       return true;
     } else {
       setClientError("Please enter a valid email or mobile number");
-      return false; //@ dezx edited here
+      return false;
     }
   };
 
@@ -100,7 +100,7 @@ const Login = (props) => {
             const { token } = r.data;
             Cookies.set("SCAM_TOKEN", token);
             console.log(token, "Tokennnn");
-            navigate("/home");
+            navigate("/");
 
             // window.location.href = `${process.env.REACT_APP_CLIENT}/dashboard`;
           }
@@ -159,9 +159,7 @@ const Login = (props) => {
                 style={{ color: isForgot && isForgotSucceed && "#00FF00" }}
               >
                 {clientError}
-                {/* check -&gt; {isForgotSucceed ? "true" : "false"} */}
               </p>
-              //  && "#00FF00"
             )
           ) : (
             <p className={classes["login__client-no__error"]}></p>
@@ -221,7 +219,6 @@ const Login = (props) => {
           <button
             className={classes["login__form-btn"]}
             onClick={!isForgot ? handleLogin : handleForgotPassword}
-            // disabled={!isInputValid}
           >
             {!isForgot ? "Login" : "Send Reset Password Link"}
           </button>

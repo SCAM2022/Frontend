@@ -1,0 +1,99 @@
+.club_form__wrapper {
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  font-weight: 700;
+  align-items: center;
+}
+.club_form__wrapper > h1 {
+  /* padding: 2rem 0;
+  color: black;
+  font-weight: bold; */
+  position: relative;
+  text-transform: uppercase;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background-color: crimson;
+  border-bottom: 4px solid beige;
+  border-right: 4px solid beige;
+  color: #f1f2f6;
+  width: 250px;
+  text-align: center;
+  padding: 6px 12px;
+  /* clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%); */
+  box-shadow: 8px 8px 0px #000;
+}
+.club_form-info__wrapper {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  border: 2px solid aquamarine;
+  width: 100%;
+  /* height: 40rem; */
+  overflow-y: auto;
+  padding: 3rem;
+}
+
+.club_form-logo {
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+}
+.club_form-logo > img {
+  width: 100%;
+  /* transform: scale(2); */
+  height: 100%;
+}
+
+.club-form-description {
+  margin: 2rem 1rem;
+  padding-left: 5px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  background-color: rgba(172, 172, 172, 0.219);
+
+  box-sizing: border-box;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.068);
+  border-radius: 10px;
+}
+
+.club-form-description > h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.club_button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.club_create-button {
+  max-width: 20rem;
+  min-width: 10rem;
+  height: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 5px solid red; */
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.253);
+  cursor: pointer;
+}
+
+.club_create-button:hover {
+  color: red;
+  background-color: white;
+}

@@ -1,10 +1,10 @@
 .btn_container {
-  position: fixed;
+  position: relative;
   display: flex;
   margin-top: 3rem;
   justify-content: space-around;
   width: 70%;
-  top: 80vh;
+  top: 80%;
 }
 
 .nxt_btn,
