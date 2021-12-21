@@ -8,6 +8,11 @@ font-family: 'Space Grotesk', sans-serif;
 
 */
 
+/*
+background: #f857a6;  /* fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #ff5858, #f857a6);
+background: linear-gradient(to right, #ff5858, #f857a6);  */
+
 * {
   padding: 0;
   margin: 0;
@@ -18,7 +23,17 @@ font-family: 'Space Grotesk', sans-serif;
   height: auto;
   text-align: center;
   padding: 40px 0px;
-  background-color: #f5f6fa;
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .about .about_heading {

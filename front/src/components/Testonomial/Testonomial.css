@@ -1,8 +1,10 @@
-.achivement {
-  width: 95%;
-  margin: 0px auto 40px auto;
+.testonomial {
+  width: 100%;
+  margin: 90px auto 40px auto;
+  background-color: darkturquoise;
+  padding-top: 12px;
 }
-.achivement_heading {
+.testonomial_heading {
   width: 100%;
   height: 60px;
   display: flex;
@@ -11,7 +13,7 @@
   flex-direction: column;
 }
 
-.achivement_heading h2 {
+.testonomial_heading h2 {
   font-weight: 600;
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -20,25 +22,18 @@
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.achivement_underline {
+.testonomial_underline {
   width: 120px;
   height: 3px;
   background-color: crimson;
   display: block;
 }
 
-.achivement_box {
-  margin-top: 40px !important;
-  width: 100%;
-  height: 300px;
-  border: 2px solid #333;
-  margin-top: 12px;
+.users {
+  margin-top: 40px;
+  width: 95%;
+  height: 350px;
+  margin: 0px auto;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.achivement_box p {
-  font-size: 24px;
-  font-weight: 600;
 }

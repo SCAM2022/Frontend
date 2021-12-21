@@ -1,0 +1,30 @@
+.user {
+  max-width: 100%;
+  min-width: 150px;
+  padding: 0px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 8px;
+  margin-right: 8px;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+.user > img {
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  margin-top: -18px;
+  background-color: #e8e8e9;
+}
+
+.user > p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: lowercase;
+}
