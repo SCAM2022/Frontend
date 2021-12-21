@@ -1,5 +1,6 @@
 import React from "react";
 import "./Profile.css";
+import ProfileDetail from "./profileDetail/ProfileDetail";
 
 const Profile = () => {
   return (
@@ -15,6 +16,9 @@ const Profile = () => {
         <div className="profile_edit">
           <button>profile edit</button>
         </div>
+      </div>
+      <div className="profile_info">
+        <ProfileDetail />
       </div>
     </div>
   );
