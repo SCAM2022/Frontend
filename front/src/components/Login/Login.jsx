@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { css } from "@emotion/react";
 import BarLoader from "react-spinners/BarLoader";
-import bgImage from "../../assets/logInBgImage.jpg";
 import axios from "axios";
 import Cookies from "js-cookie";
 import club from "../../assets/loginSvg/club.png";
@@ -117,13 +116,13 @@ const Login = (props) => {
   const handleForgotPassword = (e) => {
     e.preventDefault();
     if (!emailOrMobile) {
-      return setClientError("Enter All fields"); // @dezx edited here
+      return setClientError("Enter All fields");
     } else {
       if (!validateEmailOrMobile()) {
         return;
       }
-      setIsForgotSucceed(false); // @dezx set idForgotPass status to false
-      setClientError("Loading..."); //@ dezx added here
+      setIsForgotSucceed(false);
+      setClientError("Loading...");
     }
   };
 
