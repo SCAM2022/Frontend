@@ -6,6 +6,7 @@ import { ClubList } from "./ClubList";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import cookie from "js-cookie";
+// import club from "../../assets/code.jpg"
 
 const Clubs = () => {
   const [clubs, setClubs] = useState("");

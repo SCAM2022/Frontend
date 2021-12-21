@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Space Grotesk', sans-serif;
+
+*/
+
+.profile {
+  width: 70%;
+  margin: 50px auto;
+  height: 800px;
+}
+
+.profile_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 200px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #333;
+}
+
+.profile_header .profile_img {
+  flex: 0.5;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #333;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.profile_header .profile_img img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 4px;
+}
+
+.profile_header .profile_img span {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.profile_edit button {
+  font-family: "Poppins", sans-serif;
+  width: 120px;
+  height: 35px;
+  border: 1px solid #000;
+  border-radius: 12px;
+}
+
+.profile_edit button:hover {
+  background-color: #f9ca24;
+  border: none;
+  color: white;
+}

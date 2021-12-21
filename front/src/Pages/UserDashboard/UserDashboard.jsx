@@ -19,6 +19,8 @@ import Club from "../../components/Club/Club";
 import Home from "../../components/Home/Home";
 import NewClub from "../../components/NewClub/NewClub";
 import Model from "../../components/Ui/Model/Model";
+import Member from "../../components/Member/Member";
+import Profile from "../../components/Profile/Profile";
 
 const UserDashboard = (props) => {
   console.log(
@@ -57,6 +59,8 @@ const UserDashboard = (props) => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/gallery" element={<Gallery />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/member" element={<Member />} />
+        <Route exact path="/profile" element={<Profile />} />
         {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
       {!(

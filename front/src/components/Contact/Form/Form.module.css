@@ -23,7 +23,7 @@ font-family: 'Space Grotesk', sans-serif;
   border-bottom: 8px solid crimson;
 }
 
-.Form input,
+.Form .form_input,
 input[type="submit"],
 textarea {
   margin-bottom: 18px;
@@ -32,6 +32,12 @@ textarea {
   border: 1px solid #34495e;
   border-radius: 8px;
   outline: none;
+}
+
+.Form .form_input:focus {
+  /* border: 1px solid crimson; */
+  background-color: crimson;
+  border: none;
 }
 
 ::placeholder {
