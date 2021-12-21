@@ -2,7 +2,7 @@ import { useState } from "react";
 import Model from "../../Ui/Model/Model";
 import classes from "./CreateEventForm.module.css";
 import axios from "axios";
-
+import cookie from "js-cookie";
 const CreateEventForm = (props) => {
   const [eventName, setEventName] = useState("");
   const [category, setCategory] = useState("");
@@ -12,7 +12,41 @@ const CreateEventForm = (props) => {
   const [startTime, setStartTime] = useState("");
   const [location, setLocation] = useState("");
   const [incharge, setIncharge] = useState("");
-  const onSubmitHandler = () => {};
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+    const data = {
+      title: eventName,
+      category: category,
+      discription: description,
+      startDate: startDate,
+      endDate: endDate,
+      startTime: startTime,
+      location: location,
+      incharge: incharge,
+      clubName: "default club",
+    };
+
+    const sendDate = async () => {
+      const r = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/createEvent`,
+        data,
+        {
+          headers: {
+            Authorization: `${cookie.get("SCAM_TOKEN")}`,
+          },
+        }
+      );
+      return r;
+    };
+    sendDate()
+      .then((r) => {
+        console.log("resPonse eventCreation->", r);
+      })
+      .catch((e) => {
+        console.log("error on eventCreation->", e);
+      });
+  };
 
   return (
     <Model>
@@ -26,7 +60,7 @@ const CreateEventForm = (props) => {
           </div>
         </div>
         {/* <div className="form_container"> */}
-        <form action={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler}>
           <div className={classes["form_field"]}>
             <label htmlFor="club-name">Event Name:</label>
             <input
