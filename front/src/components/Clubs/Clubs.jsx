@@ -3,7 +3,7 @@
 import React from 'react'
 import classes from './Clubs.module.css';
 // import Navbar from '../Navbar/Navbar'
-import club from "../../assets/code.jpg"
+// import club from "../../assets/code.jpg"
 import {ClubList} from "./ClubList";
 import {Link} from "react-router-dom";
 

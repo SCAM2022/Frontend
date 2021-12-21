@@ -9,10 +9,18 @@ const Form = () => {
     <div className={classes.Form}>
       <form action="">
         <div className={classes.userName}>
-          <input type="text" placeholder="User name" />
+          <input
+            className={classes.form_input}
+            type="text"
+            placeholder="User name"
+          />
         </div>
         <div className={classes.email}>
-          <input type="email" placeholder="Email adress" />
+          <input
+            className={classes.form_input}
+            type="email"
+            placeholder="Email adress"
+          />
         </div>
         <div className={classes.textArea}>
           <textarea name="mesage" id="" cols="30" rows="10">
