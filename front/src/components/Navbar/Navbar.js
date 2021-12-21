@@ -12,13 +12,11 @@ const Navbar = (props) => {
         <div className={classes.navbar_head}>
           <div className={classes.navbar_logo}>
             <h2 className={classes.logo}>
-              <span className="scam">SCAM</span>
+              SCAM
               <br />
-              <span className={classes.first_letter}>S</span>tudent
-              <span className={classes.first_letter}>C</span>lub
-              <span className={classes.first_letter}>A</span>nd
-              <span className={classes.first_letter}>A</span>ctivity
-              <span className={classes.first_letter}>M</span>nagment
+              <span className={classes.scam}>
+                Student Club And Activity Mnagement
+              </span>
             </h2>
           </div>
           <div className={classes.navbar_buttons}>

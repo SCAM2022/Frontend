@@ -1,6 +1,8 @@
 .testonomial {
-  width: 95%;
+  width: 100%;
   margin: 90px auto 40px auto;
+  background-color: darkturquoise;
+  padding-top: 12px;
 }
 .testonomial_heading {
   width: 100%;
