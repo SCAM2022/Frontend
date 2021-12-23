@@ -34,6 +34,7 @@ const Club = () => {
                <Link to= "">
                    <li>Past Event</li>
               </Link>
+              
              
             </div>
           </div>

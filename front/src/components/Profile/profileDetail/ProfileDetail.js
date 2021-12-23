@@ -8,37 +8,41 @@ const ProfileDetail = () => {
       {ProfileInfo.map((detail) => {
         return (
           <>
-            <div className="profileDetail_name">
+            <div className="profileDetail_name profileDetail_info">
               <span>userName :</span>
               <span>{detail.name}</span>
             </div>
-            <div className="profileDetail_branch">
+            <div className="profileDetail_branch profileDetail_info">
               <span>Branch :</span>
               <span>{detail.branch}</span>
             </div>
-            <div className="profileDetail_enroll">
+            <div className="profileDetail_enroll profileDetail_info">
               <span>Enrollment No. :</span>
               <span>{detail.enroll}</span>
             </div>
-            <div className="profileDetail_roll">
+            <div className="profileDetail_roll profileDetail_info">
               <span>Roll No. :</span>
               <span>{detail.roll}</span>
             </div>
-            <div className="profileDetail_email">
+            <div className="profileDetail_email profileDetail_info">
               <span>E-mail :</span>
               <span>{detail.email}</span>
             </div>
-            <div className="profileDetail_join">
+            <div className="profileDetail_join profileDetail_info">
               <span>Club joined :</span>
               <span>{detail.join}</span>
             </div>
-            <div className="profileDetail_last">
+            <div className="profileDetail_last profileDetail_info">
               <span>Last visit :</span>
               <span>{detail.last}</span>
             </div>
-            <div className="profileDetail_register">
+            <div className="profileDetail_register profileDetail_info">
               <span>Registered :</span>
               <span>{detail.registered}</span>
+            </div>
+            <div className="profileDetail_date profileDetail_info">
+              <span>Join Date :</span>
+              <span>{detail.date}</span>
             </div>
           </>
         );
