@@ -1,3 +1,13 @@
+.parent_member {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  /* background-image: url("../../assets/member.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
+
 .member {
   width: 95%;
   height: 100%;
@@ -15,8 +25,8 @@
   border-radius: 24px;
   margin-top: 24px;
   outline: none;
+  color: #f2f2f2f2;
   padding-left: 8px;
-  color: #333;
   font-weight: 600;
   background: #74ebd5; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -64,13 +74,37 @@
   height: 40px;
   width: 100%;
   display: flex;
+  border-radius: 12px;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.5s !important;
+}
+
+.member_list-name {
+  display: flex;
+  width: 200px;
+  align-items: center;
+}
+
+.member_list-name img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .member_list:hover {
-  background-color: white;
+  /* background: #00c6ff;  */
+  background: -webkit-linear-gradient(
+    to right,
+    #0072ff,
+    #00c6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0072ff,
+    #00c6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 12px;
 }
 .member_list span {

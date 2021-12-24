@@ -14,7 +14,7 @@ function Hero(props) {
           </h1>
         </div>
         <div className={classes.btn}>
-          <Link to="">Join</Link>
+          <Link to="/clubs">Join</Link>
         </div>
       </div>
       <div className={classes.main_right}>
