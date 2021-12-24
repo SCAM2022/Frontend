@@ -6,7 +6,6 @@ import { ClubList } from "./ClubList";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import cookie from "js-cookie";
-// import club from "../../assets/code.jpg"
 
 const Clubs = (props) => {
   const [clubs, setClubs] = useState("");
@@ -59,7 +58,7 @@ const Clubs = (props) => {
                 <div className={classes.club} key={id}>
                   <img src={club} alt={name} />
                   <h2 className={classes.club_heading}>{name}</h2>
-                  <Link to="/club" className={classes.club_btn}>
+                  <Link to={`/club/${name}`} className={classes.club_btn}>
                     Join
                   </Link>
                 </div>

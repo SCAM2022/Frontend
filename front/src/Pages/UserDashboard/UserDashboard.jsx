@@ -48,7 +48,7 @@ const UserDashboard = (props) => {
     window.location.pathname === "/login",
     window.location.pathname === "/signup"
   );
-  console.log("loc->", props.location);
+  console.log("loc->", window.location.pathname);
   // const [showModel, setShowModel] = useState(false);
 
   // const showModelHandler = () => {
@@ -74,7 +74,15 @@ const UserDashboard = (props) => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/clubs" element={<Clubs />} />
         <Route exact path="/newClub" element={<NewClub />} />
-        <Route exact path="/club" element={<Club />} />
+        <Route exact path="/club/:cname" element={<Club />} />
+
+        {/* <Route
+        path="/v/:vname/drinks/"
+        render={(props) => {
+          const vname = props.match.params.vname;
+          return <Menu venue_name={vname} />;
+        }} */}
+
         <Route exact path="/top" element={<Top />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/gallery" element={<Gallery />} />

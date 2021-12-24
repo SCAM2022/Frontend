@@ -10,17 +10,41 @@ import Testonomial from "../Testonomial/Testonomial";
 import Past from "../Past/Past";
 import CreateEventForm from "./CreateEvent/CreateEventForm";
 import axios from "axios";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+const Club = (props) => {
+  const params = useParams();
+  const [clubName, setClubName] = React.useState(params.cname);
 
-const Club = () => {
   const [showModel, setShowModel] = React.useState(false);
   const [userData, setUserData] = React.useState(null);
 
   const showModelHandler = () => {
     setShowModel(true);
   };
+
   const closeModel = () => {
     setShowModel(false);
   };
+  console.log("ClubName ->", clubName);
+
+  React.useEffect(() => {
+    // fetching clubDatas
+    const getClubData = async () => {
+      const r = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/user`,
+        {
+          id: `${cookie.get("SCAM_USER_ID")}`,
+        },
+        {
+          headers: {
+            Authorization: `${cookie.get("SCAM_TOKEN")}`,
+          },
+        }
+      );
+      return r;
+    };
+  }, []);
+
   React.useEffect(() => {
     const getUser = async () => {
       console.log("0<", cookie.get("SCAM_TOKEN"));
@@ -50,7 +74,7 @@ const Club = () => {
               name: r.data.name,
               Role: "member",
               joinedOn: new Date().toISOString(),
-              clubName: "Coding Club",
+              clubName: clubName,
             },
             {
               headers: {
