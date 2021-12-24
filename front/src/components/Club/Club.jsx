@@ -53,6 +53,9 @@ const Club = () => {
                <source src={video} type="video/obb"/>
              </video>
             </div>
+            <div className="join_btn">
+              <button>Join</button>
+            </div>
           </div>
         </div>
         <Gallery />

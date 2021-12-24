@@ -10,14 +10,14 @@ import Contact from "../Contact/Contact"
 
 const Home = () => {
     return (
-        <div>
+        <>
     <Hero/>
     {/* <Customer /> */}
      <Top />
      <About />
      <Gallery />
       <Contact />
-        </div>
+        </>
     )
 }
 
