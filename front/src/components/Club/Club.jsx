@@ -17,7 +17,7 @@ const Club = () => {
           <div className="col col-md-3 col-lg-3 col-sm-2 bg-primary club_left">
             <div className="club_links">
              <Link to ="">
-                   <li>Create Event</li>
+              <li>Create Event</li>
              </Link>
             <Link to ="">
                   <li>Gallery</li>

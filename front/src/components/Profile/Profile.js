@@ -11,7 +11,7 @@ const Profile = () => {
             src="https://cdn-icons-png.flaticon.com/512/3011/3011270.png"
             alt="profile-img"
           />
-          <span>Basant Kuamr</span>
+          <span>Fazil</span>
         </div>
         <div className="profile_edit">
           <button>profile edit</button>

@@ -19,16 +19,16 @@ const ClubList = [
     description:
       "Coding Club aims to establish a coding culture on campus, reaching every student passionate about coding",
   },
-  {
-    logo: "Robot Club",
-    description:
-      "A Robotics club is a gathering of students who are interested in learning about and working with robots",
-  },
-  {
-    logo: "Designer Club",
-    description:
-      "The club is dedicated to providing career-building workshops year round as well as hosting Department Events .",
-  },
+  // {
+  //   logo: "Robot Club",
+  //   description:
+  //     "A Robotics club is a gathering of students who are interested in learning about and working with robots",
+  // },
+  // {
+  //   logo: "Designer Club",
+  //   description:
+  //     "The club is dedicated to providing career-building workshops year round as well as hosting Department Events .",
+  // },
 ];
 
 export default ClubList;

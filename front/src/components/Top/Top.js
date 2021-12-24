@@ -13,9 +13,9 @@ function Top() {
       <div className={classes.heading}>
         <h2>Top Clubs</h2>
       </div>
-      <div className={classes.viewAll}>
+      {/* <div className={classes.viewAll}>
         <NavLink to={"/"}>View all</NavLink>
-      </div>
+      </div> */}
 
       <div className={classes.row}>
         {ClubList.map((data) => {
@@ -24,7 +24,9 @@ function Top() {
             <div className={classes["club"]}>
               <h2>{logo}</h2>
               <span>{description}</span>
-              <NavLink to={"/"}>JOIN</NavLink>
+              <NavLink to={"/"} className={classes.view}>
+                View
+              </NavLink>
             </div>
           );
         })}

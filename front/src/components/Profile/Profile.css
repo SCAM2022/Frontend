@@ -46,6 +46,7 @@ font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   color: #333;
   letter-spacing: 1px;
+  margin-left: 10px;
 }
 
 .profile_edit button {
