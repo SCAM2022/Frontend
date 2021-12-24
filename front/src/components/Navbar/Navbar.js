@@ -1,11 +1,14 @@
 import React from "react";
 import classes from "./Navbar.module.css";
-import cookie from "js-cookie";
 // File
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ProfileAvatar from "../Profile/ProfileAvatar";
+// import ProfileIcon from './Profile/'
 
-const Navbar = (props) => {
+const Navbar = ({ logoutHandler, loggedIn, ...props }) => {
+  const navigate = useNavigate();
+
   return (
     <div className={classes.container}>
       <div className={classes.navbar}>
@@ -19,14 +22,24 @@ const Navbar = (props) => {
               </span>
             </h2>
           </div>
-          <div className={classes.navbar_buttons}>
-            <Link to={"/login"} className={classes.btn}>
-              Login
-            </Link>
-            <Link to={"/signup"} className={classes.btn}>
-              SignUp
-            </Link>
-          </div>
+          {loggedIn ? (
+            <ProfileAvatar logoutHandler={logoutHandler} />
+          ) : (
+            <div className={classes.navbar_buttons}>
+              <button
+                onClick={() => window.location.replace("/login")}
+                className={classes.btn}
+              >
+                Login
+              </button>
+              <button
+                onClick={() => window.location.replace("/login")}
+                className={classes.btn}
+              >
+                SignUp
+              </button>
+            </div>
+          )}
         </div>
         <div className={classes.navbar_underline}></div>
         <div className={classes.navbar_body}>

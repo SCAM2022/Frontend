@@ -55,7 +55,7 @@ body {
 
 .navbar .navbar_logo .logo .scam {
   color: #f2f2f2f2;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 16px;
   font-weight: 600;
   word-spacing: 5px;
@@ -81,6 +81,7 @@ body {
   letter-spacing: 1px;
   transition: all 0.5s;
   box-shadow: inset 0 0 0 0 crimson;
+  cursor: pointer;
 }
 .navbar_buttons .btn:hover {
   opacity: 0.9;

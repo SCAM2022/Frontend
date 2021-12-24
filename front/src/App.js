@@ -8,7 +8,7 @@ import React, { Fragment, Suspense } from "react";
 import UserDashboard from "./Pages/UserDashboard/UserDashboard";
 import LoadingSpinner from "./components/Ui/LoadingSpinner/LoadingSpinner";
 import "./App.css";
-
+import "./utils/axios";
 const App = () => {
   console.log("-> apphere <-");
 
