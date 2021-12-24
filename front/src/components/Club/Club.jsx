@@ -84,13 +84,13 @@ const Club = (props) => {
           );
           return res;
         };
-        joinClub()
-          .then((r) => {
-            console.log("joined successfully");
-          })
-          .catch((e) => {
-            console.log("error while joining");
-          });
+        // joinClub()
+        //   .then((r) => {
+        //     console.log("joined successfully");
+        //   })
+        //   .catch((e) => {
+        //     console.log("error while joining");
+        //   });
       })
       .catch((e) => {
         console.log("userError ->", e);
