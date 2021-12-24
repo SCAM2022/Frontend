@@ -5,7 +5,7 @@ const User = ({ name, branch }) => {
   return (
     <div className="user">
       <img
-        src="https://cdn-icons-png.flaticon.com/512/456/456212.png"
+        src="https://cdn-icons-png.flaticon.com/512/236/236831.png"
         alt="user"
       />
       <p className="user_text">

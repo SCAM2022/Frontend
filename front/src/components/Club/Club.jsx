@@ -98,6 +98,11 @@ const Club = () => {
               <Link to="">
                 <li>Past Event</li>
               </Link>
+<<<<<<< HEAD
+=======
+              
+             
+>>>>>>> 4d22e04353297f63d5f8781bf23cb9262f942cd8
             </div>
           </div>
           <div className="col col-md-9 col-lg-9 col-sm-10 bg-dark club_right">
