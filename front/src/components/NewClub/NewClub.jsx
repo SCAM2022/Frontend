@@ -8,6 +8,9 @@ import clubCreatesvg2 from "../../assets/createClub/snippets-pana.svg";
 const NewClub = (props) => {
   const createClubHandler = () => {
     console.log("clicked");
+    
+    
+    
     // props.onShowModel();
     showModelHandler();
   };

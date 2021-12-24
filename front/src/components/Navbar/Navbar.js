@@ -4,8 +4,14 @@ import cookie from "js-cookie";
 // File
 
 import { Link } from "react-router-dom";
-
+import Cookies from "js-cookie";
 const Navbar = (props) => {
+  const logoutHandler = () => {
+    // cookie.remove('')
+    Cookies.remove("SCAM_USER_ID");
+    Cookies.remove("SCAM_TOKEN");
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.navbar}>
@@ -19,14 +25,22 @@ const Navbar = (props) => {
               </span>
             </h2>
           </div>
-          <div className={classes.navbar_buttons}>
-            <Link to={"/login"} className={classes.btn}>
-              Login
-            </Link>
-            <Link to={"/signup"} className={classes.btn}>
-              SignUp
-            </Link>
-          </div>
+          {cookie.get("SCAM_USER_ID") ? (
+            <div className={classes.navbar_buttons}>
+              <div className={classes.btn} onClick={logoutHandler}>
+                Logout
+              </div>
+            </div>
+          ) : (
+            <div className={classes.navbar_buttons}>
+              <Link to={"/login"} className={classes.btn}>
+                Login
+              </Link>
+              <Link to={"/signup"} className={classes.btn}>
+                SignUp
+              </Link>
+            </div>
+          )}
         </div>
         <div className={classes.navbar_underline}></div>
         <div className={classes.navbar_body}>

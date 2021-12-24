@@ -96,8 +96,9 @@ const Login = (props) => {
             setClientError(r.data.error);
           } else {
             console.log("response->", r);
-            const { token } = r.data;
+            const { token, id } = r.data;
             Cookies.set("SCAM_TOKEN", token);
+            Cookies.set("SCAM_USER_ID", id);
             console.log(token, "Tokennnn");
             navigate("/");
 

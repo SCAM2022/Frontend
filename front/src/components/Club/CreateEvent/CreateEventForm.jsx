@@ -24,9 +24,10 @@ const CreateEventForm = (props) => {
       startTime: startTime,
       location: location,
       incharge: incharge,
-      clubName: "default club",
+      clubName: "Coding Club",
     };
 
+    props.closeModel();
     const sendDate = async () => {
       const r = await axios.post(
         `${process.env.REACT_APP_API_KEY}/createEvent`,

@@ -4,12 +4,14 @@ import classes from "./NewClubForm.module.css";
 import axios from "axios";
 import cookie from "js-cookie";
 
+import { useNavigate } from "react-router";
 const NewClubForm = (props) => {
   const [clubName, setClubName] = useState("");
   const [goal, setGoal] = useState("");
   const [description, setDescription] = useState("");
   const [authBy, setAuthBy] = useState("");
   const [authFile, setAuthFile] = useState(null);
+  const navigate = useNavigate();
 
   const onFileChange = (e) => {
     // Update the state
@@ -72,8 +74,10 @@ const NewClubForm = (props) => {
     sendDate()
       .then((r) => {
         console.log("resPonse->", r);
+        navigate("/clubs");
       })
       .catch((e) => {
+        navigate("/clubs");
         console.log("error ->", e);
       });
   };
