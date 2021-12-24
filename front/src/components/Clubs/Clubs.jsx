@@ -6,24 +6,27 @@ import { ClubList } from "./ClubList";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import cookie from "js-cookie";
-// import club from "../../assets/code.jpg"
 
-const Clubs = () => {
+const Clubs = (props) => {
   const [clubs, setClubs] = useState("");
 
-  //   useEffect(() => {
-  //     const getClubs = async () => {
-  //       const r = await axios.get(`${process.env.REACT_APP_API_KEY}/findClub`);
-  //       return r;
-  //     };
-  //     getClubs
-  //       .then((r) => {
-  //         console.log("clubList->", r);
-  //       })
-  //       .catch((e) => {
-  //         console.log("getClub err->", e);
-  //       });
-  //   }, []);
+  useEffect(() => {
+    const getClubsData = async () => {
+      const getClubs = async () => {
+        const r = await axios.get(`${process.env.REACT_APP_API_KEY}/findClub`);
+        return r;
+      };
+      getClubs()
+        .then((r) => {
+          console.log("clubList->", r);
+          setClubs(r?.data);
+        })
+        .catch((e) => {
+          console.log("getClub err->", e);
+        });
+    };
+    getClubsData();
+  }, []);
 
   return (
     <div>
@@ -48,6 +51,19 @@ const Clubs = () => {
               </div>
             );
           })}
+          {clubs &&
+            clubs.map((list) => {
+              const { id, name, img, disc } = list;
+              return (
+                <div className={classes.club} key={id}>
+                  <img src={club} alt={name} />
+                  <h2 className={classes.club_heading}>{name}</h2>
+                  <Link to={`/club/${name}`} className={classes.club_btn}>
+                    Join
+                  </Link>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
