@@ -3,15 +3,10 @@ import classes from "./Navbar.module.css";
 import cookie from "js-cookie";
 // File
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-const Navbar = (props) => {
-  const logoutHandler = () => {
-    // cookie.remove('')
-    Cookies.remove("SCAM_USER_ID");
-    Cookies.remove("SCAM_TOKEN");
-  };
-
+const Navbar = ({ logoutHandler, loggedIn, ...props }) => {
+  const navigate = useNavigate();
   return (
     <div className={classes.container}>
       <div className={classes.navbar}>
@@ -25,7 +20,7 @@ const Navbar = (props) => {
               </span>
             </h2>
           </div>
-          {cookie.get("SCAM_USER_ID") ? (
+          {loggedIn ? (
             <div className={classes.navbar_buttons}>
               <div className={classes.btn} onClick={logoutHandler}>
                 Logout
@@ -33,12 +28,18 @@ const Navbar = (props) => {
             </div>
           ) : (
             <div className={classes.navbar_buttons}>
-              <Link to={"/login"} className={classes.btn}>
+              <button
+                onClick={() => window.location.replace("/login")}
+                className={classes.btn}
+              >
                 Login
-              </Link>
-              <Link to={"/signup"} className={classes.btn}>
+              </button>
+              <button
+                onClick={() => window.location.replace("/login")}
+                className={classes.btn}
+              >
                 SignUp
-              </Link>
+              </button>
             </div>
           )}
         </div>

@@ -1,5 +1,6 @@
 //  File
-import { useState } from "react";
+
+import React from "react";
 
 import { Routes } from "react-router-dom";
 import { Route } from "react-router";
@@ -21,14 +22,33 @@ import NewClub from "../../components/NewClub/NewClub";
 import Model from "../../components/Ui/Model/Model";
 import Member from "../../components/Member/Member";
 import Profile from "../../components/Profile/Profile";
+import Cookies from "js-cookie";
 
 const UserDashboard = (props) => {
+  const [loggedIn, setLoggedIn] = React.useState(false);
+
+  React.useEffect(() => {
+    if (Cookies.get("SCAM_USER_ID")) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  }, []);
+
+  const logoutHandler = () => {
+    // cookie.remove('')
+    Cookies.remove("SCAM_USER_ID");
+    Cookies.remove("SCAM_TOKEN");
+    setLoggedIn(false);
+  };
+
   console.log(
     "path->",
     window.location.pathname,
     window.location.pathname === "/login",
     window.location.pathname === "/signup"
   );
+  console.log("loc->", props.location);
   // const [showModel, setShowModel] = useState(false);
 
   // const showModelHandler = () => {
@@ -42,14 +62,14 @@ const UserDashboard = (props) => {
   return (
     <>
       {/* {showModel && <Model onClose={hideModelHandler} />} */}
+      {!(
+        window.location.pathname === "/login" ||
+        window.location.pathname === "/signup"
+      ) && <Navbar logoutHandler={logoutHandler} loggedIn={loggedIn} />}
       <Routes>
         <Route exact path="/login" element={<LoginScreen />} />
         <Route exact path="/signup" element={<Signup />} />
       </Routes>
-      {!(
-        window.location.pathname === "/login" ||
-        window.location.pathname === "/signup"
-      ) && <Navbar />}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/clubs" element={<Clubs />} />

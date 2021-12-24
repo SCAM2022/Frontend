@@ -100,8 +100,8 @@ const Login = (props) => {
             Cookies.set("SCAM_TOKEN", token);
             Cookies.set("SCAM_USER_ID", id);
             console.log(token, "Tokennnn");
-            navigate("/");
-
+            // navigate("/");
+            window.location.replace("/");
             // window.location.href = `${process.env.REACT_APP_CLIENT}/dashboard`;
           }
         }
