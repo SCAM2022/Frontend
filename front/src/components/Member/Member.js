@@ -66,17 +66,6 @@ const Member = () => {
           })}
         </div>
 
-        {members.map((member) => {
-          return (
-            <>
-              <Link to="/profile" className="member_list">
-                <span>{member.member}</span>
-                <span>{member.branch}</span>
-                <span>{member.date}</span>
-              </Link>
-            </>
-          );
-        })}
         {memberList &&
           memberList.map((member) => {
             return (

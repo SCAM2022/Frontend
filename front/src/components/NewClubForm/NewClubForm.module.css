@@ -1,7 +1,9 @@
 .model_container {
   padding: 20px 15px;
 }
-
+-webkit-scrollbar {
+  display: none;
+}
 .model_button {
   display: flex;
   flex-direction: column;

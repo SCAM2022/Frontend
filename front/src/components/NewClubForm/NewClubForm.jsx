@@ -5,23 +5,42 @@ import axios from "axios";
 import cookie from "js-cookie";
 
 import { useNavigate } from "react-router";
-const NewClubForm = (props) => {
+
+const NewClubForm = ({ error, setError, ...props }) => {
   const [clubName, setClubName] = useState("");
   const [goal, setGoal] = useState("");
   const [description, setDescription] = useState("");
   const [authBy, setAuthBy] = useState("");
   const [authFile, setAuthFile] = useState(null);
-  const navigate = useNavigate();
+  const [ImgFile, setImgFile] = useState(null);
 
-  const onFileChange = (e) => {
+  const navigate = useNavigate();
+  const checkFileFormat = (dat, type) => {
+    console.log("file after splitting", dat, dat.split("."));
+    const tmp = dat.split(".");
+    const fileType = tmp[tmp.length - 1];
+    console.log("filetype->", fileType);
+    if (fileType !== type) {
+      setError(`Please upload document in ${type} form Only!`);
+      return false;
+    }
+    return true;
+  };
+  const onFileChangePdf = (e) => {
     // Update the state
     // this.setState({ selectedFile: event.target.files[0] });
-    setAuthFile(e.target.files[0]);
-    // const formData = new FormData();
-
-    // Update the formData object
-    // formData.append("authFile", authFile);
-    console.log("formData->", e.target.files[0]);
+    if (checkFileFormat(e.target.files[0].name, "pdf")) {
+      setAuthFile(e.target.files[0]);
+    } else {
+      e.target.value = "";
+    }
+  };
+  const onFileChangePic = (e) => {
+    if (checkFileFormat(e.target.files[0].name, "jpg")) {
+      setImgFile(e.target.files[0]);
+    } else {
+      e.target.value = "";
+    }
   };
 
   const onSubmitHandler = (e) => {
@@ -32,6 +51,7 @@ const NewClubForm = (props) => {
 
     // Update the formData object
     formData.append("docs", authFile);
+    formData.append("docs", ImgFile);
     formData.append("name", clubName);
     formData.append("goal", goal);
     formData.append("disc", description);
@@ -139,7 +159,19 @@ const NewClubForm = (props) => {
             <input
               type="file"
               name="Banner"
-              onChange={onFileChange}
+              onChange={onFileChangePdf}
+              // value={authFile}
+              className="logo-file-input"
+              required
+            />
+          </div>
+          <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Club Picture:</label>
+
+            <input
+              type="file"
+              name="Banner"
+              onChange={onFileChangePic}
               // value={authFile}
               className="logo-file-input"
               required

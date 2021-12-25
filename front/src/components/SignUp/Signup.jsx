@@ -10,7 +10,7 @@ import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import PageFinal from "./PageFinal";
-import Error from "./Error";
+import Error from "../Ui/Error/Error";
 import classes from "./Signup.module.css";
 const Signup = (props) => {
   console.log("signup");
