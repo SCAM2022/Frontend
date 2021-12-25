@@ -5,6 +5,7 @@ import axios from "axios";
 import cookie from "js-cookie";
 import closeSvg from "../../assets/close.svg";
 import { useNavigate } from "react-router";
+import { set } from "express/lib/application";
 
 const NewClubForm = ({ error, setError, ...props }) => {
   const [clubName, setClubName] = useState("");
@@ -43,15 +44,58 @@ const NewClubForm = ({ error, setError, ...props }) => {
     }
   };
 
-  const onSubmitHandler = (e) => {
+  const checkNameAvailabilty = async () => {
+    // /checkClub
+    const checkClub = async () => {
+      const r = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/checkClub`,
+        { name: clubName },
+        {
+          headers: {
+            Authorization: `${cookie.get("SCAM_TOKEN")}`,
+          },
+        }
+      );
+      return r;
+    };
+
+    const val = await checkClub()
+      .then((r) => {
+        console.log("clubCheck response->", r.data, r.data.success);
+        return r.data.success;
+      })
+      .catch((e) => {
+        console.log("error in clubName Check->", e);
+        return false;
+      });
+    return val;
+  };
+  const onSubmitHandler = async (e) => {
     // Create an object of formData
-    console.log("submit clickked");
     e.preventDefault();
+    // console.log("waiting,", tmp);
+    // console.log("submit clickked", checkNameAvailabilty());
+    checkNameAvailabilty().then((r) => {
+      console.log("inside Res=>", r);
+      if (!r) {
+        setError("Please Enter Unique clubName!");
+        return;
+      } else {
+        setError("success");
+      }
+    });
+    // if (!checkNameAvailabilty()) {
+    //   setError("Please Enter Unique clubName!");
+    //   return;
+    // } else {
+    //   setError("Success!");
+    // }
+    // return;
     const formData = new FormData();
 
     // Update the formData object
     formData.append("docs", authFile);
-    formData.append("docs", ImgFile);
+    // formData.append("docs", ImgFile);
     formData.append("name", clubName);
     formData.append("goal", goal);
     formData.append("disc", description);

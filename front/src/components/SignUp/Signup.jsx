@@ -57,7 +57,7 @@ const Signup = (props) => {
       }
     };
 
-    checkEmail()
+    const res = await checkEmail()
       .then((res) => {
         console.log("succ->", res);
         if (res?.success) {
@@ -70,6 +70,7 @@ const Signup = (props) => {
         console.log("error->", err);
         return true;
       });
+    return res;
   };
 
   const checkRollEnrollInList = async (enroll, roll) => {
@@ -91,7 +92,7 @@ const Signup = (props) => {
       }
     };
 
-    checkRollEnroll()
+    const res = await checkRollEnroll()
       .then((res) => {
         console.log("succ->", res);
         if (res?.success) {
@@ -104,6 +105,7 @@ const Signup = (props) => {
         console.log("error->", err);
         return true;
       });
+    return res;
   };
 
   const handleForm = (data) => {};
