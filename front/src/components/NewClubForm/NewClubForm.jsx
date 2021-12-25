@@ -3,7 +3,7 @@ import Model from "../Ui/Model/Model";
 import classes from "./NewClubForm.module.css";
 import axios from "axios";
 import cookie from "js-cookie";
-
+import closeSvg from "../../assets/close.svg";
 import { useNavigate } from "react-router";
 
 const NewClubForm = ({ error, setError, ...props }) => {
@@ -110,7 +110,10 @@ const NewClubForm = ({ error, setError, ...props }) => {
             className={classes["model_close-button"]}
             onClick={props.closeModel}
           >
-            X
+            <div className={classes["club_create-heading"]}>
+              Create Club Form
+            </div>
+            <img src={closeSvg} alt="close-svg" />
           </div>
         </div>
         {/* <div className="form_container"> */}
