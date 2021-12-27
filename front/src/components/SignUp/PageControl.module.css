@@ -25,11 +25,22 @@
   margin-bottom: 20px;
   cursor: pointer;
   outline: 0;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.356);
+}
+
+.prev_btn:hover {
+  color: red;
+  background-color: white;
 }
 
 .nxt_btn {
   background-color: orange;
 }
+.nxt_btn:hover {
+  color: orange;
+  background-color: white;
+}
+
 .suc_btn {
   display: inline-flex;
   max-width: 220px;
