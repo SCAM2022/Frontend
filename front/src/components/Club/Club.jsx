@@ -104,11 +104,7 @@ const Club = (props) => {
         <div className="row">
           <div className="col col-md-3 col-lg-3 col-sm-2 bg-primary club_left">
             <div className="club_links">
-<<<<<<< HEAD
               <div>
-=======
-              <Link to="">
->>>>>>> 479a8fa07c33c76343037f22bc163a5df554a615
                 <li onClick={showModelHandler}>Create Event</li>
               </div>
               <Link to="">
@@ -116,15 +112,12 @@ const Club = (props) => {
               </Link>
               <Link to="">
                 <li>Club talk</li>
-<<<<<<< HEAD
-=======
               </Link>
               <Link to="/member">
                 <li>Member List</li>
               </Link>
               <Link to="">
                 <li>Club Achivement</li>
->>>>>>> 479a8fa07c33c76343037f22bc163a5df554a615
               </Link>
           </div>
           <div className="col col-md-9 col-lg-9 col-sm-10 bg-dark club_right">

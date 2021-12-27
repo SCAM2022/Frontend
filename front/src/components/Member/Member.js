@@ -65,10 +65,6 @@ const Member = () => {
             );
           })}
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 479a8fa07c33c76343037f22bc163a5df554a615
         {members.map((member) => {
           return (
             <>
