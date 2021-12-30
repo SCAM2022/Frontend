@@ -24,7 +24,7 @@ function Top() {
             <div className={classes["club"]}>
               <h2>{logo}</h2>
               <span>{description}</span>
-              <NavLink to={"/"} className={classes.view}>
+              <NavLink to={"/club"} className={classes.view}>
                 View
               </NavLink>
             </div>

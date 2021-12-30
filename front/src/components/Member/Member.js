@@ -4,6 +4,7 @@ import "./Member.css";
 import { members } from "./Members";
 import cookie from "js-cookie";
 import axios from "axios";
+import user from "../../assets/user.png";
 
 const Member = () => {
   const [memberList, setMemberList] = React.useState([]);
@@ -50,12 +51,26 @@ const Member = () => {
             <h4 className="member_branch">Branch</h4>
             <h4 className="member_date">Date</h4>
           </div>
+          {/* {members.map((member) => {
+            return (
+              <>
+                <Link to="/profile" className="member_list">
+                  <span className="member_list-name">
+                    <img src={user} alt="" />
+                    {member.member}
+                  </span>
+                  <span>{member.branch}</span>
+                  <span>{member.date}</span>
+                </Link>
+              </>
+            );
+          })} */}
           {members.map((member) => {
             return (
               <>
                 <Link to="/profile" className="member_list">
                   <span className="member_list-name">
-                    <img src={member.img} alt="" />
+                    <img src={user} alt="" />
                     {member.member}
                   </span>
                   <span>{member.branch}</span>
@@ -64,20 +79,19 @@ const Member = () => {
               </>
             );
           })}
+          {memberList &&
+            memberList.map((member) => {
+              return (
+                <>
+                  <Link to="/profile" className="member_list">
+                    <span>{member.name}</span>
+                    <span>{"CSE"}</span>
+                    <span>{member.joinedOn}</span>
+                  </Link>
+                </>
+              );
+            })}
         </div>
-
-        {memberList &&
-          memberList.map((member) => {
-            return (
-              <>
-                <Link to="/profile" className="member_list">
-                  <span>{member.name}</span>
-                  <span>{"CSE"}</span>
-                  <span>{member.joinedOn}</span>
-                </Link>
-              </>
-            );
-          })}
       </div>
     </div>
   );

@@ -96,14 +96,15 @@ const Club = (props) => {
 
   return (
     <div className="club">
-      <div className="container-fluid">
+      <div className="club_container">
         {showModel && <CreateEventForm closeModel={closeModel} />}
-        <div className="row">
-          <div className="col col-md-3 col-lg-3 col-sm-2 bg-primary club_left">
+        <div className="club_body">
+        <div className="club_head">
+            <div className=" club_left">
             <div className="club_links">
-              <Link to="">
+               <Link to= "">
                 <li onClick={showModelHandler}>Create Event</li>
-              </Link>
+               </Link>
               <Link to="">
                 <li>Gallery</li>
               </Link>
@@ -116,26 +117,24 @@ const Club = (props) => {
               <Link to="">
                 <li>Club Achivement</li>
               </Link>
-              <Link to="">
-                <li>Past Event</li>
-              </Link>
-            </div>
           </div>
-          <div className="col col-md-9 col-lg-9 col-sm-10 bg-dark club_right">
-            <div className="club_heading">
+          </div>
+          <div className=" club_right">
+            <div className="club_heading_left">
               <h2 className="heading">{clubData?.name}</h2>
-              <h4 className="sub_heading">{clubData?.goal}</h4>
+               <div className={"club_description"}>
+                 <span>{clubData?.disc}</span>
+               </div>
+              <div className="join_btn">
+              <button>Join</button>
             </div>
-            <div className="club_video">
-              {/* <video width="350" height="300" muted controls>
-                <source src={video} type="video/mp4" />
-                <source src={video} type="video/obb" />
-              </video> */}
-              <img
+            </div>
+            <div className="club_info_right">
+              {/* <img
                 src={`${process.env.REACT_APP_API_KEY}/${clubData?.clubImage}`}
                 alt="club-pic"
-              />
-              <div className={"club_description"}>{clubData?.disc}</div>
+              /> */}
+              <h4 className="sub_heading">{clubData?.goal}</h4>
             </div>
           </div>
         </div>
@@ -144,6 +143,7 @@ const Club = (props) => {
         <Testonomial />
         <Past />
       </div>
+    </div>
     </div>
   );
 };
