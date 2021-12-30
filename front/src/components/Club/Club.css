@@ -19,16 +19,22 @@ body {
   /* background-color: #020f59; */
 }
 
-/* .row {
-  border: 1px solid red;
-} */
+.club_body {
+  width: 100%;
+  height: fit-content;
+}
+.club_head {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+}
 .club_left {
-  width: 20%;
-  height: 550px !important;
+  flex: 0.2;
+  height: 400px !important;
   padding-top: 60px;
-  /* background-color: #2f1183 !important; */
+  margin-left: 0;
   background-color: #3f4047 !important;
-  /* background-color: #000 !important; */
   transition: all 0.5s;
 }
 
@@ -73,25 +79,23 @@ body {
 
 /* Club right */
 .club_right {
-  width: 80%;
-  height: 550px;
+  flex: 0.8;
+  height: 400px;
   background-color: #e8e8e9 !important ;
   /* background-color: #020f59; */
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  padding: 20px;
 }
 
-.club_right .club_heading {
-  width: 100%;
+.club_right .club_heading_left {
+  flex: 0.5;
   height: auto;
-  padding: 80px 50px 0px 80px;
+  padding-left: 20px;
   text-align: left;
 }
 
-.club_right .club_heading h2,
-.club_right .club_heading h4 {
+.club_right .club_heading_left h2 {
   font-family: "Poppins", sans-serif;
   font-size: 42px;
   font-weight: 800;
@@ -100,24 +104,30 @@ body {
   padding-bottom: 12px;
 }
 
-.club_right .club_heading h4 {
+.club_heading_left .club_description {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.club_right .club_info_right h4 {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: lowercase;
 }
 
-.club_video {
+/* .club_video {
   display: flex !important;
   justify-content: flex-start !important;
   align-items: center;
   margin: 0px 0px 0px 80px;
-}
+} */
 
-.club_video video {
+/* .club_video video {
   width: 80%;
   text-align: left;
-}
+} */
 
 .join_btn {
   width: 150px;

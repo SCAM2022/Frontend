@@ -4,13 +4,15 @@ import NewClubForm from "../NewClubForm/NewClubForm";
 import classes from "./NewClub.module.css";
 import clubCreatesvg1 from "../../assets/createClub/Signup-bro.svg";
 import clubCreatesvg2 from "../../assets/createClub/snippets-pana.svg";
+import Error from "../Ui/Error/Error";
+import { set } from "express/lib/application";
 
 const NewClub = (props) => {
+  const [error, setError] = useState(false);
+
   const createClubHandler = () => {
     console.log("clicked");
-    
-    
-    
+
     // props.onShowModel();
     showModelHandler();
   };
@@ -25,7 +27,15 @@ const NewClub = (props) => {
 
   return (
     <>
-      {showModel && <NewClubForm closeModel={hideModelHandler} />}
+      <Error error={error} setError={setError} />
+
+      {showModel && (
+        <NewClubForm
+          closeModel={hideModelHandler}
+          error={error}
+          setError={setError}
+        />
+      )}
 
       <div className={classes["club_form__wrapper"]}>
         <h1>New club form</h1>

@@ -4,11 +4,11 @@ import React from "react";
 import classes from "./Error.module.css";
 import { MdOutlineError } from "react-icons/md";
 function Error({ error, setError, success, setSuccess }) {
-  //   if (error) {
-  //     setTimeout(() => {
-  //       setError(false);
-  //     }, 10000);
-  //   }
+  if (error) {
+    setTimeout(() => {
+      setError(false);
+    }, 5000);
+  }
 
   return (
     <div

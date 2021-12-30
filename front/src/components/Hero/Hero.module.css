@@ -33,11 +33,12 @@ body {
   padding-left: 20%;
 }
 
-.main_left .heading h1 {
+.main_left .heading {
   font-family: "Space Grotesk", sans-serif;
   font-size: 42px;
   font-weight: 600;
   color: #fff;
+  width: 200px;
 }
 
 .main_left .heading h1 .club {

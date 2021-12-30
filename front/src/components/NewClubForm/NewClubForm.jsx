@@ -3,35 +3,99 @@ import Model from "../Ui/Model/Model";
 import classes from "./NewClubForm.module.css";
 import axios from "axios";
 import cookie from "js-cookie";
-
+import closeSvg from "../../assets/close.svg";
 import { useNavigate } from "react-router";
-const NewClubForm = (props) => {
+import { set } from "express/lib/application";
+
+const NewClubForm = ({ error, setError, ...props }) => {
   const [clubName, setClubName] = useState("");
   const [goal, setGoal] = useState("");
   const [description, setDescription] = useState("");
   const [authBy, setAuthBy] = useState("");
   const [authFile, setAuthFile] = useState(null);
-  const navigate = useNavigate();
+  const [ImgFile, setImgFile] = useState(null);
 
-  const onFileChange = (e) => {
+  const navigate = useNavigate();
+  const checkFileFormat = (dat, type) => {
+    console.log("file after splitting", dat, dat.split("."));
+    const tmp = dat.split(".");
+    const fileType = tmp[tmp.length - 1];
+    console.log("filetype->", fileType);
+    if (fileType !== type) {
+      setError(`Please upload document in ${type} form Only!`);
+      return false;
+    }
+    return true;
+  };
+  const onFileChangePdf = (e) => {
     // Update the state
     // this.setState({ selectedFile: event.target.files[0] });
-    setAuthFile(e.target.files[0]);
-    // const formData = new FormData();
-
-    // Update the formData object
-    // formData.append("authFile", authFile);
-    console.log("formData->", e.target.files[0]);
+    if (checkFileFormat(e.target.files[0].name, "pdf")) {
+      setAuthFile(e.target.files[0]);
+    } else {
+      e.target.value = "";
+    }
+  };
+  const onFileChangePic = (e) => {
+    if (checkFileFormat(e.target.files[0].name, "jpg")) {
+      setImgFile(e.target.files[0]);
+    } else {
+      e.target.value = "";
+    }
   };
 
-  const onSubmitHandler = (e) => {
+  const checkNameAvailabilty = async () => {
+    // /checkClub
+    const checkClub = async () => {
+      const r = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/checkClub`,
+        { name: clubName },
+        {
+          headers: {
+            Authorization: `${cookie.get("SCAM_TOKEN")}`,
+          },
+        }
+      );
+      return r;
+    };
+
+    const val = await checkClub()
+      .then((r) => {
+        console.log("clubCheck response->", r.data, r.data.success);
+        return r.data.success;
+      })
+      .catch((e) => {
+        console.log("error in clubName Check->", e);
+        return false;
+      });
+    return val;
+  };
+  const onSubmitHandler = async (e) => {
     // Create an object of formData
-    console.log("submit clickked");
     e.preventDefault();
+    // console.log("waiting,", tmp);
+    // console.log("submit clickked", checkNameAvailabilty());
+    checkNameAvailabilty().then((r) => {
+      console.log("inside Res=>", r);
+      if (!r) {
+        setError("Please Enter Unique clubName!");
+        return;
+      } else {
+        setError("success");
+      }
+    });
+    // if (!checkNameAvailabilty()) {
+    //   setError("Please Enter Unique clubName!");
+    //   return;
+    // } else {
+    //   setError("Success!");
+    // }
+    // return;
     const formData = new FormData();
 
     // Update the formData object
     formData.append("docs", authFile);
+    formData.append("docs", ImgFile);
     formData.append("name", clubName);
     formData.append("goal", goal);
     formData.append("disc", description);
@@ -77,8 +141,10 @@ const NewClubForm = (props) => {
         navigate("/clubs");
       })
       .catch((e) => {
-        navigate("/clubs");
-        console.log("error ->", e);
+        console.log("error in club creation ->", e);
+        setError("Error occured while creating club Please try again!");
+
+        // navigate("/clubs");
       });
   };
 
@@ -90,7 +156,10 @@ const NewClubForm = (props) => {
             className={classes["model_close-button"]}
             onClick={props.closeModel}
           >
-            X
+            <div className={classes["club_create-heading"]}>
+              Create Club Form
+            </div>
+            <img src={closeSvg} alt="close-svg" />
           </div>
         </div>
         {/* <div className="form_container"> */}
@@ -139,7 +208,19 @@ const NewClubForm = (props) => {
             <input
               type="file"
               name="Banner"
-              onChange={onFileChange}
+              onChange={onFileChangePdf}
+              // value={authFile}
+              className="logo-file-input"
+              required
+            />
+          </div>
+          <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Club Picture:</label>
+
+            <input
+              type="file"
+              name="Banner"
+              onChange={onFileChangePic}
               // value={authFile}
               className="logo-file-input"
               required

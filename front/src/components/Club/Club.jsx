@@ -17,6 +17,7 @@ const Club = (props) => {
 
   const [showModel, setShowModel] = React.useState(false);
   const [userData, setUserData] = React.useState(null);
+  const [clubData, setClubData] = React.useState(null);
 
   const showModelHandler = () => {
     setShowModel(true);
@@ -30,19 +31,15 @@ const Club = (props) => {
   React.useEffect(() => {
     // fetching clubDatas
     const getClubData = async () => {
-      const r = await axios.post(
-        `${process.env.REACT_APP_API_KEY}/user`,
-        {
-          id: `${cookie.get("SCAM_USER_ID")}`,
-        },
-        {
-          headers: {
-            Authorization: `${cookie.get("SCAM_TOKEN")}`,
-          },
-        }
-      );
+      const r = await axios.post(`${process.env.REACT_APP_API_KEY}/club`, {
+        clubName: clubName,
+      });
       return r;
     };
+    getClubData().then((r) => {
+      console.log("clubData response->", r);
+      setClubData(r.data);
+    });
   }, []);
 
   React.useEffect(() => {
@@ -84,13 +81,13 @@ const Club = (props) => {
           );
           return res;
         };
-        joinClub()
-          .then((r) => {
-            console.log("joined successfully");
-          })
-          .catch((e) => {
-            console.log("error while joining");
-          });
+        // joinClub()
+        //   .then((r) => {
+        //     console.log("joined successfully");
+        //   })
+        //   .catch((e) => {
+        //     console.log("error while joining");
+        //   });
       })
       .catch((e) => {
         console.log("userError ->", e);
@@ -99,14 +96,15 @@ const Club = (props) => {
 
   return (
     <div className="club">
-      <div className="container-fluid">
+      <div className="club_container">
         {showModel && <CreateEventForm closeModel={closeModel} />}
-        <div className="row">
-          <div className="col col-md-3 col-lg-3 col-sm-2 bg-primary club_left">
+        <div className="club_body">
+        <div className="club_head">
+            <div className=" club_left">
             <div className="club_links">
-              <div>
+               <Link to= "">
                 <li onClick={showModelHandler}>Create Event</li>
-              </div>
+               </Link>
               <Link to="">
                 <li>Gallery</li>
               </Link>
@@ -120,23 +118,23 @@ const Club = (props) => {
                 <li>Club Achivement</li>
               </Link>
           </div>
-          <div className="col col-md-9 col-lg-9 col-sm-10 bg-dark club_right">
-            <div className="club_heading">
-              <h2 className="heading">Coding Club</h2>
-              <h4 className="sub_heading">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-                esse pariatur doloribus aspernatur nemo, ut labore vero quisquam
-                sed ab?
-              </h4>
-            </div>
-            <div className="club_video">
-              <video width="350" height="300" muted controls>
-                <source src={video} type="video/mp4" />
-                <source src={video} type="video/obb" />
-              </video>
-            </div>
-            <div className="join_btn">
+          </div>
+          <div className=" club_right">
+            <div className="club_heading_left">
+              <h2 className="heading">{clubData?.name}</h2>
+               <div className={"club_description"}>
+                 <span>{clubData?.disc}</span>
+               </div>
+              <div className="join_btn">
               <button>Join</button>
+            </div>
+            </div>
+            <div className="club_info_right">
+              {/* <img
+                src={`${process.env.REACT_APP_API_KEY}/${clubData?.clubImage}`}
+                alt="club-pic"
+              /> */}
+              <h4 className="sub_heading">{clubData?.goal}</h4>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import PageFinal from "./PageFinal";
-import Error from "./Error";
+import Error from "../Ui/Error/Error";
 import classes from "./Signup.module.css";
 const Signup = (props) => {
   console.log("signup");
@@ -57,9 +57,8 @@ const Signup = (props) => {
       }
     };
 
-    checkEmail()
+    const res = await checkEmail()
       .then((res) => {
-        console.log("succ->", res);
         if (res?.success) {
           return false;
         }
@@ -70,6 +69,7 @@ const Signup = (props) => {
         console.log("error->", err);
         return true;
       });
+    return res;
   };
 
   const checkRollEnrollInList = async (enroll, roll) => {
@@ -91,7 +91,7 @@ const Signup = (props) => {
       }
     };
 
-    checkRollEnroll()
+    const res = await checkRollEnroll()
       .then((res) => {
         console.log("succ->", res);
         if (res?.success) {
@@ -104,6 +104,7 @@ const Signup = (props) => {
         console.log("error->", err);
         return true;
       });
+    return res;
   };
 
   const handleForm = (data) => {};
@@ -206,6 +207,14 @@ const Signup = (props) => {
       <main className={classes["reg__body"]}>
         <Sidenav pageIndex={1} pageDone={pageDone} page={page} />
         <div className={classes["form_container"]}>
+          <div className={classes["login_btn-container"]}>
+            <div
+              className={classes["goto_login_btn"]}
+              onClick={() => window.location.replace("/login")}
+            >
+              Login
+            </div>
+          </div>
           {/* <span className="page__step">STEP {page} OF 4</span> */}
           {/* <h3 className="page__title">{"title"}</h3> */}
           <Error error={error} setError={setError} />

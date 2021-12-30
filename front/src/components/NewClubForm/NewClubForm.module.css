@@ -1,30 +1,47 @@
 .model_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding: 20px 15px;
+  width: 100%;
 }
 
 .model_button {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: stretch;
+  justify-content: center;
+  font-size: 2.2rem;
+  width: 35%;
+  min-width: 430px;
 }
 
 .model_close-button {
-  width: 2.5rem;
-  height: 2.5rem;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: rgba(204, 204, 204, 0.514);
+  background-color: rgba(204, 204, 204, 0);
   border-radius: 10px;
   font-weight: bold;
   box-shadow: 2px 2px 3px #0000;
   margin-bottom: 10px;
-  cursor: pointer;
-  box-shadow: 1px 1px 2px #3f3f3f7a;
 }
-.model_close-button:hover {
+.model_close-button img {
+  /* margin-left: 70px; */
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+/* .model_close-button img:hover {
   background-color: rgba(204, 204, 204, 0.075);
+} */
+.club_create-heading {
+  padding: 20px;
+  width: 100%;
+  color: white;
 }
 
 .form_container {
@@ -32,12 +49,12 @@
 }
 
 .form_field {
-  justify-content: center;
+  color: rgb(255, 255, 255);
   align-items: center;
   display: grid;
-  grid-template-columns: 2fr 5fr;
+  /* grid-template-row: 2fr 5fr; */
   margin: 16px auto;
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0);
   /* height: 3rem; */
   width: 100%;
   padding: 5px 5px;
@@ -52,16 +69,23 @@
   font-weight: 600;
 }
 
-.form_field > input {
+.form_field > input,
+textarea {
   border-radius: 3px;
   /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.308); */
   text-decoration: none;
-  border: 2px solid #ccc;
+  border: 2px solid rgba(204, 204, 204, 0.5);
   font-size: 1.3rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  /* background-color: ; */
+  background-color: rgba(255, 0, 0, 0);
+  color: white;
 }
+.form_field > input:hover,
+textarea:hover {
+  border: 2px solid rgba(204, 204, 204, 0.856);
+}
+
 .model_submit-button {
   width: 50%;
   display: flex;
@@ -81,4 +105,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  margin-top: 40px;
+  padding: 10px;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+.create_club-submit_button > input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.384);
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  height: 3rem;
 }
