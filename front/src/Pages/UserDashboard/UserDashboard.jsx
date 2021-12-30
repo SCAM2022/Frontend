@@ -23,6 +23,7 @@ import Model from "../../components/Ui/Model/Model";
 import Member from "../../components/Member/Member";
 import Profile from "../../components/Profile/Profile";
 import Cookies from "js-cookie";
+import ProfileView from "../../components/Profile/ProfileView";
 
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -87,8 +88,9 @@ const UserDashboard = (props) => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/gallery" element={<Gallery />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/member" element={<Member />} />
+        <Route exact path="/:clubName/member" element={<Member />} />
         <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/profile/:userName" element={<ProfileView />} />
         {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
       {!(

@@ -4,6 +4,7 @@ import "./Member.css";
 import { members } from "./Members";
 import cookie from "js-cookie";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Member = () => {
   const [memberList, setMemberList] = React.useState([]);
@@ -53,7 +54,7 @@ const Member = () => {
           {members.map((member) => {
             return (
               <>
-                <Link to="/profile" className="member_list">
+                <Link to={`/profile/${member.member}`} className="member_list">
                   <span className="member_list-name">
                     <img src={member.img} alt="" />
                     {member.member}
@@ -70,7 +71,11 @@ const Member = () => {
           memberList.map((member) => {
             return (
               <>
-                <Link to="/profile" className="member_list">
+                <Link
+                  to={`/profile/${member.member}`}
+                  className="member_list"
+                  onClick={() => Cookies.set("SCAM_TEMP_ID", member.id)}
+                >
                   <span>{member.name}</span>
                   <span>{"CSE"}</span>
                   <span>{member.joinedOn}</span>

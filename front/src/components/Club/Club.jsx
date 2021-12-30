@@ -93,7 +93,7 @@ const Club = (props) => {
         console.log("userError ->", e);
       });
   }, []);
-
+  console.log("->", clubName);
   return (
     <div className="club">
       <div className="container-fluid">
@@ -110,7 +110,7 @@ const Club = (props) => {
               <Link to="">
                 <li>Club talk</li>
               </Link>
-              <Link to="/member">
+              <Link to={`/${clubName}/member`}>
                 <li>Member List</li>
               </Link>
               <Link to="">
