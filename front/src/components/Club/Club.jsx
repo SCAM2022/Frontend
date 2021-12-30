@@ -17,6 +17,7 @@ const Club = (props) => {
 
   const [showModel, setShowModel] = React.useState(false);
   const [userData, setUserData] = React.useState(null);
+  const [clubData, setClubData] = React.useState(null);
 
   const showModelHandler = () => {
     setShowModel(true);
@@ -30,19 +31,15 @@ const Club = (props) => {
   React.useEffect(() => {
     // fetching clubDatas
     const getClubData = async () => {
-      const r = await axios.post(
-        `${process.env.REACT_APP_API_KEY}/user`,
-        {
-          id: `${cookie.get("SCAM_USER_ID")}`,
-        },
-        {
-          headers: {
-            Authorization: `${cookie.get("SCAM_TOKEN")}`,
-          },
-        }
-      );
+      const r = await axios.post(`${process.env.REACT_APP_API_KEY}/club`, {
+        clubName: clubName,
+      });
       return r;
     };
+    getClubData().then((r) => {
+      console.log("clubData response->", r);
+      setClubData(r.data);
+    });
   }, []);
 
   React.useEffect(() => {
@@ -126,18 +123,19 @@ const Club = (props) => {
           </div>
           <div className="col col-md-9 col-lg-9 col-sm-10 bg-dark club_right">
             <div className="club_heading">
-              <h2 className="heading">Coding Club</h2>
-              <h4 className="sub_heading">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-                esse pariatur doloribus aspernatur nemo, ut labore vero quisquam
-                sed ab?
-              </h4>
+              <h2 className="heading">{clubData?.name}</h2>
+              <h4 className="sub_heading">{clubData?.goal}</h4>
             </div>
             <div className="club_video">
-              <video width="350" height="300" muted controls>
+              {/* <video width="350" height="300" muted controls>
                 <source src={video} type="video/mp4" />
                 <source src={video} type="video/obb" />
-              </video>
+              </video> */}
+              <img
+                src={`${process.env.REACT_APP_API_KEY}/${clubData?.clubImage}`}
+                alt="club-pic"
+              />
+              <div className={"club_description"}>{clubData?.disc}</div>
             </div>
           </div>
         </div>
