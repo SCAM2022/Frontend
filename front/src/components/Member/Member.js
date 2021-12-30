@@ -65,7 +65,6 @@ const Member = () => {
             );
           })}
         </div>
-<<<<<<< HEAD
         {members.map((member) => {
           return (
             <>
@@ -77,9 +76,6 @@ const Member = () => {
             </>
           );
         })}
-=======
-
->>>>>>> 81661a6f1ca03b0f8166aca9324ffdeec11eb356
         {memberList &&
           memberList.map((member) => {
             return (
