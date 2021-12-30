@@ -1,25 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Member.css";
-import { members } from "./Members";
-import cookie from "js-cookie";
+import { useParams } from "react-router";
 import axios from "axios";
 import Cookies from "js-cookie";
+import user from "../../assets/user.png";
+import "./Member.css";
 
 const Member = () => {
+  const params = useParams();
+  const [clubName, setClubName] = React.useState(params.clubName);
   const [memberList, setMemberList] = React.useState([]);
-
+  console.log("clubName-> --", clubName);
   React.useEffect(() => {
     const getMembers = async () => {
       const r = await axios.post(
         `${process.env.REACT_APP_API_KEY}/memberList`,
         {
-          clubName: "Coding Club",
-        },
-        {
-          headers: {
-            Authorization: `${cookie.get("SCAM_TOKEN")}`,
-          },
+          clubName: clubName,
         }
       );
       return r;
@@ -28,7 +25,7 @@ const Member = () => {
     getMembers()
       .then((r) => {
         console.log("member list got", r);
-        setMemberList(r.data[0].info);
+        setMemberList(r?.data?.members[0]?.info);
       })
       .catch((e) => {
         console.log("error member->", e);
@@ -51,24 +48,7 @@ const Member = () => {
             <h4 className="member_branch">Branch</h4>
             <h4 className="member_date">Date</h4>
           </div>
-          {members.map((member) => {
-            return (
-              <>
-                <Link to={`/profile/${member.member}`} className="member_list">
-                  <span className="member_list-name">
-                    <img src={member.img} alt="" />
-                    {member.member}
-                  </span>
-                  <span>{member.branch}</span>
-                  <span>{member.date}</span>
-                </Link>
-              </>
-            );
-          })}
-        </div>
-
-        {memberList &&
-          memberList.map((member) => {
+          {/* {members.map((member) => {
             return (
               <>
                 <Link
@@ -76,13 +56,33 @@ const Member = () => {
                   className="member_list"
                   onClick={() => Cookies.set("SCAM_TEMP_ID", member.id)}
                 >
-                  <span>{member.name}</span>
-                  <span>{"CSE"}</span>
-                  <span>{member.joinedOn}</span>
+                  <span>{member.member}</span>
+                  <span>{"CSEE"}</span>
+                  <span>{member.date}</span>
                 </Link>
               </>
             );
-          })}
+          })} */}
+          {memberList &&
+            memberList.map((member) => {
+              return (
+                <>
+                  <Link
+                    to={`/profile/${member.prename}`}
+                    className="member_list"
+                    onClick={() =>
+                      Cookies.set("SCAM_TEMP_ID", member?.memberId)
+                    }
+                    key={member._id}
+                  >
+                    <span>{member.prename}</span>
+                    <span>{"CSE"}</span>
+                    <span>{member.joinedOn}</span>
+                  </Link>
+                </>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

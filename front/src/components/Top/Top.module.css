@@ -20,8 +20,11 @@ body {
 
 .top_clubs {
   width: 100%;
+  background-color: #eee;
   height: auto;
-  margin: 0px auto 120px auto;
+  margin: -30px auto 0px auto;
+  padding-bottom: 80px;
+  padding-top: 80px;
 }
 
 /* clubs heading */
@@ -30,7 +33,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 80px 0px 40px 0px;
+  margin: 0px 0px 40px 0px;
   text-align: center;
 }
 
@@ -73,6 +76,8 @@ body {
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  /* flex-wrap: wrap; */
   padding: 0px 20px;
   height: auto;
   /* background-color: #fff;
@@ -83,9 +88,10 @@ body {
 .club {
   text-align: center;
   width: 100%;
-  min-width: 250px;
+  min-width: 200px;
   height: 300px;
-  margin-right: 20px;
+  margin-right: 12px;
+  margin-bottom: 12px;
   padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -141,7 +147,7 @@ body {
 .club span {
   font-family: "Poppins", sans-serif;
   font-size: 12px;
-  text-transform: capitalize;
+  text-transform: lowercase;
   font-weight: 500;
   letter-spacing: none;
   text-align: center;

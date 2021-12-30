@@ -46,7 +46,7 @@ const Clubs = (props) => {
                 <img src={img} alt={name} />
                 <h2 className={classes.club_heading}>{name}</h2>
                 <Link to="/club" className={classes.club_btn}>
-                  Join
+                  View
                 </Link>
               </div>
             );
