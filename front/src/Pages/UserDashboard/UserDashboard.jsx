@@ -23,7 +23,11 @@ import Model from "../../components/Ui/Model/Model";
 import Member from "../../components/Member/Member";
 import Profile from "../../components/Profile/Profile";
 import Cookies from "js-cookie";
+<<<<<<< HEAD
+import Event from "../../components/Event/Event";
+=======
 import ProfileView from "../../components/Profile/ProfileView";
+>>>>>>> 3bc2cf494b75ae32e8ad80f29d1615bfb955b7d9
 
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -76,6 +80,7 @@ const UserDashboard = (props) => {
         <Route exact path="/clubs" element={<Clubs />} />
         <Route exact path="/newClub" element={<NewClub />} />
         <Route exact path="/club/:cname" element={<Club />} />
+        <Route exact path="/event" element={<Event />} />
 
         {/* <Route
         path="/v/:vname/drinks/"

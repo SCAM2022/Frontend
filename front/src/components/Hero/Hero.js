@@ -16,12 +16,12 @@ function Hero(props) {
           <Typical
             loop={Infinity}
             steps={[
-              " LEGENDARY CLUB",
-              1000,
-              " MAKE",
-              1000,
-              "LEGENDARY Developer 💻",
-              1000,
+              "LEGENDARY CLUB",
+              3000,
+              "MAKE PEOPLE",
+              3000,
+              "LEGENDARY DEVELOPER",
+              3000,
             ]}
           />
         </div>

@@ -54,7 +54,7 @@ const Navbar = ({ logoutHandler, loggedIn, ...props }) => {
               <Link to="/clubs">Club</Link>
             </li>
             <li className={classes.navbar_link}>
-              <Link to={"/live"}>Live Updates</Link>
+              <Link to={"/event"}>Events</Link>
             </li>
             <li className={classes.navbar_link}>
               <Link to={"/contact"}>Contact</Link>

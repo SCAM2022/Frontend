@@ -10,7 +10,10 @@ import Testonomial from "../Testonomial/Testonomial";
 import Past from "../Past/Past";
 import CreateEventForm from "./CreateEvent/CreateEventForm";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+
+import Typical from "react-typical";
 import Cookies from "js-cookie";
 
 const Club = (props) => {
@@ -92,44 +95,55 @@ const Club = (props) => {
       <div className="club_container">
         {showModel && <CreateEventForm closeModel={closeModel} />}
         <div className="club_body">
-          <div className="club_head">
-            <div className=" club_left">
-              <div className="club_links">
-                <Link to="">
-                  <li onClick={showModelHandler}>Create Event</li>
-                </Link>
-                <Link to="">
-                  <li>Gallery</li>
-                </Link>
-                <Link to="">
-                  <li>Club talk</li>
-                </Link>
-                <Link to={`/${clubName}/member`}>
-                  <li>Member List</li>
-                </Link>
-                <Link to="">
-                  <li>Club Achivement</li>
-                </Link>
+          <div className=" club_left">
+            <div className="club_links">
+              <Link to="">
+                <li onClick={showModelHandler}>Create Event</li>
+              </Link>
+              <Link to="">
+                <li>Gallery</li>
+              </Link>
+              <Link to="">
+                <li>Club talk</li>
+              </Link>
+              <Link to="/member">
+                <li>Member List</li>
+              </Link>
+              <Link to="">
+                <li>Club Achivement</li>
+              </Link>
+            </div>
+          </div>
+          <div className=" club_right">
+            <div className="club_heading_left">
+              <h2 className="heading">{clubData?.name}</h2>
+              <h4 className="sub_heading">{clubData?.goal}</h4>
+              <span className={"club_description"}>{clubData?.disc}</span>
+              <div className="join_btn">
+                <button>Join</button>
               </div>
             </div>
-            <div className=" club_right">
-              <div className="club_heading_left">
-                <h2 className="heading">{clubData?.name}</h2>
-                <div className={"club_description"}>
-                  <span>{clubData?.disc}</span>
-                </div>
-
-                <div className="join_btn" onClick={clubJoinHandler}>
-                  <button>Join</button>
-                </div>
-              </div>
-              <div className="club_info_right">
-                {/* <img
-                src={`${process.env.REACT_APP_API_KEY}/${clubData?.clubImage}`}
-                alt="club-pic"
-              /> */}
-                <h4 className="sub_heading">{clubData?.goal}</h4>
-              </div>
+            <div className="club_info_right">
+              <span>
+                <Typical loop={Infinity} steps={["As engineers,", 3000]} />
+              </span>
+              <span className="qoute2">
+                <Typical
+                  loop={Infinity}
+                  steps={[
+                    "We were going to be in a position to change the world-",
+                    5000,
+                    "",
+                    300,
+                  ]}
+                />
+              </span>
+              <span className="qoute3">
+                <Typical
+                  loop={Infinity}
+                  steps={["Not just study it.", 8000, "", 5000]}
+                />
+              </span>
             </div>
           </div>
           <Gallery />
