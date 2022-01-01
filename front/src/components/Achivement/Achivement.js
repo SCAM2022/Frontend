@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./Achivement.css";
+import { achivementList } from "./AchivementList";
+import winner from "../../assets/winner.gif";
 
 function Achivement() {
-  const [isTrue, setIsTrue] = useState(false);
+  const [isTrue, setIsTrue] = useState(true);
 
   return (
     <div className="achivement">
@@ -12,7 +14,20 @@ function Achivement() {
       </div>
       <div className="achivement_box">
         {isTrue ? (
-          <p>Here is all achivement</p>
+          <div className="achivement_row">
+            {achivementList.map((item) => {
+              return (
+                <div className="achivement_item" id={item.id}>
+                  <h4>{item.name}</h4>
+                  <button>Hover</button>
+                  <div className="achivement_item_info">
+                    <img src={winner} alt="" />
+                    <h4>{item.position}</h4>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         ) : (
           <p>No achivement are here !</p>
         )}

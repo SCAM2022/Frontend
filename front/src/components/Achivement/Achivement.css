@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap");
+/* 
+font-family: 'Dancing Script', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+*/
+
 .achivement {
   width: 95%;
   margin: 0px auto 40px auto;
@@ -31,7 +39,7 @@
   margin-top: 40px !important;
   width: 100%;
   height: 300px;
-  border: 2px solid #333;
+  /* border: 2px solid #333; */
   margin-top: 12px;
   display: flex;
   justify-content: center;
@@ -41,4 +49,96 @@
 .achivement_box p {
   font-size: 24px;
   font-weight: 600;
+}
+
+.achivement_row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+}
+.achivement_item_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  width: 100%;
+  height: 0%;
+  background-color: #fff;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.achivement_item {
+  position: relative;
+  min-width: 120px;
+  height: 230px;
+  overflow: hidden;
+  background: #c31432; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #240b36,
+    #c31432
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #240b36,
+    #c31432
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  display: grid;
+  place-items: center;
+  flex: 0.3;
+  height: 200px;
+  transition: all 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.achivement_item:hover {
+  box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 5px;
+}
+.achivement_item:hover .achivement_item_info {
+  height: 100%;
+  background: #ffafbd; /* fallback for old browsers */
+  background: #7f00ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e100ff,
+    #7f00ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e100ff,
+    #7f00ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.achivement_item_info > img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.achivement_item_info h4 {
+  margin-top: 10px;
+}
+
+.achivement_item h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+}
+.achivement_item > button {
+  font-family: "Poppins", sans-serif;
+  width: 120px;
+  height: 30px;
+  background-color: #f1c40f;
+  color: #000;
+  font-weight: 500;
 }

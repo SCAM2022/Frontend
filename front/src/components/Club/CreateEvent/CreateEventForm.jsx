@@ -3,6 +3,8 @@ import Model from "../../Ui/Model/Model";
 import classes from "./CreateEventForm.module.css";
 import axios from "axios";
 import cookie from "js-cookie";
+import closeSvg from "../../../assets/close.svg";
+
 const CreateEventForm = (props) => {
   const [eventName, setEventName] = useState("");
   const [category, setCategory] = useState("");
@@ -52,12 +54,13 @@ const CreateEventForm = (props) => {
   return (
     <Model>
       <div className={classes["model_container"]}>
+        <div className={classes["container_heading"]}>Create Event Form</div>
         <div className={classes["model_button"]}>
           <div
             className={classes["model_close-button"]}
             onClick={props.closeModel}
           >
-            X
+            <img src={closeSvg} alt="close-svg" />
           </div>
         </div>
         {/* <div className="form_container"> */}
@@ -92,24 +95,25 @@ const CreateEventForm = (props) => {
               required
             />
           </div>
-          <div
-            className={`${classes["form_field"]} ${classes["date_duration"]}`}
-          >
-            <div className={classes["date_field"]}>
-              <label>Start Date</label>
-              <input
-                type="date"
-                onChange={(e) => setStartDate(e.target.value)}
-                value={startDate}
-              />
-            </div>
-            <div className={classes["date_field"]}>
-              <label>End Date</label>
-              <input
-                type="date"
-                onChange={(e) => setEndDate(e.target.value)}
-                value={endDate}
-              />
+          <div className={`${classes["form_field"]}`}>
+            <label htmlFor="club-name">Duration:</label>
+            <div className={classes["date_duration"]}>
+              <div className={classes["date_field"]}>
+                <label>Start Date</label>
+                <input
+                  type="date"
+                  onChange={(e) => setStartDate(e.target.value)}
+                  value={startDate}
+                />
+              </div>
+              <div className={classes["date_field"]}>
+                <label>End Date</label>
+                <input
+                  type="date"
+                  onChange={(e) => setEndDate(e.target.value)}
+                  value={endDate}
+                />
+              </div>
             </div>
           </div>
 

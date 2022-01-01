@@ -33,7 +33,7 @@ const Navbar = ({ logoutHandler, loggedIn, ...props }) => {
                 Login
               </button>
               <button
-                onClick={() => window.location.replace("/login")}
+                onClick={() => window.location.replace("/signup")}
                 className={classes.btn}
               >
                 SignUp

@@ -11,12 +11,14 @@ import Past from "../Past/Past";
 import CreateEventForm from "./CreateEvent/CreateEventForm";
 import axios from "axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Typical from "react-typical";
 const Club = (props) => {
   const params = useParams();
   const [clubName, setClubName] = React.useState(params.cname);
 
   const [showModel, setShowModel] = React.useState(false);
   const [userData, setUserData] = React.useState(null);
+  const [clubData, setClubData] = React.useState(null);
 
   const showModelHandler = () => {
     setShowModel(true);
@@ -30,19 +32,15 @@ const Club = (props) => {
   React.useEffect(() => {
     // fetching clubDatas
     const getClubData = async () => {
-      const r = await axios.post(
-        `${process.env.REACT_APP_API_KEY}/user`,
-        {
-          id: `${cookie.get("SCAM_USER_ID")}`,
-        },
-        {
-          headers: {
-            Authorization: `${cookie.get("SCAM_TOKEN")}`,
-          },
-        }
-      );
+      const r = await axios.post(`${process.env.REACT_APP_API_KEY}/club`, {
+        clubName: clubName,
+      });
       return r;
     };
+    getClubData().then((r) => {
+      console.log("clubData response->", r);
+      setClubData(r.data);
+    });
   }, []);
 
   React.useEffect(() => {
@@ -99,14 +97,14 @@ const Club = (props) => {
 
   return (
     <div className="club">
-      <div className="container-fluid">
+      <div className="club_container">
         {showModel && <CreateEventForm closeModel={closeModel} />}
-        <div className="row">
-          <div className="col col-md-3 col-lg-3 col-sm-2 bg-primary club_left">
+        <div className="club_body">
+          <div className=" club_left">
             <div className="club_links">
-              <div>
+              <Link to="">
                 <li onClick={showModelHandler}>Create Event</li>
-              </div>
+              </Link>
               <Link to="">
                 <li>Gallery</li>
               </Link>
@@ -119,24 +117,32 @@ const Club = (props) => {
               <Link to="">
                 <li>Club Achivement</li>
               </Link>
+            </div>
           </div>
-          <div className="col col-md-9 col-lg-9 col-sm-10 bg-dark club_right">
-            <div className="club_heading">
-              <h2 className="heading">Coding Club</h2>
-              <h4 className="sub_heading">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-                esse pariatur doloribus aspernatur nemo, ut labore vero quisquam
-                sed ab?
-              </h4>
+          <div className=" club_right">
+            <div className="club_heading_left">
+              <h2 className="heading">{clubData?.name}</h2>
+              <h4 className="sub_heading">{clubData?.goal}</h4>
+              <span className={"club_description"}>{clubData?.disc}</span>
+              <div className="join_btn">
+                <button>Join</button>
+              </div>
             </div>
-            <div className="club_video">
-              <video width="350" height="300" muted controls>
-                <source src={video} type="video/mp4" />
-                <source src={video} type="video/obb" />
-              </video>
-            </div>
-            <div className="join_btn">
-              <button>Join</button>
+            <div className="club_info_right">
+                <span>
+                  <Typical loop={Infinity} steps={["As engineers,",3000]} />
+                </span>
+                  <span className="qoute2">
+                  <Typical loop={Infinity} steps={["We were going to be in a position to change the world-", 5000,"",300]} />
+                </span>
+                  <span className="qoute3">
+                  <Typical loop={Infinity} 
+                  steps={[
+                    "Not just study it.",
+                     8000,
+                     "",
+                     5000,]} />
+                </span>   
             </div>
           </div>
         </div>
@@ -145,7 +151,6 @@ const Club = (props) => {
         <Testonomial />
         <Past />
       </div>
-    </div>
     </div>
   );
 };

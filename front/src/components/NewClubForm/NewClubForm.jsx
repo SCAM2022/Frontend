@@ -95,7 +95,7 @@ const NewClubForm = ({ error, setError, ...props }) => {
 
     // Update the formData object
     formData.append("docs", authFile);
-    // formData.append("docs", ImgFile);
+    formData.append("docs", ImgFile);
     formData.append("name", clubName);
     formData.append("goal", goal);
     formData.append("disc", description);
@@ -141,8 +141,10 @@ const NewClubForm = ({ error, setError, ...props }) => {
         navigate("/clubs");
       })
       .catch((e) => {
-        navigate("/clubs");
-        console.log("error ->", e);
+        console.log("error in club creation ->", e);
+        setError("Error occured while creating club Please try again!");
+
+        // navigate("/clubs");
       });
   };
 
