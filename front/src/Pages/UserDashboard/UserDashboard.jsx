@@ -23,11 +23,7 @@ import Model from "../../components/Ui/Model/Model";
 import Member from "../../components/Member/Member";
 import Profile from "../../components/Profile/Profile";
 import Cookies from "js-cookie";
-<<<<<<< HEAD
 import Event from "../../components/Event/Event";
-=======
-import ProfileView from "../../components/Profile/ProfileView";
->>>>>>> 3bc2cf494b75ae32e8ad80f29d1615bfb955b7d9
 
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -93,9 +89,8 @@ const UserDashboard = (props) => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/gallery" element={<Gallery />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/:clubName/member" element={<Member />} />
+        <Route exact path="/member" element={<Member />} />
         <Route exact path="/profile" element={<Profile />} />
-        <Route exact path="/profile/:userName" element={<ProfileView />} />
         {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
       {!(
