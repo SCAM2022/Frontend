@@ -5,7 +5,6 @@ import axios from "axios";
 import cookie from "js-cookie";
 import closeSvg from "../../assets/close.svg";
 import { useNavigate } from "react-router";
-import { set } from "express/lib/application";
 
 const NewClubForm = ({ error, setError, ...props }) => {
   const [clubName, setClubName] = useState("");

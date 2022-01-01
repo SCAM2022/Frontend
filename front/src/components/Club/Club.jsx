@@ -10,8 +10,9 @@ import Testonomial from "../Testonomial/Testonomial";
 import Past from "../Past/Past";
 import CreateEventForm from "./CreateEvent/CreateEventForm";
 import axios from "axios";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
+
 const Club = (props) => {
   const params = useParams();
   const [clubName, setClubName] = React.useState(params.cname);
@@ -44,6 +45,7 @@ const Club = (props) => {
   }, []);
 
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     const getUser = async () => {
       console.log("0<", cookie.get("SCAM_TOKEN"));
 
@@ -116,6 +118,7 @@ const Club = (props) => {
                 <div className={"club_description"}>
                   <span>{clubData?.disc}</span>
                 </div>
+
                 <div className="join_btn" onClick={clubJoinHandler}>
                   <button>Join</button>
                 </div>

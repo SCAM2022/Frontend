@@ -10,6 +10,9 @@ const Member = () => {
   const params = useParams();
   const [clubName, setClubName] = React.useState(params.clubName);
   const [memberList, setMemberList] = React.useState([]);
+  const [filterList, setFilterList] = React.useState([]);
+  const [search, setSearch] = React.useState("");
+
   console.log("clubName-> --", clubName);
   React.useEffect(() => {
     const getMembers = async () => {
@@ -25,12 +28,27 @@ const Member = () => {
     getMembers()
       .then((r) => {
         console.log("member list got", r);
-        setMemberList(r?.data?.members[0]?.info);
+        setMemberList(r?.data[0]?.info);
       })
       .catch((e) => {
         console.log("error member->", e);
       });
   }, []);
+
+  React.useEffect(() => {
+    const tmp = memberList.filter((mem) =>
+      mem.prename?.toLowerCase().includes(search?.toLowerCase())
+    );
+    setFilterList(tmp);
+  }, [search]);
+
+  const dateFormat = (d) => {
+    const today = new Date(d);
+    console.log("tage-", today);
+    const day = today.toLocaleDateString();
+
+    return `${day}`;
+  };
 
   return (
     <div className="parent_member">
@@ -41,6 +59,8 @@ const Member = () => {
           id="search"
           className="member_search"
           placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <div className="member-lists">
           <div className="member_heading">
@@ -48,22 +68,9 @@ const Member = () => {
             <h4 className="member_branch">Branch</h4>
             <h4 className="member_date">Date</h4>
           </div>
-          {/* {members.map((member) => {
-            return (
-              <>
-                <Link
-                  to={`/profile/${member.member}`}
-                  className="member_list"
-                  onClick={() => Cookies.set("SCAM_TEMP_ID", member.id)}
-                >
-                  <span>{member.member}</span>
-                  <span>{"CSEE"}</span>
-                  <span>{member.date}</span>
-                </Link>
-              </>
-            );
-          })} */}
+
           {memberList &&
+            filterList.length === 0 &&
             memberList.map((member) => {
               return (
                 <>
@@ -73,11 +80,30 @@ const Member = () => {
                     onClick={() =>
                       Cookies.set("SCAM_TEMP_ID", member?.memberId)
                     }
-                    key={member._id}
+                    key={member?.memberId}
                   >
                     <span>{member.prename}</span>
                     <span>{"CSE"}</span>
                     <span>{member.joinedOn}</span>
+                  </Link>
+                </>
+              );
+            })}
+          {filterList?.length > 0 &&
+            filterList.map((member) => {
+              return (
+                <>
+                  <Link
+                    to={`/profile/${member.prename}`}
+                    className="member_list"
+                    onClick={() =>
+                      Cookies.set("SCAM_TEMP_ID", member?.memberId)
+                    }
+                    key={member?.memberId}
+                  >
+                    <span>{member.prename}</span>
+                    <span>{"CSE"}</span>
+                    <span>{dateFormat(member.joinedOn)}</span>
                   </Link>
                 </>
               );
