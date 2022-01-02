@@ -2,8 +2,19 @@ import React from "react";
 import "./EventItem.css";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { Link } from "react-router-dom";
 
-const EventItem = () => {
+const EventItem = ({
+  id,
+  name,
+  date,
+  duration,
+  startDate,
+  endDate,
+  about,
+  criteria,
+  rules,
+}) => {
   return (
     <div className="eventItem">
       <div className="eventItem_left">
@@ -15,7 +26,7 @@ const EventItem = () => {
       <div className="eventItem_center">
         <h4>Event Name</h4>
         <div className="eventItem_centr_info">
-          <span>CONTEST</span>
+          <span>Contest</span>
           <span className="eventItem_centr_info_underline"></span>
           <span>
             <AccessTimeIcon className="icon" />
@@ -25,7 +36,9 @@ const EventItem = () => {
       </div>
       <div className="eventItem_right">
         <button>
-          SET REMINDER <NavigateNextIcon />
+          <Link to="/eventShow">
+            SET REMINDER <NavigateNextIcon />
+          </Link>
         </button>
       </div>
     </div>

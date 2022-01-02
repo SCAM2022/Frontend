@@ -24,6 +24,7 @@ import Member from "../../components/Member/Member";
 import Profile from "../../components/Profile/Profile";
 import Cookies from "js-cookie";
 import Event from "../../components/Event/Event";
+import ShowEvent from "../../components/ShowEvent/ShowEvent";
 
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -77,6 +78,7 @@ const UserDashboard = (props) => {
         <Route exact path="/newClub" element={<NewClub />} />
         <Route exact path="/club/:cname" element={<Club />} />
         <Route exact path="/event" element={<Event />} />
+        <Route exact path="/eventShow" element={<ShowEvent />} />
 
         {/* <Route
         path="/v/:vname/drinks/"

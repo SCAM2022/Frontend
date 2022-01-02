@@ -30,6 +30,7 @@ font-family: 'Space Grotesk', sans-serif;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  color: #5f5d5d;
 }
 
 .eventItem_left > span:first-child {
@@ -54,6 +55,7 @@ font-family: 'Space Grotesk', sans-serif;
 
 .eventItem_center {
   margin-left: 40px;
+  color: #5f5d5d;
 }
 .eventItem_center > h4 {
   font-family: "Poppins", sans-serif;
@@ -103,7 +105,10 @@ font-family: 'Space Grotesk', sans-serif;
 }
 
 .eventItem_right > button:hover {
-  color: #000;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.eventItem_right > button:hover a {
+  color: #000;
 }

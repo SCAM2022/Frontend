@@ -3,6 +3,7 @@ import "./Event.css";
 import poster from "../../assets/eventImg.png";
 import EventItem from "./EventItem";
 import styled from "@emotion/styled";
+import { eventDetail } from "./EventItemDetail";
 
 const Event = () => {
   return (
@@ -28,11 +29,37 @@ const Event = () => {
           <span></span>
         </div>
         <div className="live_events">
+          {eventDetail?.map((item) => {
+            const {
+              id,
+              name,
+              date,
+              duration,
+              startDate,
+              endDate,
+              about,
+              criteria,
+              rules,
+            } = item;
+
+            return (
+              <EventItem
+                id={id}
+                name={name}
+                date={date}
+                duration={duration}
+                startDate={startDate}
+                endDate={endDate}
+                about={about}
+                criteria={criteria}
+                rules={rules}
+              />
+            );
+          })}
+          {/* <h4>MORE EVENTS</h4> */}
+          {/* <EventItem />
           <EventItem />
-          <h4>MORE EVENTS</h4>
-          <EventItem />
-          <EventItem />
-          <EventItem />
+          <EventItem /> */}
         </div>
         <div className="events"></div>
       </div>
