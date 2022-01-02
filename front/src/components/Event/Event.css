@@ -61,3 +61,40 @@ font-family: 'Space Grotesk', sans-serif;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
+
+.live_heading {
+  width: 80%;
+  height: 50px;
+  margin: 0px auto;
+  padding-top: 50px;
+  margin-bottom: 100px;
+}
+
+.live_heading > h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 32px;
+  color: #4a4a4a;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.live_heading > span {
+  display: block;
+  width: 80px;
+  height: 2px;
+  background-color: #4a4a4a;
+}
+
+.live_events {
+  width: 80%;
+  margin: 0px auto;
+}
+
+.live_events > h4 {
+  font-size: 18px;
+  font-weight: 600;
+  display: block;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+  color: #5f5d5d;
+}

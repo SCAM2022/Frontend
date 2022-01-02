@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Space Grotesk', sans-serif;
+
+*/
+
+.eventItem {
+  width: 100%;
+  height: 160px;
+  margin-bottom: 60px;
+  padding: 20px;
+  background-color: #f7fafd;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.eventItem:hover {
+  box-shadow: 0 4px 4px rgb(0 0 0 / 20%);
+}
+
+.eventItem_left {
+  display: flex;
+  flex: 0.2;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #5f5d5d;
+}
+
+.eventItem_left > span:first-child {
+  font-size: 14px;
+}
+
+.eventItem_left > span:nth-child(2) {
+  font-size: 32px;
+  font-weight: 500;
+}
+.eventItem_left > span:nth-child(3) {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.eventItem_underline {
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: #ffbb71;
+}
+
+.eventItem_center {
+  margin-left: 40px;
+  color: #5f5d5d;
+}
+.eventItem_center > h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding-bottom: 20px;
+}
+.eventItem_centr_info {
+  display: flex;
+  align-items: center;
+}
+
+.eventItem_centr_info > span:first-child {
+  font-size: 14px;
+  padding-right: 15px;
+}
+.eventItem_centr_info_underline {
+  width: 2px;
+  height: 30px;
+  background-color: #ffbb71;
+  display: block;
+}
+
+.eventItem_centr_info > span:nth-child(3) {
+  margin-left: 15px;
+}
+.eventItem_centr_info .icon {
+  margin-right: 5px;
+}
+
+.eventItem_right {
+  flex: 0.7;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* margin-bottom: 30px; */
+}
+
+.eventItem_right > button {
+  width: 200px;
+  height: 60px;
+  font-weight: 500;
+  border: 1px solid #3784cc;
+  color: #6caeeb;
+  border-radius: 5px;
+}
+
+.eventItem_right > button:hover {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.eventItem_right > button:hover a {
+  color: #000;
+}
