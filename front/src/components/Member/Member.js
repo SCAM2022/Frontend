@@ -68,6 +68,11 @@ const Member = (props) => {
       setError("Only president can remove members");
       return;
     }
+    if (president.memberId === id) {
+      setError("President can't leave the club");
+      return;
+    }
+
     const removeFromClub = async (clubName, userId) => {
       const r = await axios.post(`${process.env.REACT_APP_API_KEY}/leftClub`, {
         clubName: clubName,
