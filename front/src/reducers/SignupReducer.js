@@ -23,12 +23,12 @@ const SignupReducer = (state = intialState, action) => {
     //     pageThree: action.pageThree,
     //   };
     // }
-    case "SET": {
-      return {
-        ...state,
-        ...action.userInfo,
-      };
-    }
+    // case "SET": {
+    //   return {
+    //     ...state,
+    //     ...action.userInfo,
+    //   };
+    // }
     default:
       return {
         ...state,

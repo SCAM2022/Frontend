@@ -1,0 +1,13 @@
+.pie_chart-container {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+
+  /* margin: 40px auto 0px auto; */
+  border: 1px solid #333333;
+  border-radius: 12px;
+  /* padding: 10px 10px 10px 12px; */
+}

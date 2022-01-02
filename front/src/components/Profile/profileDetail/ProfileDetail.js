@@ -1,53 +1,124 @@
 import React from "react";
 import "./ProfileDetail.css";
-import { ProfileInfo } from "../ProfileInfo";
 
 const ProfileDetail = ({ userData, ...props }) => {
+  const JoinClubString = (clubs) => {
+    let clubString = "";
+    clubs?.map((club, i) => {
+      clubString += club.clubName;
+      if (i !== clubs.length - 1) {
+        clubString += ", ";
+      }
+    });
+    return clubString;
+  };
+  console.log("branch->", props);
   return (
     <div className="profileDetail">
       <div className="profileDetail_name profileDetail_info">
         <span>userName :</span>
-        <span>{userData.name}</span>
+        <input
+          // contentEditable={`${props.edit}`}
+          className={`pofileDetail_info `}
+          id={`profileDetail_name`}
+          onChange={(e) => props?.setName(e.target.value)}
+          value={props.name}
+          disabled={true}
+        />
       </div>
       <div className="profileDetail_branch profileDetail_info">
         <span>Branch :</span>
-        <span>{userData.department}</span>
+        <input
+          disabled={!props.edit}
+          // contentEditable={`${props.edit}`}
+          className={`pofileDetail_info ${
+            props?.edit ? "profileEdit_enabled" : ""
+          }`}
+          id={"profileDetail_branch"}
+          onChange={(e) => props?.setBranch(e.target.value)}
+          value={props.branch}
+        />
+        {/* {br} */}
+        {/* {"text"} */}
+        {/* </input> */}
       </div>
       <div className="profileDetail_enroll profileDetail_info">
         <span>Enrollment No. :</span>
-        <span>{userData.enroll}</span>
+        <input
+          className={`pofileDetail_info ${
+            props?.edit ? "profileEdit_enabled" : ""
+          }`}
+          id={"profileDetail_enroll"}
+          value={props.enroll}
+          onChange={(e) => props?.setEnroll(e.target.value)}
+          disabled={!props.edit}
+        />
       </div>
       <div className="profileDetail_roll profileDetail_info">
         <span>Roll No. :</span>
-        <span>{userData.rollno}</span>
+        <input
+          id={"profileDetail_roll"}
+          className={`pofileDetail_info ${
+            props?.edit ? "profileEdit_enabled" : ""
+          }`}
+          value={props.roll}
+          onChange={(e) => props?.setRoll(e.target.value)}
+          disabled={!props.edit}
+        />
       </div>
       <div className="profileDetail_email profileDetail_info">
         <span>E-mail :</span>
-        <span>{userData.email}</span>
+        <input
+          id={"profileDetail_email"}
+          className={`pofileDetail_info ${
+            props?.edit ? "profileEdit_enabled" : ""
+          }`}
+          value={props.email}
+          onChange={(e) => props?.setEmail(e.target.value)}
+          disabled={!props.edit}
+        />
       </div>
       <div className="profileDetail_join profileDetail_info">
         <span>Club joined :</span>
-        <span>{"detail.join"}</span>
+        <input
+          className={`pofileDetail_info `}
+          disabled={true}
+          value={JoinClubString(userData.joinedClubs)}
+        />
       </div>
-      <div className="profileDetail_last profileDetail_info">
-        <span>Last visit :</span>
-        <span>{"detail.last"}</span>
-      </div>
-      <div className="profileDetail_register profileDetail_info">
-        <span>Registered :</span>
-        <span>{"detail.registered"}</span>
-      </div>
-      <div className="profileDetail_date profileDetail_info">
-        <span>Join Date :</span>
-        <span>{"detail.date"}</span>
-      </div>
+
       <div className="profileDetail_date profileDetail_info">
         <span>Semester :</span>
-        <span>{userData.semester}</span>
+        <input
+          id={"profileDetail_sem"}
+          className={`pofileDetail_info ${
+            props?.edit ? "profileEdit_enabled" : ""
+          }`}
+          value={props.sem}
+          onChange={(e) => props?.setSem(e.target.value)}
+          disabled={!props.edit}
+        />
       </div>
       <div className="profileDetail_date profileDetail_info">
         <span>Admission Year :</span>
-        <span>{userData.admissionYear}</span>
+        <input
+          id={"profileDetail_admYear"}
+          className={`pofileDetail_info ${
+            props?.edit ? "profileEdit_enabled" : ""
+          }`}
+          value={props.admission}
+          onChange={(e) => props?.setAdmission(e.target.value)}
+          disabled={!props.edit}
+        />
+      </div>
+      <div className="profileDetail_date profileDetail_info">
+        <span>Last visit :</span>
+
+        <input
+          disabled={true}
+          className={`pofileDetail_info "profileEdit_enabled`}
+          value={userData.lastLogin}
+        />
       </div>
     </div>
   );

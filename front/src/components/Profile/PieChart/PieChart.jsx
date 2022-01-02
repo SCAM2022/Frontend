@@ -1,13 +1,15 @@
 import { CanvasJSChart } from "canvasjs-react-charts";
 import React from "react";
+import classes from "./PieChart.module.css";
+
 const PieChart = () => {
   const options = {
     theme: "dark2",
     animationEnabled: true,
     exportFileName: "New Year Resolutions",
-    exportEnabled: true,
+    // exportEnabled: true,
     title: {
-      text: "Top Categories of New Year's Resolution",
+      text: "User performance chart",
     },
     data: [
       {
@@ -18,9 +20,9 @@ const PieChart = () => {
         indexLabel: "{y}%",
         indexLabelPlacement: "inside",
         dataPoints: [
-          { y: 32, label: "Health" },
-          { y: 22, label: "Finance" },
-          { y: 15, label: "Education" },
+          { y: 102, label: "Health" },
+          { y: 4, label: "Finance" },
+          { y: 6, label: "Education" },
           { y: 19, label: "Career" },
           { y: 5, label: "Family" },
           { y: 7, label: "Real Estate" },
@@ -29,7 +31,7 @@ const PieChart = () => {
     ],
   };
   return (
-    <div>
+    <div className={classes["pie_chart-container"]}>
       <CanvasJSChart
         options={options}
         /* onRef={ref => this.chart = ref} */

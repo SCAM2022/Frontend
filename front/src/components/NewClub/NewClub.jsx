@@ -2,17 +2,20 @@ import { useState } from "react";
 
 import NewClubForm from "../NewClubForm/NewClubForm";
 import classes from "./NewClub.module.css";
-import clubCreatesvg1 from "../../assets/createClub/Signup-bro.svg";
 import clubCreatesvg2 from "../../assets/createClub/snippets-pana.svg";
 import Error from "../Ui/Error/Error";
-import { set } from "express/lib/application";
+import { connect } from "react-redux";
 
 const NewClub = (props) => {
   const [error, setError] = useState(false);
 
   const createClubHandler = () => {
     console.log("clicked");
-
+    if (!props?.userData) {
+      console.log("login first for creating club");
+      setError("Login is needed for new club formation");
+      return;
+    }
     // props.onShowModel();
     showModelHandler();
   };
@@ -67,5 +70,8 @@ const NewClub = (props) => {
     </>
   );
 };
+const mapStateToProps = (state) => ({
+  userData: state.userReducer.userData,
+});
 
-export default NewClub;
+export default connect(mapStateToProps)(NewClub);

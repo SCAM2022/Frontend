@@ -1,9 +1,10 @@
-//  File
-
 import React from "react";
 
 import { Routes } from "react-router-dom";
 import { Route } from "react-router";
+import { connect } from "react-redux";
+import axios from "axios";
+
 import LoginScreen from "../../components/LoginScreen/LoginScreen";
 import Navbar from "../../components/Navbar/Navbar";
 // import Hero from "../../components/Hero/Hero"
@@ -23,12 +24,9 @@ import Model from "../../components/Ui/Model/Model";
 import Member from "../../components/Member/Member";
 import Profile from "../../components/Profile/Profile";
 import Cookies from "js-cookie";
-<<<<<<< HEAD
 import Event from "../../components/Event/Event";
-=======
 import ProfileView from "../../components/Profile/ProfileView";
->>>>>>> 3bc2cf494b75ae32e8ad80f29d1615bfb955b7d9
-
+import { setUser, unsetUser } from "../../actions/userAction";
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
 
@@ -39,20 +37,33 @@ const UserDashboard = (props) => {
       setLoggedIn(false);
     }
   }, []);
+  React.useEffect(() => {
+    const getUser = async () => {
+      // console.log("0<", Cookies.get("SCAM_TOKEN"));
+
+      const r = await axios.post(`${process.env.REACT_APP_API_KEY}/user`, {
+        id: `${Cookies.get("SCAM_USER_ID")}`,
+      });
+      return r;
+    };
+    if (Cookies.get("SCAM_USER_ID"))
+      getUser()
+        .then((r) => {
+          props.setUser(r.data);
+        })
+        .catch((e) => {
+          console.log("error while fetching userData in Profile!!", e);
+        });
+  }, []);
 
   const logoutHandler = () => {
     // cookie.remove('')
     Cookies.remove("SCAM_USER_ID");
     Cookies.remove("SCAM_TOKEN");
     setLoggedIn(false);
+    props?.unsetUser();
   };
 
-  console.log(
-    "path->",
-    window.location.pathname,
-    window.location.pathname === "/login",
-    window.location.pathname === "/signup"
-  );
   console.log("loc->", window.location.pathname);
   // const [showModel, setShowModel] = useState(false);
 
@@ -108,5 +119,12 @@ const UserDashboard = (props) => {
     </>
   );
 };
+const mapStateToProps = (state) => ({
+  userData: state.userReducer.userData,
+});
+const mapDispatchToProps = (dispatch) => ({
+  setUser: (data) => dispatch(setUser(data)),
+  unsetUser: () => dispatch(unsetUser()),
+});
 
-export default UserDashboard;
+export default connect(mapStateToProps, mapDispatchToProps)(UserDashboard);
