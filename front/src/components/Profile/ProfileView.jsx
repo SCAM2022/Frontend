@@ -4,9 +4,19 @@ import axios from "axios";
 
 import ProfileDetail from "./profileDetail/ProfileDetail";
 import "./Profile.css";
+import PieChart from "./PieChart/PieChart";
+import DailyHeatmap from "./DailyHeatmap/DialyHeatmap";
 
 const ProfileView = () => {
   const [user, setUser] = React.useState([]);
+  const [edit, setEdit] = React.useState(false);
+  const [name, setName] = React.useState("");
+  const [branch, setBranch] = React.useState("");
+  const [enroll, setEnroll] = React.useState("");
+  const [roll, setRoll] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [sem, setSem] = React.useState("");
+  const [admission, setAdmission] = React.useState("");
   console.log("profileview");
 
   React.useEffect(() => {
@@ -31,6 +41,16 @@ const ProfileView = () => {
       });
   }, []);
 
+  React.useEffect(() => {
+    setName(user.name);
+    setEnroll(user.enroll);
+    setRoll(user.rollno);
+    setSem(user.semester);
+    setEmail(user.email);
+    setAdmission(user.admissionYear);
+    setBranch(user.department);
+  }, [user]);
+
   console.log("userDetails->", user);
 
   return (
@@ -46,7 +66,31 @@ const ProfileView = () => {
         </div>
       </div>
       <div className="profile_info">
-        <ProfileDetail userData={user} />
+        <ProfileDetail
+          userData={user}
+          edit={edit}
+          setEdit={setEdit}
+          name={name}
+          setName={setName}
+          branch={branch}
+          setBranch={setBranch}
+          enroll={enroll}
+          setEnroll={setEnroll}
+          roll={roll}
+          setRoll={setRoll}
+          sem={sem}
+          setSem={setSem}
+          setEmail={setEmail}
+          email={email}
+          setAdmission={setAdmission}
+          admission={admission}
+        />
+      </div>
+      <div className="profile_info">
+        <PieChart />
+      </div>
+      <div className="profile_info">
+        <DailyHeatmap />
       </div>
     </div>
   );

@@ -5,8 +5,8 @@ import BarLoader from "react-spinners/BarLoader";
 import axios from "axios";
 import Cookies from "js-cookie";
 import club from "../../assets/loginSvg/club.png";
-
 import classes from "./Login.module.css";
+import { connect } from "react-redux";
 
 const override = css`
   display: block;
@@ -23,8 +23,6 @@ const Login = (props) => {
   const [clientError, setClientError] = React.useState("");
 
   const [loading, setLoading] = React.useState(true);
-
-  const navigate = useNavigate();
 
   // For setting username or email
   const onEmailOrMobileChange = (e) => {
@@ -100,6 +98,7 @@ const Login = (props) => {
             Cookies.set("SCAM_TOKEN", token);
             Cookies.set("SCAM_USER_ID", id);
             console.log(token, "Tokennnn");
+
             // navigate("/");
             window.location.replace("/");
             // window.location.href = `${process.env.REACT_APP_CLIENT}/dashboard`;
@@ -250,4 +249,8 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+// const mapDispatchToProps = (dispatch) => ({
+//   setUser: (userInfo) => dispatch(setUser(userInfo)),
+// });
+
+export default connect(null, null)(Login);

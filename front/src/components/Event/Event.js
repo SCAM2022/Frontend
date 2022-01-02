@@ -2,7 +2,7 @@ import React from "react";
 import "./Event.css";
 import poster from "../../assets/eventImg.png";
 import EventItem from "./EventItem";
-import styled from "@emotion/styled";
+// import styled from "@emotion/styled";
 import { eventDetail } from "./EventItemDetail";
 
 const Event = () => {

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Model from "../Ui/Model/Model";
-import classes from "./NewClubForm.module.css";
+import { useNavigate } from "react-router";
+import { connect } from "react-redux";
 import axios from "axios";
 import cookie from "js-cookie";
+import Model from "../Ui/Model/Model";
+import classes from "./NewClubForm.module.css";
 import closeSvg from "../../assets/close.svg";
-import { useNavigate } from "react-router";
-import { set } from "express/lib/application";
 
 const NewClubForm = ({ error, setError, ...props }) => {
   const [clubName, setClubName] = useState("");
@@ -43,7 +43,7 @@ const NewClubForm = ({ error, setError, ...props }) => {
       e.target.value = "";
     }
   };
-
+  console.log("userDetials  club form->", props?.userData);
   const checkNameAvailabilty = async () => {
     // /checkClub
     const checkClub = async () => {
@@ -100,29 +100,11 @@ const NewClubForm = ({ error, setError, ...props }) => {
     formData.append("goal", goal);
     formData.append("disc", description);
     formData.append("authBy", authBy);
-    formData.append("preName", "userName");
+    formData.append("preName", props?.userData?.name);
+    formData.append("id", props?.userData?._id);
     formData.append("Role", "President");
     formData.append("date", new Date().toISOString());
-    // Update the formData object
-    // formData.append("authFile", authFile, authFile.name);
 
-    // Details of the uploaded file
-    // console.log(authFile);
-    // Request made to the backend api
-    // Send formData object
-    // axios.post("api/uploadfile", formData);
-
-    // const data = {
-    //   name: clubName,
-    //   disc: description,
-    //   goal: goal,
-    //   authDoc: authFile,
-    //   authBy: authBy,
-    //   preName: "userName",
-    //   Role: "president",
-    //   date: new Date().toISOString(),
-    // };
-    console.log("data for createClub", formData);
     const sendDate = async () => {
       const r = await axios.post(
         `${process.env.REACT_APP_API_KEY}/createclub`,
@@ -242,4 +224,8 @@ const NewClubForm = ({ error, setError, ...props }) => {
   );
 };
 
-export default NewClubForm;
+const mapStateToProps = (state) => ({
+  userData: state.userReducer.userData,
+});
+
+export default connect(mapStateToProps, null)(NewClubForm);

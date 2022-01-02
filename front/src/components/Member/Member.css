@@ -67,7 +67,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .member_list {
@@ -79,6 +79,7 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.5s !important;
+  margin: 10px auto;
 }
 
 .member_list-name {

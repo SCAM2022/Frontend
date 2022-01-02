@@ -5,11 +5,20 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import user from "../../assets/user.png";
 import "./Member.css";
+import DropSection from "./DropSection";
+import MemberList from "./MemberList";
+import { connect } from "react-redux";
+import Error from "../Ui/Error/Error";
 
-const Member = () => {
+const Member = (props) => {
   const params = useParams();
   const [clubName, setClubName] = React.useState(params.clubName);
   const [memberList, setMemberList] = React.useState([]);
+  const [president, setPresident] = React.useState([]);
+  const [filterList, setFilterList] = React.useState([]);
+  const [search, setSearch] = React.useState("");
+  const [error, setError] = React.useState("");
+
   console.log("clubName-> --", clubName);
   React.useEffect(() => {
     const getMembers = async () => {
@@ -25,67 +34,115 @@ const Member = () => {
     getMembers()
       .then((r) => {
         console.log("member list got", r);
-        setMemberList(r?.data?.members[0]?.info);
+        setMemberList(r?.data[0]?.info);
+        r?.data[0]?.info?.map((mem) => {
+          if (mem.Role === "President") {
+            setPresident(mem);
+          }
+        });
       })
       .catch((e) => {
         console.log("error member->", e);
       });
   }, []);
 
+  const checkUserEligibility = () => {
+    console.log("testting eligibility->", props?.userData);
+    if (props?.userData) {
+      if (props?.userData._id === president.memberId) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const removeMemberHandler = (id) => {
+    if (!props?.userData) {
+      console.log("login to remove user");
+      setError("login first to remove member");
+      return;
+    }
+    const eligible = checkUserEligibility();
+    if (!eligible) {
+      console.log("need to be president to remove member");
+      setError("Only president can remove members");
+      return;
+    }
+    const removeFromClub = async (clubName, userId) => {
+      const r = await axios.post(`${process.env.REACT_APP_API_KEY}/leftClub`, {
+        clubName: clubName,
+        id: userId,
+      });
+      return r;
+    };
+
+    removeFromClub(clubName, id)
+      .then((r) => {
+        console.log("member removed->", r);
+      })
+      .catch((e) => {
+        console.log("error member->", e);
+      });
+  };
+  React.useEffect(() => {
+    const tmp = memberList.filter((mem) =>
+      mem.prename?.toLowerCase().includes(search?.toLowerCase())
+    );
+    setFilterList(tmp);
+  }, [search]);
+
   return (
-    <div className="parent_member">
-      <div className="member">
-        <input
-          type="text"
-          name="search"
-          id="search"
-          className="member_search"
-          placeholder="Search"
-        />
-        <div className="member-lists">
-          <div className="member_heading">
-            <h4 className="member_name">Member</h4>
-            <h4 className="member_branch">Branch</h4>
-            <h4 className="member_date">Date</h4>
+    <>
+      <Error error={error} setError={setError} />
+
+      <div className="parent_member">
+        <div className="member">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            className="member_search"
+            placeholder="Search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <div className="member-lists">
+            <div className="member_heading">
+              <h4 className="member_name">Member</h4>
+              <h4 className="member_branch">Branch</h4>
+              <h4 className="member_date">Date</h4>
+            </div>
+
+            {memberList &&
+              filterList.length === 0 &&
+              memberList.map((member) => {
+                return (
+                  <MemberList
+                    member={member}
+                    clubName={clubName}
+                    removeMemberHandler={removeMemberHandler}
+                  />
+                );
+              })}
+            {filterList?.length > 0 &&
+              filterList.map((member) => {
+                return (
+                  <MemberList
+                    member={member}
+                    clubName={clubName}
+                    removeMemberHandler={removeMemberHandler}
+                  />
+                );
+              })}
           </div>
-          {/* {members.map((member) => {
-            return (
-              <>
-                <Link
-                  to={`/profile/${member.member}`}
-                  className="member_list"
-                  onClick={() => Cookies.set("SCAM_TEMP_ID", member.id)}
-                >
-                  <span>{member.member}</span>
-                  <span>{"CSEE"}</span>
-                  <span>{member.date}</span>
-                </Link>
-              </>
-            );
-          })} */}
-          {memberList &&
-            memberList.map((member) => {
-              return (
-                <>
-                  <Link
-                    to={`/profile/${member.prename}`}
-                    className="member_list"
-                    onClick={() =>
-                      Cookies.set("SCAM_TEMP_ID", member?.memberId)
-                    }
-                    key={member._id}
-                  >
-                    <span>{member.prename}</span>
-                    <span>{"CSE"}</span>
-                    <span>{member.joinedOn}</span>
-                  </Link>
-                </>
-              );
-            })}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Member;
+const mapStateToProps = (state) => ({
+  userData: state.userReducer.userData,
+});
+
+export default connect(mapStateToProps, null)(Member);
