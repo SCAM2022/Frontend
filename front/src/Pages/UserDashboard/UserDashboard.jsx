@@ -27,6 +27,8 @@ import Cookies from "js-cookie";
 import Event from "../../components/Event/Event";
 import ProfileView from "../../components/Profile/ProfileView";
 import { setUser, unsetUser } from "../../actions/userAction";
+import ShowEvent from "../../components/ShowEvent/ShowEvent";
+
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
 
@@ -92,6 +94,7 @@ const UserDashboard = (props) => {
         <Route exact path="/newClub" element={<NewClub />} />
         <Route exact path="/club/:cname" element={<Club />} />
         <Route exact path="/event" element={<Event />} />
+        <Route exact path="/eventShow" element={<ShowEvent />} />
 
         {/* <Route
         path="/v/:vname/drinks/"
@@ -107,6 +110,7 @@ const UserDashboard = (props) => {
         <Route exact path="/:clubName/member" element={<Member />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/profile/:userName" element={<ProfileView />} />
+
         {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
       {!(
