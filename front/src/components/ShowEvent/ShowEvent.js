@@ -29,9 +29,18 @@ const ShowEvent = () => {
           more about the contest.
         </p>
         <div className="showEvent about">
-          <h3>About Event Name:</h3>p
+          <h3>About Event Name:</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+            nesciunt.
+          </p>
         </div>
-        <div className="showEvent_contest_detail"></div>
+        <div className="showEvent_contest_detail">
+          <h3>Contest Detail</h3>
+          <li>Duration: 3 hours</li>
+          <li>Start Date: Wednesday, 5th January, 2022 at 20:00 </li>
+          <li>Duration: 3 hours</li>
+        </div>
         <div className="showEvent_criteria"></div>
         <div className="showEvent_rules"></div>
       </div>
