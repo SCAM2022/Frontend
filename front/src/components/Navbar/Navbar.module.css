@@ -32,6 +32,11 @@ body {
   /* box-shadow: 4px 4px 8px #333; */
 }
 
+.navbar .navbar_user {
+  width: 60px;
+  height: 60px;
+}
+
 .navbar .navbar_head {
   width: 100%;
   height: 60px;

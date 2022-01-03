@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import defaultAvatar from "../../assets/userAvatar.png";
+import user from "../../assets/user-profile.png";
 
 import classes from "./ProfileAvatar.module.css";
 export default function ProfileAvatar({ logoutHandler, ...props }) {
@@ -17,7 +18,7 @@ export default function ProfileAvatar({ logoutHandler, ...props }) {
           // className={classes.btn}
           onClick={profileHandler}
         >
-          <img src={defaultAvatar} alt="profile-avatar" />
+          <img src={user} alt="profile-avatar" />
           Logout
         </div>
       </div>

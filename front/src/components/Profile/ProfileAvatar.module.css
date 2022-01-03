@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 .user_profile_avatar img {
-  border: 2px solid white;
+  border: 0px solid white;
   height: 50px;
   width: 50px;
 }

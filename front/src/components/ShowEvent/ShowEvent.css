@@ -10,7 +10,7 @@ font-family: 'Space Grotesk', sans-serif;
 
 .showEvent {
   width: 80%;
-  margin: 0px auto;
+  margin: 50px auto 80px auto;
   height: 100%;
 }
 
@@ -24,15 +24,51 @@ font-family: 'Space Grotesk', sans-serif;
   margin-bottom: 100px;
   display: flex;
   flex-direction: column;
+  border-radius: 12px;
   justify-content: space-evenly;
   padding-left: 60px;
   box-shadow: 0 4px 4px rgb(0 0 0 / 20%);
 }
+
+.showEvent_poster > button {
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #1a1f6b;
+  border-radius: 5px;
+  color: #fff;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  transition: all 0.5s;
+  border: none;
+}
+.showEvent_poster > button:hover {
+  box-shadow: inset 150px 0px #fff;
+  color: #000;
+  letter-spacing: 1px;
+}
 .showEvent_poster_container {
   width: 40%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   height: 200px;
+}
+
+.showEvent_prize {
+  padding: 20px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: #1a1f6b;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.showEvent_prize h3 {
+  font-size: 32px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
 }
 
 .showEvent_poster_container > h2 {
@@ -79,4 +115,39 @@ font-family: 'Space Grotesk', sans-serif;
 
 .showEvent_poster_info_right span {
   font-weight: 600;
+}
+
+.showEvent_detail {
+  width: 100%;
+  height: 100%;
+}
+.showEvent_detail > span {
+  font-family: "Poppins", sans-serif;
+  width: 400px;
+  display: block;
+  height: 50px;
+  background-color: #eeeeee;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  margin: 0px 0px 30px 0px;
+}
+
+.showEvent_detail h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 40px;
+  color: #15455b;
+}
+.showEvent_about {
+  width: 100%;
+  height: max-content;
+}
+
+.showEvent_contest_detail li {
+  font-size: 16px;
+  font-weight: 500;
 }
