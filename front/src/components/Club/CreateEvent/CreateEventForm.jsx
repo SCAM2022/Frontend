@@ -4,8 +4,10 @@ import classes from "./CreateEventForm.module.css";
 import axios from "axios";
 import cookie from "js-cookie";
 import closeSvg from "../../../assets/close.svg";
+import { useParams } from "react-router";
 
 const CreateEventForm = (props) => {
+  const params = useParams();
   const [eventName, setEventName] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
@@ -14,6 +16,10 @@ const CreateEventForm = (props) => {
   const [startTime, setStartTime] = useState("");
   const [location, setLocation] = useState("");
   const [incharge, setIncharge] = useState("");
+  const [goodies, setGoodies] = useState("");
+  const [clubName, setClubName] = useState(params.cname);
+  const [eleCreteria, setEleCreteria] = useState("");
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -26,7 +32,10 @@ const CreateEventForm = (props) => {
       startTime: startTime,
       location: location,
       incharge: incharge,
-      clubName: "Coding Club",
+      clubName: clubName,
+      goodies: goodies,
+      orgClub: clubName,
+      eliCriteria: eleCreteria,
     };
 
     props.closeModel();
@@ -141,6 +150,25 @@ const CreateEventForm = (props) => {
               type="text"
               onChange={(e) => setIncharge(e.target.value)}
               value={incharge}
+              required
+            />
+          </div>
+
+          <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Eligibility Criteria:</label>
+            <input
+              type="text"
+              onChange={(e) => setEleCreteria(e.target.value)}
+              value={eleCreteria}
+              required
+            />
+          </div>
+          <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Goodies:</label>
+            <input
+              type="text"
+              onChange={(e) => setGoodies(e.target.value)}
+              value={goodies}
               required
             />
           </div>
