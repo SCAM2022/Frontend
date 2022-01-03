@@ -1,7 +1,6 @@
 import React from "react";
 import "./Club.css";
 import { Link } from "react-router-dom";
-import cookie from "js-cookie";
 
 import Gallery from "./Gallery/Gallery";
 import video from "../../assets/club/video.mp4";
@@ -17,6 +16,9 @@ import Typical from "react-typical";
 import Cookies from "js-cookie";
 import { connect } from "react-redux";
 import Error from "../Ui/Error/Error";
+import { setUser } from "../../actions/userAction";
+
+import JoinSuccess from "./Success/JoinSuccess";
 
 const Club = (props) => {
   const params = useParams();
@@ -27,12 +29,17 @@ const Club = (props) => {
   const [clubData, setClubData] = React.useState(null);
   const [error, setError] = React.useState("");
   const [alreadyJoined, setAlreadyJoined] = React.useState("");
+  const [joinedModel, setJoinedModel] = React.useState("");
+  const [joining, setJoining] = React.useState(false);
 
   const showModelHandler = () => {
     setShowModel(true);
   };
-
+  const showJoinedModelHandler = () => {
+    setJoinedModel(true);
+  };
   const closeModel = () => {
+    setJoinedModel(false);
     setShowModel(false);
   };
   console.log("ClubName ->", clubName);
@@ -89,9 +96,13 @@ const Club = (props) => {
     console.log("userData->", props?.userData);
     if (!props?.userData) {
       console.log("login First");
+      setError("login Before joining");
+
       return;
     }
-
+    setJoining(true);
+    showJoinedModelHandler();
+    // return;
     const joinClub = async () => {
       const res = await axios.post(
         `${process.env.REACT_APP_API_KEY}/joinclub`,
@@ -105,12 +116,35 @@ const Club = (props) => {
       );
       return res;
     };
+
     joinClub()
       .then((r) => {
         console.log("joined successfully", r);
+        const getUser = async () => {
+          // console.log("0<", Cookies.get("SCAM_TOKEN"));
+
+          const r = await axios.post(`${process.env.REACT_APP_API_KEY}/user`, {
+            id: `${Cookies.get("SCAM_USER_ID")}`,
+          });
+          return r;
+        };
+        if (Cookies.get("SCAM_USER_ID"))
+          getUser()
+            .then((r) => {
+              props.setUser(r.data);
+              setJoining(false);
+            })
+            .catch((e) => {
+              console.log("error while fetching userData in clubJoining!!", e);
+              setError("Error while joining");
+              closeModel();
+              setJoining(false);
+            });
       })
       .catch((e) => {
         console.log("error while joining");
+        setError("Joining failed!");
+        setJoining(false);
       });
   };
 
@@ -118,14 +152,15 @@ const Club = (props) => {
   return (
     <>
       <Error error={error} setError={setError} />
+      {joinedModel && <JoinSuccess closeModel={closeModel} joining={joining} />}
       <div className="club">
         <div className="club_container">
           {showModel && <CreateEventForm closeModel={closeModel} />}
           <div className="club_body">
             <div className=" club_left">
               <div className="club_links">
-                <Link to="">
-                  <li onClick={showModelHandler}>Create Event</li>
+                <Link to={`/${clubName}/createEvent`}>
+                  <li>Create Event</li>
                 </Link>
                 <Link to="">
                   <li>Gallery</li>
@@ -195,5 +230,8 @@ const Club = (props) => {
 const mapStateToProps = (state) => ({
   userData: state.userReducer.userData,
 });
+const mapDispatchToProps = (dispatch) => ({
+  setUser: (data) => dispatch(setUser(data)),
+});
 
-export default connect(mapStateToProps, null)(Club);
+export default connect(mapStateToProps, mapDispatchToProps)(Club);

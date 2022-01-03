@@ -6,6 +6,8 @@ import cookie from "js-cookie";
 import Model from "../Ui/Model/Model";
 import classes from "./NewClubForm.module.css";
 import closeSvg from "../../assets/close.svg";
+import Cookies from "js-cookie";
+import { setUser } from "../../actions/userAction";
 
 const NewClubForm = ({ error, setError, ...props }) => {
   const [clubName, setClubName] = useState("");
@@ -59,10 +61,10 @@ const NewClubForm = ({ error, setError, ...props }) => {
       return r;
     };
 
-    const val = await checkClub()
+    const val = checkClub()
       .then((r) => {
         console.log("clubCheck response->", r.data, r.data.success);
-        return r.data.success;
+        return r?.data?.success;
       })
       .catch((e) => {
         console.log("error in clubName Check->", e);
@@ -84,13 +86,7 @@ const NewClubForm = ({ error, setError, ...props }) => {
         setError("success");
       }
     });
-    // if (!checkNameAvailabilty()) {
-    //   setError("Please Enter Unique clubName!");
-    //   return;
-    // } else {
-    //   setError("Success!");
-    // }
-    // return;
+
     const formData = new FormData();
 
     // Update the formData object
@@ -120,7 +116,23 @@ const NewClubForm = ({ error, setError, ...props }) => {
     sendDate()
       .then((r) => {
         console.log("resPonse->", r);
-        navigate("/clubs");
+        const getUser = async () => {
+          const r = await axios.post(`${process.env.REACT_APP_API_KEY}/user`, {
+            id: `${Cookies.get("SCAM_USER_ID")}`,
+          });
+          return r;
+        };
+        if (Cookies.get("SCAM_USER_ID")) {
+          getUser()
+            .then((r) => {
+              props.setUser(r.data);
+              navigate("/clubs");
+            })
+            .catch((e) => {
+              console.log("error while fetching userData in clubCreation!!", e);
+              // setError("Error while joining");
+            });
+        } else navigate("/clubs");
       })
       .catch((e) => {
         console.log("error in club creation ->", e);
@@ -228,4 +240,8 @@ const mapStateToProps = (state) => ({
   userData: state.userReducer.userData,
 });
 
-export default connect(mapStateToProps, null)(NewClubForm);
+const mapDispatchToProps = (dispatch) => ({
+  setUser: (data) => dispatch(setUser(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewClubForm);
