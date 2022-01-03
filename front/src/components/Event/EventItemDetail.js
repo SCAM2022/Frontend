@@ -1,4 +1,4 @@
-let eventId = 0;
+let eventId=0
 export const eventDetail = [
   {
     id: ++eventId,

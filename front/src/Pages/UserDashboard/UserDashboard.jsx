@@ -96,7 +96,7 @@ const UserDashboard = (props) => {
         <Route exact path="/club/:cname" element={<Club />} />
         <Route exact path="/:cname/createEvent" element={<CreateEvent />} />
         <Route exact path="/event" element={<Event />} />
-        <Route exact path="/eventShow" element={<ShowEvent />} />
+        <Route exact path="/eventShow/:evename" element={<ShowEvent />} />
 
         {/* <Route
         path="/v/:vname/drinks/"
