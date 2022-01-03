@@ -43,17 +43,30 @@ const Event = () => {
             } = item;
 
             return (
-              <EventItem
-                id={id}
-                name={name}
-                date={date}
-                duration={duration}
-                startDate={startDate}
-                endDate={endDate}
-                about={about}
-                criteria={criteria}
-                rules={rules}
-              />
+              <>
+                <EventItem
+                  id={id}
+                  name={name}
+                  date={date}
+                  duration={duration}
+                  startDate={startDate}
+                  endDate={endDate}
+                  about={about}
+                  criteria={criteria}
+                  rules={rules}
+                />
+                <EventItem
+                  id={id}
+                  name={name}
+                  date={date}
+                  duration={duration}
+                  startDate={startDate}
+                  endDate={endDate}
+                  about={about}
+                  criteria={criteria}
+                  rules={rules}
+                />
+              </>
             );
           })}
           {/* <h4>MORE EVENTS</h4> */}
