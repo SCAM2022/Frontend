@@ -21,6 +21,10 @@ const ShowEvent = () => {
             </div>
           </div>
         </div>
+        <div className="showEvent_prize">
+          <h3>Prize : ₹ 5000</h3>
+        </div>
+        <button>JOIN</button>
       </div>
       <div className="showEvent_detail">
         <span>Event Name - DETAILS</span>
@@ -28,7 +32,7 @@ const ShowEvent = () => {
           New users are requested to go through the below information to know
           more about the contest.
         </p>
-        <div className="showEvent about">
+        <div className="showEvent_about">
           <h3>About Event Name:</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
@@ -39,10 +43,16 @@ const ShowEvent = () => {
           <h3>Contest Detail</h3>
           <li>Duration: 3 hours</li>
           <li>Start Date: Wednesday, 5th January, 2022 at 20:00 </li>
-          <li>Duration: 3 hours</li>
+          <li>End Date: Wednesday, 5th January, 2022 at 23:00 </li>
         </div>
-        <div className="showEvent_criteria"></div>
-        <div className="showEvent_rules"></div>
+        <div className="showEvent_criteria">
+          <h3>Contest Criteria</h3>
+          <p>Our contests are open to all the programmers across the globe.</p>
+        </div>
+        <div className="showEvent_rules">
+          <h3>Rules and Regulations:</h3>
+          <li>Rule</li>
+        </div>
       </div>
     </div>
   );
