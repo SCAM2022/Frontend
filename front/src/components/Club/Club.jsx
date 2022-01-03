@@ -155,7 +155,6 @@ const Club = (props) => {
       {joinedModel && <JoinSuccess closeModel={closeModel} joining={joining} />}
       <div className="club">
         <div className="club_container">
-          {showModel && <CreateEventForm closeModel={closeModel} />}
           <div className="club_body">
             <div className=" club_left">
               <div className="club_links">
