@@ -1,11 +1,59 @@
 import React from "react";
 import "./Event.css";
 import poster from "../../assets/eventImg.png";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import EventItem from "./EventItem";
 // import styled from "@emotion/styled";
-import { eventDetail } from "./EventItemDetail";
+// import {eventDetail} from "./EventItemDetail";
 
 const Event = () => {
+  let [letSee, setLetsee] = useState("");
+  useEffect(() => {
+    const getEvents = async () => {
+      const getData = await axios.get(
+        `${process.env.REACT_APP_API_KEY}/fetchEvents`
+      );
+      const eventDetail = getData.data.events;
+      console.log(eventDetail);
+      setLetsee(
+        (letSee = eventDetail?.map((item) => {
+          const {
+            createdBy,
+            discription,
+            eliCriteria,
+            endDate,
+            startDate,
+            eventIncharge,
+            goodies,
+            location,
+            startTime,
+            timeDuration,
+            title,
+            rules,
+          } = item;
+
+          return (
+            <EventItem
+              createdBy={createdBy}
+              discription={discription}
+              eliCriteria={eliCriteria}
+              endDate={endDate}
+              startDate={startDate}
+              eventIncharge={eventIncharge}
+              goodies={goodies}
+              location={location}
+              startTime={startTime}
+              timeDuration={timeDuration}
+              title={title}
+              rules={rules}
+            />
+          );
+        }))
+      );
+    };
+    getEvents();
+  }, []);
   return (
     <div className="live">
       <div className="event_container">
@@ -29,46 +77,7 @@ const Event = () => {
           <span></span>
         </div>
         <div className="live_events">
-          {eventDetail?.map((item) => {
-            const {
-              id,
-              name,
-              date,
-              duration,
-              startDate,
-              endDate,
-              about,
-              criteria,
-              rules,
-            } = item;
-
-            return (
-              <>
-                <EventItem
-                  id={id}
-                  name={name}
-                  date={date}
-                  duration={duration}
-                  startDate={startDate}
-                  endDate={endDate}
-                  about={about}
-                  criteria={criteria}
-                  rules={rules}
-                />
-                <EventItem
-                  id={id}
-                  name={name}
-                  date={date}
-                  duration={duration}
-                  startDate={startDate}
-                  endDate={endDate}
-                  about={about}
-                  criteria={criteria}
-                  rules={rules}
-                />
-              </>
-            );
-          })}
+          {letSee}
           {/* <h4>MORE EVENTS</h4> */}
           {/* <EventItem />
           <EventItem />

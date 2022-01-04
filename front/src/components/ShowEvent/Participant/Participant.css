@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Space Grotesk', sans-serif;
+
+*/
+
+.participant {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.participant .participant_container {
+  position: relative;
+  width: 80%;
+  height: max-content;
+  padding-bottom: 40px;
+  background-color: #fff;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  padding-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.participant_heading {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgrey;
+  padding: 10px 30px;
+}
+
+.participant_heading h3 {
+  flex: 0.5;
+  font-size: 18px;
+  width: fit-content;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  /* color: #15455b; */
+  color: #fff;
+  padding: 10px;
+  background-color: crimson;
+  border-radius: 5px;
+}
+
+.participant_heading span {
+  display: block;
+  text-align: right;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #15455b;
+  word-spacing: 12px;
+  flex: 0.5;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.participant_lists {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+}
+
+.participant_list_heading {
+  width: 95%;
+  margin: 0px auto;
+  height: 60px;
+  background-color: crimson;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.participant_list_heading > div {
+  flex: 0.3;
+  text-align: center;
+}
+.participant_list_heading span {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.participant_list {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  /* border: 1px solid #ccc; */
+  border-radius: 12px;
+  height: fit-content;
+  padding: 20px 0px;
+}
+
+.participant_list_person {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0px 20px;
+  margin-top: 10px;
+}
+.participant_list_person:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.participant_list_person > div {
+  flex: 0.3;
+  text-align: center;
+}
+
+.participant_list_person span {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #777;
+  text-transform: capitalize;
+}
+.participant_name {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.participant_check > input {
+  width: 30px;
+  height: 30px;
+  border: 1px solid crimson;
+}

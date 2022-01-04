@@ -4,31 +4,40 @@ import classes from "./CreateEventForm.module.css";
 import axios from "axios";
 import cookie from "js-cookie";
 import closeSvg from "../../../assets/close.svg";
+import { useParams } from "react-router";
 
 const CreateEventForm = (props) => {
+  const params = useParams();
   const [eventName, setEventName] = useState("");
-  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [startTime, setStartTime] = useState("");
   const [location, setLocation] = useState("");
   const [incharge, setIncharge] = useState("");
+  const [goodies, setGoodies] = useState("");
+  const [clubName, setClubName] = useState(params.cname);
+  const [eleCreteria, setEleCreteria] = useState("");
+  const [timeDuration, setTimeDuration] = useState("");
+  const [rules, setRules] = useState("");
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
     const data = {
       title: eventName,
-      category: category,
       discription: description,
       startDate: startDate,
       endDate: endDate,
       startTime: startTime,
       location: location,
       incharge: incharge,
-      clubName: "Coding Club",
+      clubName: clubName,
+      goodies: goodies,
+      eliCriteria: eleCreteria,
+      timeDuration: timeDuration,
+      rules: rules
     };
-
     props.closeModel();
     const sendDate = async () => {
       const r = await axios.post(
@@ -76,16 +85,6 @@ const CreateEventForm = (props) => {
           </div>
 
           <div className={classes["form_field"]}>
-            <label htmlFor="club-name">Category:</label>
-            <input
-              type="text"
-              onChange={(e) => setCategory(e.target.value)}
-              value={category}
-              required
-            />
-          </div>
-
-          <div className={classes["form_field"]}>
             <label htmlFor="club-name">Description:</label>
             <textarea
               type="text"
@@ -127,6 +126,15 @@ const CreateEventForm = (props) => {
             />
           </div>
           <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Time Duration in Hrs:</label>
+            <input
+              type="text"
+              onChange={(e) => setTimeDuration(e.target.value)}
+              value={timeDuration}
+              required
+            />
+          </div>
+          <div className={classes["form_field"]}>
             <label htmlFor="club-name">Location:</label>
             <input
               type="text"
@@ -141,6 +149,35 @@ const CreateEventForm = (props) => {
               type="text"
               onChange={(e) => setIncharge(e.target.value)}
               value={incharge}
+              required
+            />
+          </div>
+
+          <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Eligibility Criteria:</label>
+            <input
+              type="text"
+              onChange={(e) => setEleCreteria(e.target.value)}
+              value={eleCreteria}
+              required
+            />
+          </div>
+          <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Goodies:</label>
+            <input
+              type="text"
+              onChange={(e) => setGoodies(e.target.value)}
+              value={goodies}
+              required
+            />
+          </div>
+          <div className={classes["form_field"]}>
+            <label htmlFor="club-name">Rules:</label>
+            <textarea
+              type="text"
+              rows="4"
+              onChange={(e) => setRules(e.target.value)}
+              value={rules}
               required
             />
           </div>

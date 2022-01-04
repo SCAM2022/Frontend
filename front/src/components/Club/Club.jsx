@@ -19,19 +19,19 @@ import Error from "../Ui/Error/Error";
 import { setUser } from "../../actions/userAction";
 
 import JoinSuccess from "./Success/JoinSuccess";
+import ClubTalk from "../ClubTalk/ClubTalk";
 
 const Club = (props) => {
   const params = useParams();
   const [clubName, setClubName] = React.useState(params.cname);
 
   const [showModel, setShowModel] = React.useState(false);
-  // const [userData, setUserData] = React.useState(null);
   const [clubData, setClubData] = React.useState(null);
   const [error, setError] = React.useState("");
   const [alreadyJoined, setAlreadyJoined] = React.useState("");
   const [joinedModel, setJoinedModel] = React.useState("");
   const [joining, setJoining] = React.useState(false);
-
+  const [message, setMessage] = React.useState("");
   const showModelHandler = () => {
     setShowModel(true);
   };
@@ -101,6 +101,8 @@ const Club = (props) => {
       return;
     }
     setJoining(true);
+    setMessage("You have successfully joined the club!");
+
     showJoinedModelHandler();
     // return;
     const joinClub = async () => {
@@ -147,15 +149,77 @@ const Club = (props) => {
         setJoining(false);
       });
   };
+  const clubLeaveHandler = () => {
+    if (!props?.userData) {
+      console.log("login First");
+      setError("login Before leaving");
+
+      return;
+    }
+    if (!alreadyJoined) {
+      setError("You haven't joined the club yet!");
+      return;
+    }
+
+    setJoining(true);
+    setMessage("You have successfully Left the club!");
+    showJoinedModelHandler();
+    // return;
+    const leaveClub = async () => {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/leftclub`,
+        {
+          clubName: clubName,
+          id: `${Cookies.get("SCAM_USER_ID")}`,
+        }
+      );
+      return res;
+    };
+
+    leaveClub()
+      .then((r) => {
+        console.log("left successfully", r);
+        const getUser = async () => {
+          // console.log("0<", Cookies.get("SCAM_TOKEN"));
+
+          const r = await axios.post(`${process.env.REACT_APP_API_KEY}/user`, {
+            id: `${Cookies.get("SCAM_USER_ID")}`,
+          });
+          return r;
+        };
+        if (Cookies.get("SCAM_USER_ID"))
+          getUser()
+            .then((r) => {
+              props.setUser(r.data);
+              setJoining(false);
+            })
+            .catch((e) => {
+              console.log("error while fetching userData in clubLeaving!!", e);
+              setError("Error while leaving");
+              closeModel();
+              setJoining(false);
+            });
+      })
+      .catch((e) => {
+        console.log("error while leaving");
+        setError("leaving failed!");
+        setJoining(false);
+      });
+  };
 
   console.log("->", clubName, alreadyJoined);
   return (
     <>
       <Error error={error} setError={setError} />
-      {joinedModel && <JoinSuccess closeModel={closeModel} joining={joining} />}
+      {joinedModel && (
+        <JoinSuccess
+          closeModel={closeModel}
+          joining={joining}
+          message={message}
+        />
+      )}
       <div className="club">
         <div className="club_container">
-          {showModel && <CreateEventForm closeModel={closeModel} />}
           <div className="club_body">
             <div className=" club_left">
               <div className="club_links">
@@ -165,7 +229,7 @@ const Club = (props) => {
                 <Link to="">
                   <li>Gallery</li>
                 </Link>
-                <Link to="">
+                <Link to={`/${clubName}/ClubTalk`}>
                   <li>Club talk</li>
                 </Link>
                 <Link to={`/${clubName}/member`}>
@@ -173,6 +237,15 @@ const Club = (props) => {
                 </Link>
                 <Link to="">
                   <li>Club Achivement</li>
+                </Link>
+                <Link to="">
+                  <li
+                    onClick={() => {
+                      clubLeaveHandler();
+                    }}
+                  >
+                    Leave Club
+                  </li>
                 </Link>
               </div>
             </div>

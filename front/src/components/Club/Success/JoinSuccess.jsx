@@ -35,9 +35,7 @@ export default function JoinSuccess(props) {
           <div className={classes["joined_wrapper"]}>
             <div className={classes["joined_container"]}>
               <img src={tick} alt="" />
-              <div className={classes["joined-title"]}>
-                You have successfully Joined!
-              </div>
+              <div className={classes["joined-title"]}>{props.message}</div>
               <div className={classes["joined-btn"]} onClick={props.closeModel}>
                 Close
               </div>
