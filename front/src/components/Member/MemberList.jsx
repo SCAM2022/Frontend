@@ -14,15 +14,15 @@ export default function MemberList({ member, ...props }) {
   return (
     <>
       <div  className="member_list">
+        <div className="member_list_bilip"></div>
         <img src= {user} alt=""/>
-           <span className="member_name">{`${member.prename} (${member.Role})`}</span>
+          <span className="member_name">{`${member.prename} (${member.Role})`}</span>
         < MoreVertIcon className="member_list_toggle" onClick={() => setShowDrop((e) => !e)}/>
        <div className="member_list_info">
           <span>{"CSE"}</span>
         <span>{dateFormat(member.joinedOn)}</span>
        </div>
-      </div>
-      {showDrop && (
+        {showDrop && (
         <DropSection
           prename={member?.prename}
           Role={member?.Role}
@@ -33,6 +33,8 @@ export default function MemberList({ member, ...props }) {
           removeMemberHandler={props?.removeMemberHandler}
         />
       )}
+      </div>
+     
     </>
   );
 }

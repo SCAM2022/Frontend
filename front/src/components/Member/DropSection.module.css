@@ -1,11 +1,8 @@
 .user_profile__dropdown {
-  /* display: none; */
-  /* position: relative; */
-  height: 0px;
-  width: 50px;
-  background-color: white;
-  overflow: hidden;
-  /* display: none; */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #333;
   z-index: 5;
 }
 
@@ -13,7 +10,7 @@
   position: absolute;
   display: flex;
   width: 169px;
-  height: auto;
+  height: 90px;
   flex-direction: column;
   transition: all 0.4s;
   background-color: rgb(255, 255, 255);

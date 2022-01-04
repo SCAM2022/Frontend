@@ -98,12 +98,12 @@ font-family: 'Space Grotesk', sans-serif;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: all 0.3s;
-  transform: skewX(2deg);
+  /* transform: skewX(2deg); */
 }
 
 .member_heading h3,
 .member_heading h4 {
-  font-size: 32px;
+  font-size: 42px;
   text-align: left;
   padding: 10px 14px;
   font-weight: 600;
@@ -146,7 +146,7 @@ font-family: 'Space Grotesk', sans-serif;
   display: flex;
   border-radius: 5px;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   cursor: pointer;
   transition: all 0.2s !important;
@@ -156,6 +156,7 @@ font-family: 'Space Grotesk', sans-serif;
   background-color: #ffffff;
   /* transition: all 0.2s; */
 }
+
 .member_list > img {
   width: 90px;
   height: 90px;
@@ -174,6 +175,33 @@ font-family: 'Space Grotesk', sans-serif;
   color: #333;
 }
 
+.member_list_bilip {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 15px;
+  height: 15px;
+  /* background-color: #34d46d; */
+  background-color: #2196f3;
+  border-radius: 50%;
+  animation: bubble 1s infinite linear;
+  transition: all 0.5s;
+}
+
+@keyframes bubble {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .member_list_info {
   /* background-color: #dfdfe9; */
   background-color: #34d46d;
@@ -212,4 +240,5 @@ font-family: 'Space Grotesk', sans-serif;
   background-color: #2196f3;
   padding: 10px;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
