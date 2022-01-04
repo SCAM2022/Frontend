@@ -13,9 +13,8 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.795);
-  background: linear-gradient(to right, #b0d3dd, #17404b);
-  /* background: linear-gradient(to right, #acb6e5, #74ebd5); */
+  color: rgb(255, 255, 255);
+  background: linear-gradient(to right, #b0d3dd, #17404ba8);
   flex-wrap: wrap;
   border-radius: 5px;
   width: 500px;
@@ -30,6 +29,10 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .member {
