@@ -1,11 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import axios from "axios";
-import Cookies from "js-cookie";
-import user from "../../assets/user.png";
 import "./Member.css";
-import DropSection from "./DropSection";
 import MemberList from "./MemberList";
 import { connect } from "react-redux";
 import Error from "../Ui/Error/Error";
@@ -99,7 +95,9 @@ const Member = (props) => {
   return (
     <>
       <Error error={error} setError={setError} />
-
+      <div className="member-club_heading-container">
+        <div className="member-club_heading">{clubName}'s Member Lists:</div>
+      </div>
       <div className="parent_member">
         <div className="member">
           <input

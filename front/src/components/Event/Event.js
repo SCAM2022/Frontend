@@ -16,43 +16,40 @@ const Event = () => {
       );
       const eventDetail = getData.data.events;
       console.log(eventDetail);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       setLetsee(
-        (letSee =
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          eventDetail?.map((item) => {
-            const {
-              createdBy,
-              discription,
-              eliCriteria,
-              endDate,
-              startDate,
-              eventIncharge,
-              goodies,
-              location,
-              startTime,
-              timeDuration,
-              title,
-              rules,
-            } = item;
+        (letSee = eventDetail?.map((item) => {
+          const {
+            createdBy,
+            discription,
+            eliCriteria,
+            endDate,
+            startDate,
+            eventIncharge,
+            goodies,
+            location,
+            startTime,
+            timeDuration,
+            title,
+            rules,
+          } = item;
 
-            return (
-              <EventItem
-                createdBy={createdBy}
-                discription={discription}
-                eliCriteria={eliCriteria}
-                endDate={endDate}
-                startDate={startDate}
-                eventIncharge={eventIncharge}
-                goodies={goodies}
-                location={location}
-                startTime={startTime}
-                timeDuration={timeDuration}
-                title={title}
-                rules={rules}
-              />
-            );
-          }))
+          return (
+            <EventItem
+              createdBy={createdBy}
+              discription={discription}
+              eliCriteria={eliCriteria}
+              endDate={endDate}
+              startDate={startDate}
+              eventIncharge={eventIncharge}
+              goodies={goodies}
+              location={location}
+              startTime={startTime}
+              timeDuration={timeDuration}
+              title={title}
+              rules={rules}
+            />
+          );
+        }))
       );
     };
     getEvents();
