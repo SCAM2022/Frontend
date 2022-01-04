@@ -19,6 +19,7 @@ import Error from "../Ui/Error/Error";
 import { setUser } from "../../actions/userAction";
 
 import JoinSuccess from "./Success/JoinSuccess";
+import ClubTalk from "../ClubTalk/ClubTalk";
 
 const Club = (props) => {
   const params = useParams();
@@ -155,6 +156,11 @@ const Club = (props) => {
 
       return;
     }
+    if (!alreadyJoined) {
+      setError("You haven't joined the club yet!");
+      return;
+    }
+
     setJoining(true);
     setMessage("You have successfully Left the club!");
     showJoinedModelHandler();
@@ -223,7 +229,7 @@ const Club = (props) => {
                 <Link to="">
                   <li>Gallery</li>
                 </Link>
-                <Link to="">
+                <Link to={`/${clubName}/ClubTalk`}>
                   <li>Club talk</li>
                 </Link>
                 <Link to={`/${clubName}/member`}>
@@ -235,10 +241,6 @@ const Club = (props) => {
                 <Link to="">
                   <li
                     onClick={() => {
-                      if (!alreadyJoined) {
-                        setError("You haven't joined the club yet!");
-                        return;
-                      }
                       clubLeaveHandler();
                     }}
                   >
