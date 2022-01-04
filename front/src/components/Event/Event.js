@@ -1,55 +1,62 @@
 import React from "react";
 import "./Event.css";
 import poster from "../../assets/eventImg.png";
-import {useState,useEffect} from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 import EventItem from "./EventItem";
 // import styled from "@emotion/styled";
 // import {eventDetail} from "./EventItemDetail";
 
 const Event = () => {
-  let [letSee,setLetsee] = useState("");
-  useEffect(() =>{
-    const getEvents = async() =>{
-         const getData = await axios.get(`${process.env.REACT_APP_API_KEY}/fetchEvents`); 
-         const eventDetail = getData.data.events;
-         console.log(eventDetail)
-         setLetsee(letSee =  eventDetail?.map((item) => {
-          const {
-            createdBy,
-            discription,
-            eliCriteria,
-            endDate,
-            startDate,
-            eventIncharge,
-            goodies,
-            location,
-            startTime,
-            timeDuration,
-            title,
-            rules,
-          } = item;
+  let [letSee, setLetsee] = useState("");
+  useEffect(() => {
+    const getEvents = async () => {
+      const getData = await axios.get(
+        `${process.env.REACT_APP_API_KEY}/fetchEvents`
+      );
+      const eventDetail = getData.data.events;
+      console.log(eventDetail);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      setLetsee(
+        (letSee =
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          eventDetail?.map((item) => {
+            const {
+              createdBy,
+              discription,
+              eliCriteria,
+              endDate,
+              startDate,
+              eventIncharge,
+              goodies,
+              location,
+              startTime,
+              timeDuration,
+              title,
+              rules,
+            } = item;
 
-          return (
+            return (
               <EventItem
-              createdBy = {createdBy}
-              discription = {discription}
-              eliCriteria = {eliCriteria}
-              endDate = {endDate}
-              startDate = {startDate}
-              eventIncharge = {eventIncharge}
-              goodies = {goodies}
-              location = {location}
-              startTime = {startTime}
-              timeDuration = {timeDuration}
-              title = {title}
-              rules = {rules}
+                createdBy={createdBy}
+                discription={discription}
+                eliCriteria={eliCriteria}
+                endDate={endDate}
+                startDate={startDate}
+                eventIncharge={eventIncharge}
+                goodies={goodies}
+                location={location}
+                startTime={startTime}
+                timeDuration={timeDuration}
+                title={title}
+                rules={rules}
               />
-          );
-        }))
-    }
+            );
+          }))
+      );
+    };
     getEvents();
-  },[])
+  }, []);
   return (
     <div className="live">
       <div className="event_container">

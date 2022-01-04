@@ -15,6 +15,7 @@ font-family: 'Space Grotesk', sans-serif;
 }
 
 .showEvent_poster {
+  position: relative;
   width: 100%;
   height: 400px;
   background-image: url("../../assets/show.jpg");
@@ -30,11 +31,11 @@ font-family: 'Space Grotesk', sans-serif;
   box-shadow: 0 4px 4px rgb(0 0 0 / 20%);
 }
 
-.showEvent_poster > button {
+.showEvent_btn > button {
   width: 150px;
   height: 40px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   background-color: #1a1f6b;
   border-radius: 5px;
@@ -42,11 +43,35 @@ font-family: 'Space Grotesk', sans-serif;
   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   transition: all 0.5s;
   border: none;
+  margin-right: 20px;
 }
-.showEvent_poster > button:hover {
-  box-shadow: inset 150px 0px #fff;
+
+.showEvent_btn .setReminder {
+  width: 180px;
+}
+.showEvent_btn > button:hover {
+  box-shadow: inset 180px 0px #fff;
   color: #000;
   letter-spacing: 1px;
+}
+
+.participant_btn {
+  position: absolute;
+  right: 50px;
+  width: 180px;
+  bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0px 0px #000 inset;
+  background-color: #d1213e;
+}
+.participant_btn:hover {
+  filter: brightness(0.8);
 }
 .showEvent_poster_container {
   width: 40%;
@@ -93,11 +118,17 @@ font-family: 'Space Grotesk', sans-serif;
   align-items: center;
   justify-content: space-evenly;
   width: 120px;
+  margin-right: 20px;
+}
+.poster_info_color {
+  margin-right: 15px;
+  font-size: 32px;
 }
 
 .showEvent_poster_info_left span {
-  font-size: 21px;
+  font-size: 18px;
   color: #15455b;
+  font-weight: 500;
 }
 .showEvent_poster_info_underline {
   width: 2px;

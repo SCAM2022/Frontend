@@ -29,6 +29,7 @@ import ProfileView from "../../components/Profile/ProfileView";
 import { setUser, unsetUser } from "../../actions/userAction";
 import ShowEvent from "../../components/ShowEvent/ShowEvent";
 import CreateEvent from "../../components/Club/CreateEvent/CreateEvent";
+import Participant from "../../components/ShowEvent/Participant/Participant";
 
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -97,6 +98,7 @@ const UserDashboard = (props) => {
         <Route exact path="/:cname/createEvent" element={<CreateEvent />} />
         <Route exact path="/event" element={<Event />} />
         <Route exact path="/eventShow/:evename" element={<ShowEvent />} />
+        <Route exact path="/participant" element={<Participant />} />
 
         {/* <Route
         path="/v/:vname/drinks/"
