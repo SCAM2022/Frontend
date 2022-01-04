@@ -1,5 +1,7 @@
 import React from "react";
 import DropSection from "./DropSection";
+import user from '../../assets/userProfile.png';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 export default function MemberList({ member, ...props }) {
   const [showDrop, setShowDrop] = React.useState(false);
@@ -11,10 +13,14 @@ export default function MemberList({ member, ...props }) {
   };
   return (
     <>
-      <div onClick={() => setShowDrop((e) => !e)} className="member_list">
-        <span>{`${member.prename} (${member.Role})`}</span>
-        <span>{"CSE"}</span>
+      <div  className="member_list">
+        <img src= {user} alt=""/>
+           <span className="member_name">{`${member.prename} (${member.Role})`}</span>
+        < MoreVertIcon className="member_list_toggle" onClick={() => setShowDrop((e) => !e)}/>
+       <div className="member_list_info">
+          <span>{"CSE"}</span>
         <span>{dateFormat(member.joinedOn)}</span>
+       </div>
       </div>
       {showDrop && (
         <DropSection

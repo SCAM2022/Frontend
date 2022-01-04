@@ -95,10 +95,11 @@ const Member = (props) => {
   return (
     <>
       <Error error={error} setError={setError} />
-      <div className="member-club_heading-container">
-        <div className="member-club_heading">{clubName}'s Member Lists:</div>
-      </div>
       <div className="parent_member">
+        <div className="member_heading">
+          <h3>{clubName}'s</h3> <br />
+          <h4>Member List</h4>
+        </div>
         <div className="member">
           <input
             type="text"
@@ -110,12 +111,6 @@ const Member = (props) => {
             onChange={(e) => setSearch(e.target.value)}
           />
           <div className="member-lists">
-            <div className="member_heading">
-              <h4 className="member_name">Member</h4>
-              <h4 className="member_branch">Branch</h4>
-              <h4 className="member_date">Date</h4>
-            </div>
-
             {memberList &&
               filterList.length === 0 &&
               memberList.map((member) => {

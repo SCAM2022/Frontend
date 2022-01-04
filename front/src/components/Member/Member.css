@@ -1,9 +1,12 @@
-.member-club_heading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Space Grotesk', sans-serif;
+
+*/
 
 .member-club_heading {
   font-size: 2rem;
@@ -14,17 +17,30 @@
     "Lucida Sans", Arial, sans-serif;
   font-weight: 900;
   color: rgb(255, 255, 255);
-  background: linear-gradient(to right, #b0d3dd, #17404ba8);
+  /* background: linear-gradient(to right, #b0d3dd, #17404ba8); */
+  background: #ffafbd; /* fallback for old browsers */
+  background: #7f00ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e100ff,
+    #7f00ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e100ff,
+    #7f00ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   flex-wrap: wrap;
   border-radius: 5px;
   width: 500px;
-  box-shadow: 2px 2px 1px #17404b3b;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 60px;
 }
 
 .parent_member {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #f7f6fb;
   /* background-image: url("../../assets/member.jpg");
   background-position: center center;
   background-size: cover;
@@ -50,47 +66,65 @@
   padding: 5px;
   border: none;
   border-radius: 10px;
-  margin-top: 24px;
+  margin-top: 16px;
   outline: none;
-  color: #f2f2f2f2;
+  color: #333;
   padding-left: 30px;
-  font-weight: 600;
-  background: #74ebd5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #acb6e5,
-    #74ebd5
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #acb6e5,
-    #74ebd5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  box-shadow: 2px 2px 1px #17404b3b;
+  font-weight: 500;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  transition: all 0.2s;
+}
+
+.member .member_search:focus {
+  border-color: #333;
 }
 
 .member_heading {
-  width: 100%;
-  margin: 0px auto;
+  background-image: url("../../assets/memberList.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 65%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
   display: flex;
-  justify-content: space-between;
-  height: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s;
+  transform: skewX(2deg);
 }
 
+.member_heading h3,
 .member_heading h4 {
-  font-size: 24px;
-  text-align: center;
+  font-size: 32px;
+  text-align: left;
+  padding: 10px 14px;
   font-weight: 600;
-  width: 150px;
-  padding: 5px;
-  background-color: #24c7f9;
-  border-radius: 12px;
-  color: whitesmoke;
+  margin-left: 20px;
+  border-radius: 5px;
+  color: #fff;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 1px #17404b3b;
+  /* box-shadow: 2px 2px 1px #17404b3b; */
+}
+
+.member_heading h3 {
+  background-color: #35a1c0;
+  width: fit-content;
+  height: 60px;
+}
+
+.member_heading h4 {
+  font-size: 24px;
 }
 
 .member-lists {
@@ -99,59 +133,83 @@
   min-height: 400px;
   margin: 0px auto;
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  justify-content: flex-start;
   /* overflow-y: scroll; */
+  border-radius: 5px;
 }
 
 .member_list {
-  height: 40px;
-  width: 100%;
+  position: relative;
+  height: 250px;
+  width: 250px;
   display: flex;
   border-radius: 5px;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: all 0.5s !important;
-  margin: 10px auto;
-  background-color: #24c7f960;
-  box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.185);
+  transition: all 0.2s !important;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #ffffff;
+  /* transition: all 0.2s; */
+}
+.member_list > img {
+  width: 90px;
+  height: 90px;
+  margin: 10px;
 }
 
-.member_list-name {
+.member_list .member_list_toggle {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  /* background-color: #dfdfe9; */
+  color: #2196f3;
+  font-size: 28px;
+}
+.member_list .member_list_toggle:hover {
+  color: #333;
+}
+
+.member_list_info {
+  /* background-color: #dfdfe9; */
+  background-color: #34d46d;
+  width: 100%;
+  height: 70px;
   display: flex;
-  width: 200px;
   align-items: center;
+  justify-content: space-around;
 }
 
-.member_list-name img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  margin-left: 10px;
+.member_list_info > span {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
 }
+
 .member_list:hover {
-  /* background: #00c6ff;  */
-  background: -webkit-linear-gradient(
-    to right,
-    #008cffbd,
-    #00c8ff88
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #008cffbd,
-    #00c8ff88
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 6px;
-  box-shadow: 2px 2px 1px 3px #00c8ff33;
-  color: white;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+  transform: translateY(-10px);
 }
 .member_list span {
   width: 150px;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
-  color: #000;
+  color: #fff;
+  text-transform: capitalize;
+}
+.member_list .member_name {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #2196f3;
+  padding: 10px;
+  border-radius: 5px;
 }

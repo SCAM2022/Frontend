@@ -53,6 +53,7 @@ body {
 }
 
 .club_links li {
+  text-align: center;
   display: block;
   list-style: none;
   font-size: 18px;
