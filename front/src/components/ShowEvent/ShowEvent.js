@@ -36,6 +36,7 @@ const ShowEvent = () => {
           hour12: true,
         }))
       );
+      console.log("event details->", getEveData);
     };
     getEve();
   }, []);
@@ -98,7 +99,7 @@ const ShowEvent = () => {
           <button onClick={onClickHandler}>JOIN</button>
           {/* <button className="setReminder">SET REMINDER</button> */}
         </div>
-        <Link to="/participant">
+        <Link to={`participant`}>
           <button className="participant_btn">View Participant</button>
         </Link>
       </div>
