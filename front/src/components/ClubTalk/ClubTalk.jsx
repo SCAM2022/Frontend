@@ -111,7 +111,7 @@ const ClubTalk = (props) => {
           >
             <input
               type="text"
-              name="mesg"
+              name="mesg" 
               onChange={(e) => setMessage(e.target.value)}
               value={message}
             />

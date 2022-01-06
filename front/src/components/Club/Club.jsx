@@ -247,6 +247,9 @@ const Club = (props) => {
                     Leave Club
                   </li>
                 </Link>
+                 <Link to="">
+                  <li> Delete Club</li>
+                </Link>
               </div>
             </div>
             <div className=" club_right">
@@ -267,26 +270,8 @@ const Club = (props) => {
                 </div>
               </div>
               <div className="club_info_right">
-                <span>
-                  <Typical loop={Infinity} steps={["As engineers,", 3000]} />
-                </span>
-                <span className="qoute2">
-                  <Typical
-                    loop={Infinity}
-                    steps={[
-                      "We were going to be in a position to change the world-",
-                      5000,
-                      "",
-                      300,
-                    ]}
-                  />
-                </span>
-                <span className="qoute3">
-                  <Typical
-                    loop={Infinity}
-                    steps={["Not just study it.", 8000, "", 5000]}
-                  />
-                </span>
+               {/* <h3>Die with memories,</h3>
+               <h3>not dreams.</h3> */}
               </div>
             </div>
           </div>

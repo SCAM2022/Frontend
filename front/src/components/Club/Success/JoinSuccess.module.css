@@ -12,10 +12,23 @@
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.596);
+  /* background-color: rgba(255, 255, 255, 0.596); */
+  background-color: #fff;
   width: 500px;
   height: 500px;
+  animation: pop 0.3s linear;
   /* height: 200px; */
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .joined-title {
@@ -28,18 +41,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 16;
+  font-weight: bold;
+  padding: 5px;
 
-  background-color: rgb(247, 247, 247);
+  /* background-color: rgb(247, 247, 247); */
+  background-color: #32ba7c;
   width: 70px;
   height: 30px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 2px 2px 3px grey;
+  text-transform: uppercase;
+  color: #fff;
+  transition: all 0.3s;
+  /* box-shadow: 2px 2px 3px grey; */
 }
 .joined-btn:hover {
-  color: rgb(247, 247, 247);
-  background-color: #ccc;
+  /* color: rgb(247, 247, 247); */
+  background-color: #000;
 }
 .joined_loader {
   width: 100vw;

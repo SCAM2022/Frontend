@@ -22,9 +22,10 @@ body {
 .club_body {
   width: 100%;
   height: 400px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   display: flex;
-  background-color: #000;
+  /* background-color: #000; */
+  background-color: #181c29;
   justify-content: space-between;
 }
 /* .club_head {
@@ -36,7 +37,7 @@ body {
 .club_left {
   flex: 0.2;
   height: 400px !important;
-  padding-top: 60px;
+  padding-top: 10px;
   margin-left: 0;
   /* background-color: #3f4047 !important; */
   transition: all 0.5s;
@@ -97,7 +98,7 @@ body {
   background-position: center;
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-end;
+  align-items: center;
   padding: 20px;
 }
 
@@ -141,39 +142,13 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 500px;
-  height: 230px;
+  height: 350px;
   padding-left: 10px;
-  border-radius: 27% 16% 50% 9% / 22% 11% 25% 10%;
-  background-color: #000;
-  box-shadow: 2px 2px 5px #000;
-  border-left: 5px solid #fff;
-  border-right: 5px solid #fff;
+  background-image: url("../../assets/87725-behind-the-skills.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.club_right .club_info_right > span {
-  display: block;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #796b6b;
-  font-family: "Poppins", sans-serif;
-}
-.club_right .club_info_right .qoute2,
-.club_right .club_info_right .qoute3 {
-  font-size: 16px;
-}
-
-/* .club_video {
-  display: flex !important;
-  justify-content: flex-start !important;
-  align-items: center;
-  margin: 0px 0px 0px 80px;
-} */
-
-/* .club_video video {
-  width: 80%;
-  text-align: left;
-} */
 
 .join_btn {
   width: 150px;
@@ -187,7 +162,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   background-color: #fff;
   color: #000;
