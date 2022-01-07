@@ -20,6 +20,7 @@ import { setUser } from "../../actions/userAction";
 
 import JoinSuccess from "./Success/JoinSuccess";
 import ClubTalk from "../ClubTalk/ClubTalk";
+import { FormControlUnstyledContext } from "@mui/material";
 
 const Club = (props) => {
   const params = useParams();
@@ -160,6 +161,15 @@ const Club = (props) => {
       setError("You haven't joined the club yet!");
       return;
     }
+    console.log("->", props?.userData);
+    const checkIfPresident = props?.userData.joinedClubs.filter((club) => {
+      return club.clubName === clubName && club.role === "President";
+    });
+    console.log("checkPresident->", checkIfPresident);
+    if (checkIfPresident.length !== 0) {
+      setError("President can't leave the club!");
+      return;
+    }
 
     setJoining(true);
     setMessage("You have successfully Left the club!");
@@ -207,7 +217,6 @@ const Club = (props) => {
       });
   };
 
-  console.log("->", clubName, alreadyJoined);
   return (
     <>
       <Error error={error} setError={setError} />

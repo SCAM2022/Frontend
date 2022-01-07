@@ -59,6 +59,9 @@ const Participant = () => {
               <span>Roll N0.</span>
             </div>
             <div>
+              <span>Branch</span>
+            </div>
+            <div>
               <span>Email</span>
             </div>
           </div>
@@ -79,11 +82,11 @@ const Participant = () => {
                     <div className="participant_roll">
                       <span>{item?.roll}</span>
                     </div>
-                    {/* <div className="participant_email">
-                      <span>{item?.email}</span>
-                    </div> */}
                     <div className="participant_email">
                       <span>{item?.branch}</span>
+                    </div>
+                    <div className="participant_email">
+                      <span>{item?.email}</span>
                     </div>
                   </div>
                 </>
