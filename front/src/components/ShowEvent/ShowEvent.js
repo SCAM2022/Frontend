@@ -96,7 +96,9 @@ const ShowEvent = () => {
           <h3>Prize : {details ? details.goodies : details}</h3>
         </div>
         <div className="showEvent_btn">
-          <button onClick={onClickHandler}>JOIN</button>
+          <button className="showEventBtn" onClick={onClickHandler}>
+            JOIN
+          </button>
           {/* <button className="setReminder">SET REMINDER</button> */}
         </div>
         <Link to={`participant`}>

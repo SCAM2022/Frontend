@@ -27,7 +27,11 @@ const Form = () => {
             Message...
           </textarea>
         </div>
-        <input type="submit" placeholder="Send" />
+        <input
+          className={classes.formSubmit}
+          type="submit"
+          placeholder="Send"
+        />
       </form>
     </div>
   );
