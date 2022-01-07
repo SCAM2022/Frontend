@@ -207,6 +207,7 @@ const Club = (props) => {
       });
   };
 
+
   console.log("->", clubName, alreadyJoined);
   return (
     <>

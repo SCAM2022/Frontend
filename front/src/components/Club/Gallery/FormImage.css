@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Space Grotesk', sans-serif;
+
+*/
+
+.formImage {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e9edf2;
+  display: grid;
+  place-items: center;
+}
+
+.formImage_container {
+  width: 70%;
+  margin: 0pc auto;
+  height: 400px;
+  background-color: #fff;
+  padding: 0px 50px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.formImage_container h4 {
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.formImage_content {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.formImage_left {
+  flex: 0.6;
+  background-color: #e9edf2;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 3px dotted #ccc;
+}
+.formImage_left h6 {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  line-height: -12px !important;
+}
+
+.formImage_left_center {
+  height: 130px;
+  line-height: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.formImage_left_center .formImage_label {
+  background-color: #fa5758;
+  padding: 10px 16px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+.formImage_left_center .formImage_label:hover {
+  color: #000;
+}
+
+.formImage_right img {
+  height: 300px;
+  height: 250px;
+}

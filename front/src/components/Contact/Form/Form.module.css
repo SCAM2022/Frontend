@@ -24,7 +24,7 @@ font-family: 'Space Grotesk', sans-serif;
 }
 
 .Form .form_input,
-input[type="submit"],
+.formSubmit,
 textarea {
   margin-bottom: 18px;
   width: 400px;
@@ -55,7 +55,7 @@ textarea:focus {
   font-family: "Roboto Mono", monospace;
 }
 
-input[type="submit"] {
+.formSubmit {
   background-color: #000;
   color: #fff;
   text-transform: uppercase;
@@ -67,7 +67,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.formSubmit:hover {
   background-color: crimson;
   letter-spacing: 3px;
 }

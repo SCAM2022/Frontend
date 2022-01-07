@@ -92,7 +92,7 @@ const Participant = () => {
           </div>
           <div className="participants-btn_container">
             <div className="showEvent_btn">
-              <button>Submit</button>
+              <button className="participantBtn">Submit</button>
               {/* <button className="setReminder">SET REMINDER</button> */}
             </div>
           </div>

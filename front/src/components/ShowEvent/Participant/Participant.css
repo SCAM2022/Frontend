@@ -10,7 +10,19 @@ font-family: 'Space Grotesk', sans-serif;
 
 .participant {
   width: 100%;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  background: #ffafbd; /* fallback for old browsers */
+  background: #7f00ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e100ff,
+    #7f00ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e100ff,
+    #7f00ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -167,7 +179,7 @@ font-family: 'Space Grotesk', sans-serif;
   align-items: center;
 }
 
-.showEvent_btn > button {
+.showEvent_btn .participantBtn {
   width: 170px;
   height: 45px;
   padding: 10px;
@@ -186,8 +198,7 @@ font-family: 'Space Grotesk', sans-serif;
   margin-right: 20px;
 }
 
-.showEvent_btn > button:hover {
-  box-shadow: inset 180px 0px crimson;
-  color: #000;
+.showEvent_btn .participantBtn:hover {
+  background-color: #000;
   letter-spacing: 1px;
 }

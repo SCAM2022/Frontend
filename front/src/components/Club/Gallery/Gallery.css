@@ -15,7 +15,7 @@ font-family: 'Space Grotesk', sans-serif;
 
 .gallery_images {
   width: 95%;
-  margin: 40px auto 40px auto;
+  margin: 40px auto 80px auto;
   display: flex;
   justify-content: space-around;
   align-items: center;

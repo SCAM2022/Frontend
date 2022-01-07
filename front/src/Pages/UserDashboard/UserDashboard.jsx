@@ -31,6 +31,8 @@ import ShowEvent from "../../components/ShowEvent/ShowEvent";
 import CreateEvent from "../../components/Club/CreateEvent/CreateEvent";
 import Participant from "../../components/ShowEvent/Participant/Participant";
 import ClubTalk from "../../components/ClubTalk/ClubTalk";
+import FormImage from "../../components/Club/Gallery/FormImage";
+import GalleryBox from "../../components/Club/Gallery/GalleryBox";
 
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -100,6 +102,8 @@ const UserDashboard = (props) => {
         <Route exact path="/:cname/clubTalk" element={<ClubTalk />} />
         <Route exact path="/event" element={<Event />} />
         <Route exact path="/eventShow/:evename" element={<ShowEvent />} />
+        <Route exact path="/formImage" element={<FormImage />} />
+        <Route exact path="/galleryBox" element={<GalleryBox />} />
         <Route
           exact
           path="/eventShow/:evename/participant"
