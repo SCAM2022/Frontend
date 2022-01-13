@@ -3,7 +3,6 @@ import React from "react";
 import { useParams } from "react-router";
 import ParticipantList from "./ParticipantList";
 import "./Participant.css";
-import { MdSettingsCell } from "react-icons/md";
 
 const Participant = () => {
   const params = useParams();
@@ -64,14 +63,6 @@ const Participant = () => {
         }
       );
       console.log("sending participants data->", sendData);
-
-      // sendData()
-      //   .then((r) => {
-      //     console.log("sending participants data->", r);
-      //   })
-      //   .catch((e) => {
-      //     console.log("error while sending participantsList", e);
-      //   });
     };
     sendParticipants().catch((e) =>
       console.log("error in getting sending participantsList", e)
