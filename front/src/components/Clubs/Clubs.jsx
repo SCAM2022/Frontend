@@ -27,6 +27,7 @@ const Clubs = (props) => {
     };
     getClubsData();
   }, []);
+  console.log("clubsData->", clubs);
 
   return (
     <div>
@@ -39,7 +40,7 @@ const Clubs = (props) => {
           </span>
         </div>
         <div className={classes.Clubs_container}>
-          {ClubList.map((list) => {
+          {/* {ClubList.map((list) => {
             const { id, name, img } = list;
             return (
               <div className={classes.club} key={id}>
@@ -50,13 +51,16 @@ const Clubs = (props) => {
                 </Link>
               </div>
             );
-          })}
+          })} */}
           {clubs &&
             clubs.map((list) => {
-              const { id, name, img, disc } = list;
+              const { id, name, clubImage, disc } = list;
               return (
                 <div className={classes.club} key={id}>
-                  <img src={club} alt={name} />
+                  <img
+                    src={`${process.env.REACT_APP_API_KEY}/${clubImage}`}
+                    alt={name}
+                  />
                   <h2 className={classes.club_heading}>{name}</h2>
                   <Link to={`/club/${name}`} className={classes.club_btn}>
                     View

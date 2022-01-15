@@ -54,7 +54,7 @@ const ShowEvent = (props) => {
         if (event.eventId === details._id) setJoined(true);
       });
     }
-  }, [props?.userData]);
+  }, [props?.userData, details]);
 
   console.log("details->", details);
   const monthNames = [

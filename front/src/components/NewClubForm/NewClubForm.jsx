@@ -24,7 +24,6 @@ const NewClubForm = ({ error, setError, ...props }) => {
     const fileType = tmp[tmp.length - 1];
     console.log("filetype->", fileType);
     if (fileType !== type) {
-      setError(`Please upload document in ${type} form Only!`);
       return false;
     }
     return true;
@@ -40,12 +39,14 @@ const NewClubForm = ({ error, setError, ...props }) => {
   };
   const onFileChangePic = (e) => {
     if (
-      checkFileFormat(e.target.files[0].name, "png")
-      // ||
-      // checkFileFormat(e.target.files[0].name, "png")
+      checkFileFormat(e.target.files[0].name, "png") ||
+      checkFileFormat(e.target.files[0].name, "jpg") ||
+      checkFileFormat(e.target.files[0].name, "jpeg")
     ) {
       setImgFile(e.target.files[0]);
     } else {
+      setError(`Please upload document in png/jpeg/jpg form Only!`);
+
       e.target.value = "";
     }
   };
