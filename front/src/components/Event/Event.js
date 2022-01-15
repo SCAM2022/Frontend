@@ -14,8 +14,13 @@ const Event = () => {
       const getData = await axios.get(
         `${process.env.REACT_APP_API_KEY}/fetchEvents`
       );
-      const eventDetail = getData.data.events;
-      console.log(eventDetail);
+      console.log("before eventDetails->", getData.data.events);
+      const eventDetail = getData.data.events.sort((a, b) => {
+        const bdate = new Date(b?.startDate);
+        const adate = new Date(a?.startDate);
+        return bdate - adate;
+      });
+      console.log("eventDetails->", eventDetail);
       setLetsee(
         (letSee = eventDetail?.map((item) => {
           const {

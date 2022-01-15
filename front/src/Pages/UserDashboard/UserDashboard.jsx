@@ -107,8 +107,8 @@ const UserDashboard = (props) => {
         <Route exact path="/club/:cname/setting" element={<ClubSetting />} />
         <Route exact path="/event" element={<Event />} />
         <Route exact path="/eventShow/:evename" element={<ShowEvent />} />
-        <Route exact path="/formImage" element={<FormImage />} />
-        <Route exact path="/galleryBox" element={<GalleryBox />} />
+        <Route exact path="/:cname/formImage" element={<FormImage />} />
+        <Route exact path="/:cname/galleryBox" element={<GalleryBox />} />
         <Route
           exact
           path="/eventShow/:evename/participant"

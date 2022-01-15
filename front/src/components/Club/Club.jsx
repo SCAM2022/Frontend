@@ -58,7 +58,7 @@ const Club = (props) => {
     }
 
     setAlreadyJoined(found);
-  }, [props?.userData]);
+  }, [props?.userData, clubName]);
 
   React.useEffect(() => {
     // fetching clubDatas
@@ -236,7 +236,7 @@ const Club = (props) => {
                 <Link to={`/${clubName}/createEvent`}>
                   <li>Create Event</li>
                 </Link>
-                <Link to="">
+                <Link to={`/${clubName}/galleryBox`}>
                   <li>Gallery</li>
                 </Link>
                 <Link to={`/${clubName}/ClubTalk`}>
