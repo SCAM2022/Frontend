@@ -260,6 +260,9 @@ const Club = (props) => {
                 <Link to="">
                   <li> Delete Club</li>
                 </Link>
+                <Link to="setting">
+                  <li>Setting</li>
+                </Link>
               </div>
             </div>
             <div className=" club_right">
@@ -281,7 +284,7 @@ const Club = (props) => {
               </div>
               <div className="club_info_right">
                 {/* <h3>Die with memories,</h3>
-               <h3>not dreams.</h3> */}
+                <h3>not dreams.</h3> */}
               </div>
             </div>
           </div>

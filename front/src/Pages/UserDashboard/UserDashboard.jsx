@@ -33,6 +33,7 @@ import Participant from "../../components/ShowEvent/Participant/Participant";
 import ClubTalk from "../../components/ClubTalk/ClubTalk";
 import FormImage from "../../components/Club/Gallery/FormImage";
 import GalleryBox from "../../components/Club/Gallery/GalleryBox";
+import ClubSetting from "../../components/ClubSettings/ClubSetting";
 
 const UserDashboard = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -85,10 +86,13 @@ const UserDashboard = (props) => {
   return (
     <>
       {/* {showModel && <Model onClose={hideModelHandler} />} */}
-      {!(
-        window.location.pathname === "/login" ||
-        window.location.pathname === "/signup"
-      ) && <Navbar logoutHandler={logoutHandler} loggedIn={loggedIn} />}
+      {
+        //   !(
+        //   window.location.pathname === "/login" ||
+        //   window.location.pathname === "/signup"
+        // ) &&
+        <Navbar logoutHandler={logoutHandler} loggedIn={loggedIn} />
+      }
       <Routes>
         <Route exact path="/login" element={<LoginScreen />} />
         <Route exact path="/signup" element={<Signup />} />
@@ -100,6 +104,7 @@ const UserDashboard = (props) => {
         <Route exact path="/club/:cname" element={<Club />} />
         <Route exact path="/:cname/createEvent" element={<CreateEvent />} />
         <Route exact path="/:cname/clubTalk" element={<ClubTalk />} />
+        <Route exact path="/club/:cname/setting" element={<ClubSetting />} />
         <Route exact path="/event" element={<Event />} />
         <Route exact path="/eventShow/:evename" element={<ShowEvent />} />
         <Route exact path="/formImage" element={<FormImage />} />
@@ -127,10 +132,13 @@ const UserDashboard = (props) => {
 
         {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
-      {!(
-        window.location.pathname === "/login" ||
-        window.location.pathname === "/signup"
-      ) && <Footer />}
+      {
+        //   !(
+        //   window.location.pathname === "/login" ||
+        //   window.location.pathname === "/signup"
+        // ) &&
+        <Footer />
+      }
       <Routes>
         <Route element={<PageNotFound />} />
       </Routes>

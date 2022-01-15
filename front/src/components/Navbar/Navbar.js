@@ -27,13 +27,19 @@ const Navbar = ({ logoutHandler, loggedIn, ...props }) => {
           ) : (
             <div className={classes.navbar_buttons}>
               <button
-                onClick={() => window.location.replace("/login")}
+                onClick={() =>
+                  // window.location.replace("/login")
+                  navigate("/login")
+                }
                 className={classes.btn}
               >
                 Login
               </button>
               <button
-                onClick={() => window.location.replace("/signup")}
+                onClick={() =>
+                  // window.location.replace("/signup")
+                  navigate("/signup")
+                }
                 className={classes.btn}
               >
                 SignUp

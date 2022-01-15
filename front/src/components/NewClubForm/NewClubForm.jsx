@@ -39,7 +39,11 @@ const NewClubForm = ({ error, setError, ...props }) => {
     }
   };
   const onFileChangePic = (e) => {
-    if (checkFileFormat(e.target.files[0].name, "jpg")) {
+    if (
+      checkFileFormat(e.target.files[0].name, "png")
+      // ||
+      // checkFileFormat(e.target.files[0].name, "png")
+    ) {
       setImgFile(e.target.files[0]);
     } else {
       e.target.value = "";
