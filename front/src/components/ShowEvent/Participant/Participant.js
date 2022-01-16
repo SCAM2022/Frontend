@@ -35,20 +35,41 @@ const Participant = () => {
     );
   }, []);
 
-  const handleCheck = (participant, check) => {
-    console.log("checked data->", participant, check);
+  const handleCheck = (p, check) => {
+    console.log("checked data->", p, check);
+    let tmp = p;
     if (check) {
+      tmp.isAttend = true;
+      // setCheckList((e) => {
+      //   return [...e, tmp];
+      // });
       setCheckList((e) => {
-        return [...e, participant];
+        const tmp = participant.map((i) => {
+          if (i?._id === p?._id) {
+            return { ...i, isAttend: true };
+          } else {
+            return i;
+          }
+        });
+
+        return tmp;
       });
     } else {
+      tmp.isAttend = false;
       setCheckList((e) => {
-        const tmp = e.filter((i) => i?._id !== participant?._id);
+        const tmp = participant.map((i) => {
+          if (i?._id === p?._id) {
+            return { ...i, isAttend: false };
+          } else {
+            return i;
+          }
+        });
 
         return tmp;
       });
     }
   };
+  console.log("checklist->", checkList);
 
   const submitHandler = () => {
     console.log("submit clicked->", checkList);

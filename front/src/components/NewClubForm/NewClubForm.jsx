@@ -45,7 +45,7 @@ const NewClubForm = ({ error, setError, ...props }) => {
     ) {
       setImgFile(e.target.files[0]);
     } else {
-      setError(`Please upload document in png/jpeg/jpg form Only!`);
+      setError(`Please upload Image in png/jpeg/jpg form Only!`);
 
       e.target.value = "";
     }
