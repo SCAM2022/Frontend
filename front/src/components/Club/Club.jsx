@@ -72,7 +72,7 @@ const Club = (props) => {
     };
     getClubData().then((r) => {
       console.log("clubData response->", r);
-      setClubData(r.data);
+      setClubData(r.data?.club);
     });
     window.scrollTo(0, 0);
   }, []);

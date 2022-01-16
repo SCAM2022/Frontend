@@ -127,10 +127,10 @@ const Profile = () => {
         />
       </div>
       <div className="profile_info">
-        <PieChart />
+        <PieChart user={user} />
       </div>
       <div className="profile_info">
-        <DailyHeatmap />
+        <DailyHeatmap user={user} />
       </div>
     </div>
   );
