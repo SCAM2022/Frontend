@@ -21,7 +21,7 @@ import { setUser } from "../../actions/userAction";
 import JoinSuccess from "./Success/JoinSuccess";
 import ClubTalk from "../ClubTalk/ClubTalk";
 import { FormControlUnstyledContext } from "@mui/material";
-
+import { useNavigate } from "react-router";
 const Club = (props) => {
   const params = useParams();
   const [clubName, setClubName] = React.useState(params.cname);
@@ -33,6 +33,8 @@ const Club = (props) => {
   const [joinedModel, setJoinedModel] = React.useState("");
   const [joining, setJoining] = React.useState(false);
   const [message, setMessage] = React.useState("");
+  const Navigate = useNavigate();
+
   const showModelHandler = () => {
     setShowModel(true);
   };
@@ -70,7 +72,7 @@ const Club = (props) => {
     };
     getClubData().then((r) => {
       console.log("clubData response->", r);
-      setClubData(r.data);
+      setClubData(r.data.club);
     });
     window.scrollTo(0, 0);
   }, []);
@@ -217,6 +219,39 @@ const Club = (props) => {
       });
   };
 
+  const deleteClubHandler = () => {
+    if (!props?.userData) {
+      console.log("login First");
+      setError("login First");
+
+      return;
+    }
+    const checkIfPresident = props?.userData.joinedClubs.filter((club) => {
+      return club.clubName === clubName && club.role === "President";
+    });
+
+    console.log("checkPresident->", checkIfPresident);
+    if (checkIfPresident.length === 0) {
+      setError("Only President can delete the club!");
+      return;
+    }
+    const delClub = async () => {
+      const r = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/deleteClub`,
+        {
+          id: `${Cookies.get("SCAM_USER_ID")}`,
+          clubName: clubName,
+        }
+      );
+      return r;
+    };
+    delClub().then((res) => {
+      console.log("respose for deleteClub->", res);
+      Navigate("/clubs");
+    });
+  };
+  console.log("club data",clubData)
+
   console.log("->", clubName, alreadyJoined);
   return (
     <>
@@ -245,6 +280,9 @@ const Club = (props) => {
                 <Link to={`/${clubName}/member`}>
                   <li>Member List</li>
                 </Link>
+                {/* <Link to="">
+                  <li>Club Achivement</li>
+                </Link> */}
                 <Link to="">
                   <li
                     onClick={() => {
@@ -255,10 +293,17 @@ const Club = (props) => {
                   </li>
                 </Link>
                 <Link to="">
-                  <li> Delete Club</li>
+                  <li
+                    onClick={() => {
+                      deleteClubHandler();
+                    }}
+                  >
+                    {" "}
+                    Delete Club
+                  </li>
                 </Link>
                 <Link to="setting">
-                  <li>Setting</li>
+                  <li>Club Information</li>
                 </Link>
               </div>
             </div>

@@ -29,7 +29,7 @@ export default function ClubSetting() {
     };
     getClubData().then((r) => {
       console.log("clubData response->", r);
-      setClubData(r.data);
+      setClubData(r?.data?.club);
     });
     window.scrollTo(0, 0);
   }, []);
@@ -72,7 +72,7 @@ export default function ClubSetting() {
               <label>Club Name</label>
             </div>
             <div className={classes["setting_value"]}>
-              <input value={clubData?.name} />
+              <input disabled={true} value={clubData?.name} />
             </div>
           </div>
           <div className={classes["setting_container"]}>
@@ -80,7 +80,7 @@ export default function ClubSetting() {
               <label>Club Goal</label>
             </div>
             <div className={classes["setting_value"]}>
-              <input value={clubData?.goal} />
+              <input disabled={true} value={clubData?.goal} />
             </div>
           </div>
           <div className={classes["setting_container"]}>
@@ -96,7 +96,7 @@ export default function ClubSetting() {
               <label>Authorized By:</label>
             </div>
             <div className={classes["setting_value"]}>
-              <input value={clubData?.authorizedBy} />
+              <input disabled={true} value={clubData?.authorizedBy} />
             </div>
           </div>
           <div className={classes["setting_container"]}>
@@ -104,7 +104,7 @@ export default function ClubSetting() {
               <label>Created On:</label>
             </div>
             <div className={classes["setting_value"]}>
-              <input value={dateFormat(clubData?.createdAt)} />
+              <input disabled={true} value={dateFormat(clubData?.createdAt)} />
             </div>
           </div>
           <div className={classes["setting_container"]}>

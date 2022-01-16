@@ -19,7 +19,7 @@ const Clubs = (props) => {
       getClubs()
         .then((r) => {
           console.log("clubList->", r);
-          setClubs(r?.data);
+          setClubs(r?.data?.clubs);
         })
         .catch((e) => {
           console.log("getClub err->", e);
@@ -53,7 +53,7 @@ const Clubs = (props) => {
             );
           })} */}
           {clubs &&
-            clubs.map((list) => {
+            clubs?.map((list) => {
               const { id, name, clubImage, disc } = list;
               return (
                 <div className={classes.club} key={id}>
