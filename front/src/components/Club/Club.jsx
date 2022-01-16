@@ -246,9 +246,6 @@ const Club = (props) => {
                   <li>Member List</li>
                 </Link>
                 <Link to="">
-                  <li>Club Achivement</li>
-                </Link>
-                <Link to="">
                   <li
                     onClick={() => {
                       clubLeaveHandler();
