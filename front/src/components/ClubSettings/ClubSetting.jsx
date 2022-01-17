@@ -121,14 +121,14 @@ export default function ClubSetting() {
           </div>
         </div>
       </div>
-      <button onClick={fetchAchievement}>fetchAchievement</button>
+      {/* <button onClick={fetchAchievement}>fetchAchievement</button> */}
 
-      <Document
+      {/* <Document
         file={`${process.env.REACT_APP_API_KEY}/${clubData?.authDocs}`}
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page pageNumber={pageNumber} />
-      </Document>
+      </Document> */}
     </>
   );
 }
