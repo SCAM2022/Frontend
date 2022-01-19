@@ -43,16 +43,13 @@ const FormImage = () => {
     e.preventDefault();
     console.log("file->", ImgFile);
     const formData = new FormData();
-    formData.append("docs", ImgFile);
-
+    formData.append("clubName", clubName);
+    formData.append("img", ImgFile);
+    console.log("->", formData);
     const sendData = async () => {
       const r = await axios.post(
         `${process.env.REACT_APP_API_KEY}/uploadClubAcievements`,
-        {
-          clubName,
-          formData,
-        },
-
+        formData,
         {
           headers: {
             Authorization: `${Cookies.get("SCAM_TOKEN")}`,
