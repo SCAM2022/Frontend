@@ -1,5 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useParams } from "react-router";
+
+import Cookies from "js-cookie";
+import axios from "axios";
+
 import classes from "./ClubTalk.module.css";
 import Error from "../Ui/Error/Error";
 import Message from "./Message";
@@ -58,6 +63,7 @@ const ClubTalk = (props) => {
   const [message, setMessage] = React.useState("");
   const [messages, setMessages] = React.useState(data);
   const [error, setError] = React.useState("");
+  const params = useParams();
 
   const messageSendHandler = (e) => {
     e.preventDefault();
@@ -78,10 +84,26 @@ const ClubTalk = (props) => {
       userId: props?.userData?._id,
       time: new Date(),
     };
-    console.log("data->", data);
+    console.log("data-> s", data);
     setMessages((d) => {
       return [...d, data];
     });
+
+    const sendMessage = async () => {
+      console.log("send messaga to api");
+
+      const r = await axios.post(`${process.env.REACT_APP_API_KEY}/chat`, {
+        memberId: `${Cookies.get("SCAM_USER_ID")}`,
+        clubName: params?.cname,
+        msg: message,
+      });
+      return r;
+    };
+    sendMessage()
+      .then((r) => {
+        console.log("response after sending message->", r);
+      })
+      .catch((e) => console.log("error while sending message->", e));
     setMessage("");
   };
 
@@ -111,7 +133,7 @@ const ClubTalk = (props) => {
           >
             <input
               type="text"
-              name="mesg" 
+              name="mesg"
               onChange={(e) => setMessage(e.target.value)}
               value={message}
             />

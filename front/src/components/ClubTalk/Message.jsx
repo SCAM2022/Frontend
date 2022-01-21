@@ -8,7 +8,7 @@ export default function Message({
   userId,
   currentUserId,
 }) {
-  return (
+  return (  
     <div
       className={`${classes["message_wrapper"]} ${
         userId === currentUserId ? classes["message_right"] : ""
