@@ -18,15 +18,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 50%;
   overflow: hidden;
-  /* background-color: rgb(0, 0, 0); */
+  /* box-sizing: border-box;
+  box-shadow: inset 2px 3px 3px white;
+  border-radius: 20px; */
 }
 .image_container > img {
   width: 100%;
-  /* height: 100%; */
-  max-height: 50%;
   padding: 20px;
 }
 
@@ -88,7 +86,7 @@
 }
 .setting_value {
   display: flex;
-  width: 100%;
+  width: 550px;
   justify-content: flex-start;
   color: #000;
   /* align-items: center; */
