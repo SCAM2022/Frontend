@@ -26,13 +26,22 @@ const DailyHeatmap = ({ user }) => {
   const [heatData, setHeatData] = React.useState([]);
   console.log("heat data->", user?.attendedEvents);
 
-  React.useEffect(() => {}, [user]);
+  React.useEffect(() => {
+    const tmp = [];
+    if (!user?.counts) return;
+    for (const [d, c] of Object.entries(user?.counts)) {
+      tmp.push({ date: d, count: c });
+    }
+    setHeatData(tmp);
+    console.log("data for activity->", tmp);
+    // setHeatData(user.counts);
+  }, [user?.counts]);
 
   return (
     <div className={classes["heatmap-container"]}>
       <HeatMap
         width={720}
-        value={value}
+        value={heatData}
         startDate={new Date("2022/01/01")}
         rectRender={(props, data) => {
           if (selected !== "") {

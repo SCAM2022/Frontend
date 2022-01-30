@@ -2,64 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
 
-import Cookies from "js-cookie";
 import axios from "axios";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
 import classes from "./ClubTalk.module.css";
 import Error from "../Ui/Error/Error";
 import Message from "./Message";
-const data = [
-  {
-    userId: 1,
-    time: new Date(),
-    sender: "dezx",
-    message:
-      "whats up Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, ut eaque! Neque praesentium, odio voluptatibus sequi amet cum vitae illo veniam perspiciatis temporibus! Labore, molestias ratione fugiat vel maxime dicta",
-  },
-  {
-    userId: 2,
-    time: new Date(),
-    sender: "dezx2",
-    message:
-      "whats up2Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, ut eaque! Neque praesentium, odio voluptatibus sequi amet cum vitae illo veniam perspiciatis temporibus! Labore, molestias ratione fugiat vel maxime dicta",
-  },
-  {
-    userId: 3,
-    time: new Date(),
-    sender: "dezx3",
-    message:
-      "whats up3Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, ut eaque! Neque praesentium, odio voluptatibus sequi amet cum vitae illo veniam perspiciatis temporibus! Labore, molestias ratione fugiat vel maxime dicta",
-  },
-  {
-    userId: "61d180b63e1c947da5bc0af1",
-    time: new Date(),
-    sender: "dezx4",
-    message:
-      "whats up3Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, ut eaque! Neque praesentium, odio voluptatibus sequi amet cum vitae illo veniam perspiciatis temporibus! Labore, molestias ratione fugiat vel maxime dicta",
-  },
-  {
-    userId: 5,
-    time: new Date(),
-    sender: "dezx5",
-    message:
-      "whats up5Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, ut eaque! Neque praesentium, odio voluptatibus sequi amet cum vitae illo veniam perspiciatis temporibus! Labore, molestias ratione fugiat vel maxime dicta",
-  },
-  {
-    userId: "61d180b63e1c947da5bc0af1",
-    time: new Date(),
-    sender: "dezx6",
-    message:
-      "whats up6Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, ut eaque! Neque praesentium, odio voluptatibus sequi amet cum vitae illo veniam perspiciatis temporibus! Labore, molestias ratione fugiat vel maxime dicta",
-  },
-  {
-    userId: "61d180b63e1c947da5bc0af1",
-    time: new Date(),
-    sender: "dezx7",
-    message:
-      "whats up7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, ut eaque! Neque praesentium, odio voluptatibus sequi amet cum vitae illo veniam perspiciatis temporibus! Labore, molestias ratione fugiat vel maxime dicta",
-  },
-];
+
 const ClubTalk = (props) => {
   const [message, setMessage] = React.useState("");
   const [messages, setMessages] = React.useState([]);
