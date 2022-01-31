@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Gallery from "./Gallery/Gallery";
 import video from "../../assets/club/video.mp4";
-import Achivement from "../Achivement/Achivement";
+// import Achivement from "../Achivement/Achivement";
 import Testonomial from "../Testonomial/Testonomial";
 import Past from "../Past/Past";
 import CreateEventForm from "./CreateEvent/CreateEventForm";
@@ -77,24 +77,6 @@ const Club = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  // React.useEffect(() => {
-  //   const getUser = async () => {
-  //     console.log("0<", cookie.get("SCAM_TOKEN"));
-
-  //     const r = await axios.post(`${process.env.REACT_APP_API_KEY}/user`, {
-  //       id: `${cookie.get("SCAM_USER_ID")}`,
-  //     });
-  //     return r;
-  //   };
-  //   getUser()
-  //     .then((r) => {
-  //       console.log("userDetail->", r);
-  //       setUserData(r.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log("userError ->", e);
-  //     });
-  // }, []);
   const clubJoinHandler = () => {
     console.log("userData->", props?.userData);
     if (!props?.userData) {
@@ -250,7 +232,7 @@ const Club = (props) => {
       Navigate("/clubs");
     });
   };
-  console.log("club data",clubData)
+  console.log("club data", clubData);
 
   console.log("->", clubName, alreadyJoined);
   return (
@@ -331,7 +313,7 @@ const Club = (props) => {
             </div>
           </div>
           <Gallery />
-          <Achivement />
+          {/* <Achivement /> */}
           <Testonomial />
           <Past />
         </div>
