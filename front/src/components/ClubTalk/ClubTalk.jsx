@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
 
-import Cookies from "js-cookie";
 import axios from "axios";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
