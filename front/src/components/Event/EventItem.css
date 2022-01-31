@@ -95,7 +95,7 @@ font-family: 'Space Grotesk', sans-serif;
   /* margin-bottom: 30px; */
 }
 
-.eventItem_right > button {
+.eventItem_right button {
   width: 200px;
   height: 60px;
   font-weight: 500;
@@ -104,11 +104,11 @@ font-family: 'Space Grotesk', sans-serif;
   border-radius: 5px;
 }
 
-.eventItem_right > button:hover {
+.eventItem_right button:hover {
   border: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.eventItem_right > button:hover a {
+.eventItem_right button:hover a {
   color: #000;
 }
