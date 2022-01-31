@@ -1,49 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Space Grotesk', sans-serif;
+
+*/
+
 .setting_wrapper {
   display: flex;
   flex-direction: column;
 
   justify-content: center;
   align-items: center;
+  background-color: #f1f2f6;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 12px;
+  margin-bottom: 100px;
+  /* background-color: rgb(0, 0, 0); */
 }
 
 .image_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  border-radius: 12px;
+  /* box-sizing: border-box;
+  box-shadow: inset 2px 3px 3px white;
+  border-radius: 20px; */
+  width: 100%;
 }
 .image_container > img {
-  width: 70%;
-  height: auto;
+  width: 100%;
+  object-fit: cover;
   padding: 20px;
+  border-radius: 12px;
 }
 
 .setting_heading {
   font-weight: bolder;
-  font-size: 2rem;
+  font-size: 3rem;
   /* border: 2px solid green; */
   /* border-radius: 15px; */
   /* transform: skewX(20deg); */
   margin: 10px;
-  color: skyblue;
-  /* background-color: rgba(255, 123, 0, 0.856); */
   padding: 5px;
-  transform: rotate3d(20deg);
-  text-shadow: 2px 2px 3px grey;
+  /* transform: rotate3d(20deg); */
 
-  /* box-shadow: 5px 2px 4px black; */
   text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+}
+
+.setting-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .setting_body {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   height: 80vh;
-  border: 3px solid rgba(172, 255, 47, 0.562);
+  /* border: 3px solid rgba(172, 255, 47, 0.562); */
   border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 2px 1px 2px 2px rgba(0, 0, 0, 0.247);
+  /* box-shadow: 2px 1px 2px 2px rgba(0, 0, 0, 0.247); */
+  /* text-decoration: underline; */
 }
 
 .setting_container {
@@ -51,49 +87,59 @@
   grid-template-columns: 1fr 2fr;
   width: 100%;
   justify-content: center;
-  /* align-items: center; */
-  padding: 3px;
+  padding: 10px;
   margin: 10px;
+  /* background-color: #f1f2f6; */
+  /* background-color: #34ace0; */
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .setting_label {
   display: flex;
   width: 100%;
-  justify-content: center;
-  /* align-items: center; */
-  font-size: 1.5rem;
-  font-weight: 700;
+  justify-content: flex-start;
+  font-size: 18px;
+  font-family: "Roboto Mono", monospace;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #192a56;
 }
 .setting_value {
   display: flex;
-  width: 100%;
+  width: 550px;
   justify-content: center;
   /* align-items: center; */
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
 }
-.setting_value > input {
+.setting_value > span {
   text-decoration: none;
   padding: 0px 20px;
-  border-radius: 10px;
-  border: 2px solid grey;
-  background-color: rgba(240, 248, 255, 0.329);
-  color: black;
+  color: #192a56;
+  text-transform: uppercase;
 }
-.setting_value > input:disabled {
+.setting_value > span:disabled {
   color: grey;
 }
 
 .setting_value > button {
-  border: 1px solid green;
+  border: 1px solid rgb(255, 255, 255);
+  margin-left: 20px;
+  color: white;
+  background-color: crimson;
   padding: 5px;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 140px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 2px 1px 2px rgba(167, 167, 167, 0.226);
+  transition: all 0.3s;
 }
 
 .setting_value > button:hover {
   color: white;
-  background-color: green;
+  background-color: black;
 }

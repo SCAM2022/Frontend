@@ -58,77 +58,83 @@ export default function ClubSetting() {
   return (
     <>
       <div className={classes["setting_wrapper"]}>
-        <div className={classes["setting_heading"]}>Club Setting</div>
-        <div className={classes["image_container"]}>
-          <img
-            src={`${process.env.REACT_APP_API_KEY}/${clubData?.clubImage}`}
-            alt=""
-          />
+        <div className={classes["setting_heading"]}>
+          <span>Club Information</span>
         </div>
+        <div className={classes["container-wrapper"]}>
+          <div className={classes["setting-container"]}>
+            <div className={classes["image_container"]}>
+              <img
+                src={`${process.env.REACT_APP_API_KEY}/${clubData?.clubImage}`}
+                alt=""
+              />
+            </div>
 
-        <div className={classes["setting_body"]}>
-          <div className={classes["setting_container"]}>
-            <div className={classes["setting_label"]}>
-              <label>Club Name</label>
-            </div>
-            <div className={classes["setting_value"]}>
-              <input disabled={true} value={clubData?.name} />
-            </div>
-          </div>
-          <div className={classes["setting_container"]}>
-            <div className={classes["setting_label"]}>
-              <label>Club Goal</label>
-            </div>
-            <div className={classes["setting_value"]}>
-              <input disabled={true} value={clubData?.goal} />
-            </div>
-          </div>
-          <div className={classes["setting_container"]}>
-            <div className={classes["setting_label"]}>
-              <label>Club Description</label>
-            </div>
-            <div className={classes["setting_value"]}>
-              <input disabled={true} value={clubData?.disc} />
-            </div>
-          </div>
-          <div className={classes["setting_container"]}>
-            <div className={classes["setting_label"]}>
-              <label>Authorized By:</label>
-            </div>
-            <div className={classes["setting_value"]}>
-              <input disabled={true} value={clubData?.authorizedBy} />
-            </div>
-          </div>
-          <div className={classes["setting_container"]}>
-            <div className={classes["setting_label"]}>
-              <label>Created On:</label>
-            </div>
-            <div className={classes["setting_value"]}>
-              <input disabled={true} value={dateFormat(clubData?.createdAt)} />
-            </div>
-          </div>
-          <div className={classes["setting_container"]}>
-            <div className={classes["setting_label"]}>
-              <label>Authorization Document:</label>
-            </div>
-            <div className={classes["setting_value"]}>
-              {/* <input
+            <div className={classes["setting_body"]}>
+              <div className={classes["setting_container"]}>
+                <div className={classes["setting_label"]}>
+                  <label>Club Name</label>
+                </div>
+                <div className={classes["setting_value"]}>
+                  <span disabled={true}>{clubData?.name}</span>
+                </div>
+              </div>
+              <div className={classes["setting_container"]}>
+                <div className={classes["setting_label"]}>
+                  <label>Club Goal</label>
+                </div>
+                <div className={classes["setting_value"]}>
+                  <span disabled={true}>{clubData?.goal}</span>
+                </div>
+              </div>
+              <div className={classes["setting_container"]}>
+                <div className={classes["setting_label"]}>
+                  <label>Club Description</label>
+                </div>
+                <div className={classes["setting_value"]}>
+                  <span disabled={true}>{clubData?.disc}</span>
+                </div>
+              </div>
+              <div className={classes["setting_container"]}>
+                <div className={classes["setting_label"]}>
+                  <label>Authorized By:</label>
+                </div>
+                <div className={classes["setting_value"]}>
+                  <span disabled={true}>{clubData?.authorizedBy}</span>
+                </div>
+              </div>
+              <div className={classes["setting_container"]}>
+                <div className={classes["setting_label"]}>
+                  <label>Created On:</label>
+                </div>
+                <div className={classes["setting_value"]}>
+                  <span disabled={true}>{dateFormat(clubData?.createdAt)}</span>
+                </div>
+              </div>
+              <div className={classes["setting_container"]}>
+                <div className={classes["setting_label"]}>
+                  <label>Authorization Document:</label>
+                </div>
+                <div className={classes["setting_value"]}>
+                  {/* <input
                 // value={`${process.env.REACT_APP_API_KEY}/${clubData?.clubImage}`}
                 value={`${process.env.REACT_APP_API_KEY}/${clubData?.authDocs}`}
               /> */}
-              <button onClick={pdfViewerHandler}>View Doc.</button>
+                  <button onClick={pdfViewerHandler}>View Doc.</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <button onClick={fetchAchievement}>fetchAchievement</button>
+          {/* <button onClick={fetchAchievement}>fetchAchievement</button> */}
 
-      <Document
+          {/* <Document
         file={`${process.env.REACT_APP_API_KEY}/${clubData?.authDocs}`}
         onLoadSuccess={onDocumentLoadSuccess}
-      >
+        >
         <Page pageNumber={pageNumber} />
-      </Document>
+      </Document> */}
+        </div>
+      </div>
     </>
   );
 }
