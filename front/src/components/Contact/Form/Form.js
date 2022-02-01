@@ -23,7 +23,13 @@ const Form = () => {
           />
         </div>
         <div className={classes.textArea}>
-          <textarea name="mesage" id="" cols="30" rows="10">
+          <textarea
+            name="mesage"
+            id=""
+            cols="30"
+            rows="10"
+            className={classes.textA}
+          >
             Message...
           </textarea>
         </div>

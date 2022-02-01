@@ -46,6 +46,7 @@ font-family: 'Space Grotesk', sans-serif;
   margin-top: 50px;
 }
 .box_Image img {
+  object-fit: cover;
   border-radius: 5px;
   transition: all 0.3s;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,

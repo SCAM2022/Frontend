@@ -20,14 +20,14 @@
   position: relative;
   text-transform: uppercase;
   font-family: "Space Grotesk", sans-serif;
-
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 1px;
   background-color: crimson;
   border-bottom: 4px solid beige;
   border-right: 4px solid beige;
   color: #f1f2f6;
-  width: 250px;
+  width: 280px;
   text-align: center;
   padding: 6px 12px;
   /* clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%); */
@@ -47,7 +47,7 @@
   justify-content: center;
   align-items: center;
   width: 80%;
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   overflow: hidden;
 }
 .event_form_img {
@@ -138,34 +138,10 @@
 }
 
 .event_create-container .button-container {
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%; */
-  transform: translate(-50%, -50%);
   display: flex;
-
+  background: #3bade3;
   justify-content: center;
   align-items: center;
-}
-
-.event_createcontainer .btn {
-  display: block;
-  height: 50px;
-  width: 186px;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: white;
-  font-size: 14px;
-  text-align: center;
-}
-.event_create-container .btn:after {
-  position: absolute;
-  content: "";
-  display: inline-block;
-  background: #3bade3;
   background: linear-gradient(
     45deg,
     #3bade3 0%,
@@ -173,23 +149,37 @@
     #9844b7 51%,
     #ff357f 100%
   );
+  width: max-content;
   height: 50px;
-  width: 372px;
-  z-index: -1;
-  transform: translateX(-280px);
-  transition: transform 400ms ease-in;
-}
-.event_create-container .btn:hover:after {
-  transform: translateX(-200px);
-}
-.event_create-container .btn span {
-  position: relative;
-  top: 6px;
   cursor: pointer;
-  height: 50px;
-  color: rgb(0, 0, 0);
+  border-radius: 12px;
+  transition: all 0.3s;
 }
-.event_create-container .btn span:hover {
-  color: rgba(0, 0, 0, 0.479);
-  /* color: rgb(65, 64, 64); */
+
+.button-container .btn {
+  display: block;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 14px;
+  display: grid;
+  place-items: center;
+  padding: 0px 10px;
+  border-radius: 12px;
+}
+
+.button-container .btn:hover {
+  background-color: #000;
+}
+.button-container .btn:hover span {
+  opacity: 0.8;
+}
+
+.button-container .btn > span {
+  color: white;
 }

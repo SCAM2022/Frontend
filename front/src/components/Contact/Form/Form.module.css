@@ -25,13 +25,18 @@ font-family: 'Space Grotesk', sans-serif;
 
 .Form .form_input,
 .formSubmit,
-textarea {
+.textA {
   margin-bottom: 18px;
   width: 400px;
   height: 35px;
   border: 1px solid #34495e;
   border-radius: 8px;
   outline: none;
+}
+
+.Form .form_input {
+  color: #fff !important;
+  padding-left: 10px !important;
 }
 
 .Form .form_input:focus {
@@ -44,10 +49,12 @@ textarea {
   padding-left: 10px;
 }
 
-textarea {
+.textA {
   height: 120px;
   padding-left: 10px;
   padding-top: 10px;
+  font-size: 16px;
+  color: #333 !important;
 }
 
 textarea:focus {

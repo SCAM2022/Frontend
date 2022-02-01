@@ -32,6 +32,7 @@ font-family: 'Space Grotesk', sans-serif;
   display: grid;
   grid-template-columns: 1fr 2fr;
   font-size: 12px;
+  margin-bottom: 5px;
   font-weight: 900;
 }
 .message_sender {
@@ -50,5 +51,5 @@ font-family: 'Space Grotesk', sans-serif;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: black;
+  color: #130f40;
 }

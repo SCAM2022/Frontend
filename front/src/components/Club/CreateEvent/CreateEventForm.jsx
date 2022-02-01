@@ -61,7 +61,7 @@ const CreateEventForm = (props) => {
   };
 
   return (
-    <Model>
+    <Model style = {{  filter: "blur(20px)"}}>
       <div className={classes["model_container"]}>
         <div className={classes["container_heading"]}>Create Event Form</div>
         <div className={classes["model_button"]}>
@@ -186,7 +186,7 @@ const CreateEventForm = (props) => {
               onClick={onSubmitHandler}
               className={classes["model_submit-button"]}
             > */}
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit"  className= {classes["event_submit"]}/>
             {/* Submit Form */}
             {/* </div> */}
           </div>

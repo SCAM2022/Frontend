@@ -33,6 +33,7 @@
   font-weight: 700;
   border-radius: 5px;
   transform: skewX(-20deg);
+  color: #000;
 }
 
 .talk_container {
