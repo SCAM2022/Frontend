@@ -207,14 +207,14 @@ const Signup = (props) => {
       <main className={classes["reg__body"]}>
         <Sidenav pageIndex={1} pageDone={pageDone} page={page} />
         <div className={classes["form_container"]}>
-          <div className={classes["login_btn-container"]}>
+          {/* <div className={classes["login_btn-container"]}>
             <div
               className={classes["goto_login_btn"]}
               onClick={() => window.location.replace("/login")}
             >
               Login
             </div>
-          </div>
+          </div> */}
           {/* <span className="page__step">STEP {page} OF 4</span> */}
           {/* <h3 className="page__title">{"title"}</h3> */}
           <Error error={error} setError={setError} />

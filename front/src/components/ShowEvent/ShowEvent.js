@@ -93,7 +93,6 @@ const ShowEvent = (props) => {
           setLoading(false);
         });
   };
-
   const onClickHandler = async () => {
     if (!props?.userData) {
       console.log("login First");
@@ -127,6 +126,34 @@ const ShowEvent = (props) => {
 
     updateUser();
   };
+
+  const setReminderHandler = async () => {
+    if (!props?.userData) {
+      console.log("login First");
+      setError("login Before joining");
+
+      return;
+    }
+    const setReminder = async () => {
+      const r = await axios.post(
+        `${process.env.REACT_APP_API_KEY}/setReminder`,
+        {
+          name: props?.userData?.name,
+          eveName: params.evename,
+          date: details.startDate,
+          email: props?.userData?.email,
+        }
+      );
+      return r;
+    };
+    setReminder((r) => {
+      console.log("setReminder response->", r);
+    }).catch((e) => {
+      console.log("error asdsad", e);
+      setError("Error while setting Reminder!!");
+    });
+  };
+
   return (
     <>
       <Error error={error} setError={setError} />
@@ -170,7 +197,10 @@ const ShowEvent = (props) => {
             {/* <button className="setReminder">SET REMINDER</button> */}
           </div>
           <Link to={`participant`}>
-            <button className="participant_btn">View Participant</button>
+            <button className="participant_btn_1">View Participant</button>
+          </Link>
+          <Link to={"#"} onClick={setReminderHandler}>
+            <button className="participant_btn_2">Set Reminder</button>
           </Link>
         </div>
         <div className="showEvent_detail">

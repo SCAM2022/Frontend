@@ -23,7 +23,7 @@ const Login = (props) => {
   const [clientError, setClientError] = React.useState("");
 
   const [loading, setLoading] = React.useState(true);
-
+  const navigate = useNavigate();
   // For setting username or email
   const onEmailOrMobileChange = (e) => {
     const value = e.target.value;

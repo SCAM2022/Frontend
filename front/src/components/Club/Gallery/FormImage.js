@@ -2,7 +2,7 @@ import React from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import load from "../../../assets/upload.jpg";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import Error from "../../Ui/Error/Error";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -14,6 +14,8 @@ const FormImage = () => {
   const [clubName, setClubName] = React.useState(params.cname);
   const [ImgFile, setImgFile] = React.useState(null);
   const [error, setError] = React.useState("");
+  const navigate = useNavigate();
+
   const checkFileFormat = (dat, type) => {
     console.log("file after splitting", dat, dat.split("."));
     const tmp = dat.split(".");
@@ -61,6 +63,7 @@ const FormImage = () => {
 
     sendData()
       .then((r) => {
+        navigate(`/${clubName}/galleryBox`);
         console.log("response while sending image");
       })
       .catch((e) => console.log("error while sending image", e));

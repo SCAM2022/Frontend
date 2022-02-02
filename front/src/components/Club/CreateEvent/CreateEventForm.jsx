@@ -4,7 +4,7 @@ import classes from "./CreateEventForm.module.css";
 import axios from "axios";
 import cookie from "js-cookie";
 import closeSvg from "../../../assets/close.svg";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const CreateEventForm = (props) => {
   const params = useParams();
@@ -20,7 +20,7 @@ const CreateEventForm = (props) => {
   const [eleCreteria, setEleCreteria] = useState("");
   const [timeDuration, setTimeDuration] = useState("");
   const [rules, setRules] = useState("");
-
+  const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -36,7 +36,7 @@ const CreateEventForm = (props) => {
       goodies: goodies,
       eliCriteria: eleCreteria,
       timeDuration: timeDuration,
-      rules: rules
+      rules: rules,
     };
     props.closeModel();
     const sendDate = async () => {
@@ -53,6 +53,7 @@ const CreateEventForm = (props) => {
     };
     sendDate()
       .then((r) => {
+        navigate("/event");
         console.log("resPonse eventCreation->", r);
       })
       .catch((e) => {
@@ -61,7 +62,7 @@ const CreateEventForm = (props) => {
   };
 
   return (
-    <Model style = {{  filter: "blur(20px)"}}>
+    <Model style={{ filter: "blur(20px)" }}>
       <div className={classes["model_container"]}>
         <div className={classes["container_heading"]}>Create Event Form</div>
         <div className={classes["model_button"]}>
@@ -186,7 +187,11 @@ const CreateEventForm = (props) => {
               onClick={onSubmitHandler}
               className={classes["model_submit-button"]}
             > */}
-            <input type="submit" value="Submit"  className= {classes["event_submit"]}/>
+            <input
+              type="submit"
+              value="Submit"
+              className={classes["event_submit"]}
+            />
             {/* Submit Form */}
             {/* </div> */}
           </div>

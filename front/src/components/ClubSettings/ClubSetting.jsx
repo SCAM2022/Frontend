@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { useParams } from "react-router";
-import { Document, Page } from "react-pdf";
 import dateFormat from "dateformat";
 
 import classes from "./ClubSetting.module.css";

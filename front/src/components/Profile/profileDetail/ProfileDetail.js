@@ -1,4 +1,6 @@
 import React from "react";
+import dateFormat from "dateformat";
+
 import "./ProfileDetail.css";
 
 const ProfileDetail = ({ userData, ...props }) => {
@@ -117,7 +119,7 @@ const ProfileDetail = ({ userData, ...props }) => {
         <input
           disabled={true}
           className={`pofileDetail_info "profileEdit_enabled`}
-          value={userData.lastLogin}
+          value={dateFormat(userData?.lastLogin)}
         />
       </div>
     </div>
